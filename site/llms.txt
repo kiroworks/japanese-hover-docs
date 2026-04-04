@@ -1,0 +1,28 @@
+# Japanese Hover Docs
+
+> HTML・CSS・JavaScriptの用語にカーソルを当てると日本語解説が表示されるVS Code拡張機能
+
+## 概要
+VS CodeでHTML・CSS・JavaScriptのコードを書くとき、用語にマウスカーソルを乗せると日本語の解説がポップアップで表示されます。英語のドキュメントが読めない初心者プログラマーのために設計されています。
+
+## 対応用語数
+- HTML: 36件
+- CSS: 77件
+- JavaScript: 50件
+- 合計: 163件
+
+## 機能
+- 【用途】用語をいつ使うかの説明
+- 【構文】コード例
+- 【関連】関連する用語へのリンク
+- 【注意】よくある間違いの警告
+- 【エラー】よく出るエラーメッセージの一覧
+
+## リンク
+- サービスページ: https://kiroworks.com/tools/japanese-hover-docs/
+- 用語一覧: https://kiroworks.com/tools/japanese-hover-docs/terms/
+- GitHub: https://github.com/kiroworks/japanese-hover-docs
+- VS Code Marketplace: https://marketplace.visualstudio.com/items?itemName=kiroworks.japanese-hover-docs
+
+## 開発者
+kiroworks
