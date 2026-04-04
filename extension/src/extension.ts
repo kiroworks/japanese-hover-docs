@@ -57,7 +57,12 @@ function buildContent(term: Term): vscode.MarkdownString {
   md.isTrusted = true;
 
   // タイトル（太字）
-  md.appendMarkdown(`**${term.word} — ${term.formal_name}（${term.formal_name_ja}）**\n\n`);
+  // wordとformal_nameが同じ場合は formal_name を省略
+  const isSameName = term.word.toLowerCase() === term.formal_name.toLowerCase();
+  const title = isSameName
+    ? `**${term.word}（${term.formal_name_ja}）**`
+    : `**${term.word} — ${term.formal_name}（${term.formal_name_ja}）**`;
+  md.appendMarkdown(`${title}\n\n`);
 
   // 概要
   md.appendMarkdown(`${term.summary}\n\n`);
