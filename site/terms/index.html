@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用語一覧 — Japanese Hover Docs</title>
+  <meta name="description" content="HTML・CSS・JavaScriptの用語一覧。Japanese Hover Docsが対応している用語のフル解説ページ。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:         #0d1117;
+      --bg-2:       #161b22;
+      --bg-3:       #21262d;
+      --border:     #30363d;
+      --text:       #e6edf3;
+      --text-muted: #8b949e;
+      --accent:     #58a6ff;
+      --accent-2:   #3fb950;
+      --accent-3:   #d2a8ff;
+      --warning:    #f0883e;
+      --html-color: #f0883e;
+      --css-color:  #58a6ff;
+      --js-color:   #f0e68c;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+    }
+
+    .header-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .header-logo span { color: var(--accent); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: calc(100vh - 56px);
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      position: sticky;
+      top: 56px;
+      height: calc(100vh - 56px);
+      overflow-y: auto;
+      border-right: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .sidebar-search {
+      padding: 0 16px 16px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      color: var(--text);
+      font-size: 13px;
+      font-family: 'Noto Sans JP', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: var(--text-muted); }
+
+    .sidebar-group { margin-bottom: 8px; }
+
+    .sidebar-group-title {
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .sidebar-item {
+      display: block;
+      padding: 6px 16px 6px 32px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .sidebar-item:hover {
+      color: var(--text);
+      background: var(--bg-2);
+    }
+
+    .sidebar-item.active {
+      color: var(--accent);
+      background: rgba(88,166,255,0.08);
+    }
+
+    /* ===== MAIN ===== */
+    .main {
+      padding: 48px;
+      max-width: 860px;
+    }
+
+    .page-header {
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .page-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .page-stats {
+      display: flex;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .stat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .stat span { font-weight: 600; }
+    .stat .html { color: var(--html-color); }
+    .stat .css  { color: var(--css-color); }
+    .stat .js   { color: var(--js-color); }
+
+    /* ===== CATEGORY SECTION ===== */
+    .category-section {
+      margin-bottom: 64px;
+    }
+
+    .category-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ===== TERM CARD ===== */
+    .term-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      scroll-margin-top: 80px;
+      transition: border-color 0.2s;
+    }
+
+    .term-card:target,
+    .term-card.highlighted {
+      border-color: var(--accent);
+    }
+
+    .term-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .term-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .term-title .formal { color: var(--text-muted); font-weight: 400; }
+    .term-title .ja     { color: var(--text-muted); font-weight: 400; font-family: 'Noto Sans JP', sans-serif; font-size: 13px; }
+
+    .term-summary {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .term-body {
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .term-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .term-usage {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* コードブロック */
+    .term-code-block {
+      background: var(--bg-3);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .code-lang {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 11px;
+      cursor: pointer;
+      padding: 2px 8px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .copy-btn:hover {
+      color: var(--text);
+      background: var(--border);
+    }
+
+    .copy-btn.copied { color: var(--accent-2); }
+
+    pre {
+      padding: 12px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--text);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .code-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      padding: 6px 12px 10px;
+      font-style: italic;
+    }
+
+    /* 関連・注意・エラー */
+    .term-full {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .term-related-list {
+      list-style: none;
+    }
+
+    .term-related-list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 4px 0;
+      line-height: 1.5;
+    }
+
+    .term-related-list li a {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-3);
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .term-related-list li a:hover { text-decoration: underline; }
+
+    .term-mistakes-list {
+      list-style: none;
+    }
+
+    .term-mistakes-list li {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 4px 0;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .term-mistakes-list li::before {
+      content: '!';
+      position: absolute;
+      left: 0;
+      color: var(--warning);
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .term-error-list {
+      list-style: none;
+    }
+
+    .term-error-list li {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--warning);
+      background: rgba(240,136,62,0.08);
+      border: 1px solid rgba(240,136,62,0.2);
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin-bottom: 4px;
+    }
+
+    /* フッター */
+    .term-footer {
+      padding: 12px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .mdn-link {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .mdn-link:hover { text-decoration: underline; }
+
+    /* ===== EMPTY STATE ===== */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .empty-state.visible { display: block; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .main { padding: 24px 16px; }
+      .term-body { grid-template-columns: 1fr; }
+      .term-full { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="../" class="header-logo"><span>&gt;_</span> Japanese Hover Docs</a>
+  <div class="header-right">
+    <a href="https://github.com/kiroworks/japanese-hover-docs" target="_blank" rel="noopener"
+       style="font-size:13px; color:var(--text-muted); text-decoration:none;">GitHub</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-search">
+      <input type="text" class="search-input" id="searchInput" placeholder="用語を検索...">
+    </div>
+    <div id="sidebarContent"></div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="page-header">
+      <h1 class="page-title">用語一覧</h1>
+      <p class="page-desc">Japanese Hover Docs が対応している用語のフル解説です。VS Codeのホバーより詳しい情報を確認できます。</p>
+      <div class="page-stats" id="pageStats"></div>
+    </div>
+
+    <div id="termsContent"></div>
+    <div class="empty-state" id="emptyState">
+      <p style="font-size:32px; margin-bottom:12px;">🔍</p>
+      <p>「<span id="emptyQuery"></span>」に一致する用語が見つかりません</p>
+    </div>
+  </main>
+
+</div>
+
+<script>
+// ===== データ =====
+const TERMS_DATA = [{"id":"div","word":"div","formal_name":"Division","formal_name_ja":"汎用ブロック要素","category":"HTML","aliases":["div"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/div","summary":"意味を持たない汎用の箱。CSSでレイアウトを組むときに要素をグループにまとめる。","usage":"複数の要素をまとめてCSSで一括管理したいとき。","examples":[{"code":"<div class=\"card\">\n  <h2>タイトル</h2>\n  <p>内容</p>\n</div>","note":"クラスをつけてCSSで装飾"}],"similar":[{"id":"span","diff":"改行なし・文中の一部に使うインライン要素"},{"id":"section","diff":"意味を持つ・章の区切りに使う"}],"mistakes":["意味のある場所にdivを使いすぎる（divスープ）→ nav・section・articleを使う"],"browser_support":"全ブラウザ対応"},{"id":"p","word":"p","formal_name":"Paragraph","formal_name_ja":"段落","category":"HTML","aliases":["p"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/p","summary":"段落を表すタグ。前後に自動的に余白が入る。","usage":"文章のまとまりを表すとき。","examples":[{"code":"<p>1つ目の段落です。</p>\n<p>2つ目の段落です。</p>","note":"段落ごとにpタグで囲む"}],"similar":[{"id":"div","diff":"divは意味なし・レイアウト目的。pは段落という意味を持つ"}],"mistakes":["改行したいだけでbrタグを多用する（余白はCSSのmarginで調整する）"],"browser_support":"全ブラウザ対応"},{"id":"a","word":"a","formal_name":"Anchor","formal_name_ja":"リンク","category":"HTML","aliases":["a","href"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/a","summary":"リンクを作るタグ。href属性にURLを指定する。","usage":"他のページや外部サイトへのリンクを作るとき。","examples":[{"code":"<a href=\"https://example.com\" target=\"_blank\" rel=\"noopener\">別タブで開く</a>","note":"target=\"_blank\"には rel=\"noopener\"も一緒に書く"}],"similar":[{"id":"button","diff":"buttonはクリックで処理を実行する・aはページ移動"}],"mistakes":["target=\"_blank\"にrel=\"noopener\"を書き忘れるとセキュリティリスクになる"],"browser_support":"全ブラウザ対応"},{"id":"button","word":"button","formal_name":"Button","formal_name_ja":"ボタン","category":"HTML","aliases":["button"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/button","summary":"クリックできるボタンを作るタグ。","usage":"クリック時に処理を実行したいとき。JavaScriptのaddEventListenerと組み合わせる。","examples":[{"code":"<button type=\"button\" id=\"myBtn\">クリック</button>","note":"type=\"button\"を明示するのが安全"}],"similar":[{"id":"a","diff":"aはページ移動・buttonはアクション実行"}],"mistakes":["form内のbuttonはデフォルトでtype=\"submit\"になる（意図しない送信に注意）"],"browser_support":"全ブラウザ対応"},{"id":"input","word":"input","formal_name":"Input","formal_name_ja":"入力欄","category":"HTML","aliases":["input"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/input","summary":"フォームの入力欄を作るタグ。type属性で種類を変えられる。閉じタグは不要。","usage":"テキスト入力・チェックボックス・ラジオボタンなどを作るとき。","examples":[{"code":"<input type=\"text\" placeholder=\"名前を入力\">\n<input type=\"email\" placeholder=\"メールアドレス\">","note":"typeで入力の種類を変える"}],"similar":[{"id":"textarea","diff":"textareaは複数行のテキスト入力"}],"mistakes":["labelと紐付けないとアクセシビリティが下がる"],"browser_support":"全ブラウザ対応"},{"id":"display","word":"display","formal_name":"Display","formal_name_ja":"表示方法","category":"CSS","aliases":["display"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/CSS/display","summary":"要素の表示方法を指定する。flexboxやgridレイアウトの起点になる最重要プロパティ。","usage":"要素を横並びにしたいとき・非表示にしたいとき。","examples":[{"code":".container { display: flex; }  // Flexboxを有効にする\n.hidden    { display: none; }  // 要素を非表示にする","note":""}],"similar":[{"id":"visibility","diff":"visibility: hiddenは非表示だがスペースは残る"}],"mistakes":["display: noneとvisibility: hiddenの違いを混同する（noneはスペースも消える）"],"browser_support":"全ブラウザ対応"},{"id":"padding","word":"padding","formal_name":"Padding","formal_name_ja":"内側の余白","category":"CSS","aliases":["padding","padding-top","padding-right","padding-bottom","padding-left"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/CSS/padding","summary":"要素の内側の余白を指定する。背景色はpaddingの範囲まで広がる。","usage":"ボタンやカードのテキストが端に張り付かないようにしたいとき。","examples":[{"code":".box { padding: 16px; }        // 上下左右すべて\n.box { padding: 8px 16px; }    // 上下 左右","note":""}],"similar":[{"id":"margin","diff":"外側の余白。paddingは内側・marginは外側"},{"id":"box-sizing","diff":"border-boxでpaddingを幅の計算に含められる"}],"mistakes":["marginとpaddingを逆に使う（paddingは内側・marginは外側）","box-sizingを設定しないとpaddingを足したぶん要素が大きくなって崩れる"],"browser_support":"全ブラウザ対応"},{"id":"margin","word":"margin","formal_name":"Margin","formal_name_ja":"外側の余白","category":"CSS","aliases":["margin","margin-top","margin-right","margin-bottom","margin-left"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/CSS/margin","summary":"要素の外側の余白を指定する。margin: 0 autoで左右中央寄せになる。","usage":"要素と要素の間に余白をつけたいとき・要素を中央に寄せたいとき。","examples":[{"code":".box { margin: 16px; }      // 上下左右すべて\n.box { margin: 0 auto; }    // 左右中央寄せ","note":"margin: 0 autoはwidthと一緒に使う"}],"similar":[{"id":"padding","diff":"内側の余白。背景色が広がる"}],"mistakes":["margin: 0 autoで中央寄せするにはwidthの指定が必要"],"browser_support":"全ブラウザ対応"},{"id":"color","word":"color","formal_name":"Color","formal_name_ja":"文字色","category":"CSS","aliases":["color"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/CSS/color","summary":"テキストの色を指定する。キーワード・16進数・rgb()などで指定できる。","usage":"テキストの色を変えたいとき。","examples":[{"code":".text { color: #333333; }             // 16進数\n.text { color: rgba(0, 0, 0, 0.5); }  // 半透明","note":""}],"similar":[{"id":"background-color","diff":"背景の色を指定する"},{"id":"opacity","diff":"要素全体の透明度（テキストも背景も一緒に薄くなる）"}],"mistakes":["opacityで文字を薄くすると背景も一緒に薄くなる → rgba()を使う"],"browser_support":"全ブラウザ対応"},{"id":"transition","word":"transition","formal_name":"Transition","formal_name_ja":"アニメーション遷移","category":"CSS","aliases":["transition"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/CSS/transition","summary":"プロパティの変化をなめらかにアニメーションさせる。","usage":"ホバー時の色変化・拡大をなめらかにしたいとき。","examples":[{"code":".btn {\n  background: blue;\n  transition: background 0.3s ease;\n}\n.btn:hover { background: darkblue; }","note":"transitionは変化する前の要素に指定する"}],"similar":[{"id":"animation","diff":"@keyframesと組み合わせる・より複雑なアニメーション"}],"mistakes":["transitionを:hoverに書くと元に戻るときが即時になる（変化前の要素に書く）"],"browser_support":"全ブラウザ対応"},{"id":"const","word":"const","formal_name":"const","formal_name_ja":"変更不可の変数","category":"JavaScript","aliases":["const"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const","summary":"一度代入したら変更できない変数を宣言するキーワード。基本的にconstを使い、変更が必要なときだけletに変える。","usage":"変更しない値を宣言するとき。","examples":[{"code":"const name = '田中';\n// name = '鈴木'; // エラー！再代入不可","note":""}],"similar":[{"id":"let","diff":"再代入可能・変化する値に使う"}],"mistakes":["constはオブジェクトの中身の変更は禁止しない（再代入のみ禁止）"],"browser_support":"全ブラウザ対応","error_patterns":["Assignment to constant variable"]},{"id":"let","word":"let","formal_name":"let","formal_name_ja":"変更可能な変数","category":"JavaScript","aliases":["let"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let","summary":"後から値を変更できる変数を宣言するキーワード。","usage":"ループのカウンターや状態管理など値が変わる変数を作るとき。","examples":[{"code":"let count = 0;\ncount = count + 1; // 再代入できる","note":""}],"similar":[{"id":"const","diff":"再代入不可・変更しない値に使う（推奨）"}],"mistakes":["変更しない値にletを使う（constを使うのが正しい）"],"browser_support":"全ブラウザ対応"},{"id":"querySelector","word":"querySelector","formal_name":"querySelector / querySelectorAll","formal_name_ja":"CSSセレクタで要素を取得","category":"JavaScript","aliases":["querySelector","querySelectorAll"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Document/querySelector","summary":"CSSセレクタの書き方でHTML要素を取得するメソッド。querySelectorAllは全件取得する。","usage":"クラス名・タグ名など柔軟な条件で要素を取得したいとき。","examples":[{"code":"const card  = document.querySelector('.card');    // 最初の1件\nconst cards = document.querySelectorAll('.card'); // 全件","note":""}],"similar":[{"id":"getElementById","diff":"idだけで検索・こちらよりシンプル"}],"mistakes":["querySelectorは最初の1件しか返さない（全件はquerySelectorAllを使う）"],"browser_support":"全ブラウザ対応","error_patterns":["Cannot read properties of null"]},{"id":"addEventListener","word":"addEventListener","formal_name":"addEventListener","formal_name_ja":"イベント登録","category":"JavaScript","aliases":["addEventListener"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener","summary":"要素にイベントが起きたときに実行する処理を登録するメソッド。","usage":"ボタンをクリックしたとき・フォームに入力したときなど何かが起きたときに処理を動かしたいとき。","examples":[{"code":"const btn = document.getElementById('myBtn');\nbtn.addEventListener('click', () => {\n  alert('クリックされました');\n});\n\n// よく使うイベント名\n// 'click'   クリックしたとき\n// 'input'   文字を入力したとき\n// 'submit'  フォームを送信したとき","note":""}],"similar":[{"id":"querySelector","diff":"イベントを登録したい要素を取得するのに使う"}],"mistakes":["イベント名をクォートで囲み忘れる（'click'のように文字列で渡す）","DOMが読み込まれる前に実行されるとnullエラーになる"],"browser_support":"全ブラウザ対応","error_patterns":["is not a function","Cannot read properties of null"]},{"id":"localStorage","word":"localStorage","formal_name":"localStorage","formal_name_ja":"ブラウザへのデータ保存","category":"JavaScript","aliases":["localStorage","setItem","getItem","removeItem"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage","summary":"ブラウザにデータを永続保存する仕組み。ページを閉じてもデータが残る。文字列のみ保存できる。","usage":"ユーザーの設定・進捗などをブラウザに保存したいとき。","examples":[{"code":"localStorage.setItem('name', '田中');\nconst name = localStorage.getItem('name');\n\n// オブジェクトはJSON.stringifyが必要\nlocalStorage.setItem('user', JSON.stringify({ name: '田中' }));\nconst user = JSON.parse(localStorage.getItem('user'));","note":""}],"similar":[{"id":"sessionStorage","diff":"タブを閉じると消える"}],"mistakes":["文字列しか保存できない（オブジェクトはJSON.stringifyが必要）"],"browser_support":"全ブラウザ対応"}];
+
+// ===== ユーティリティ =====
+const LANG_COLOR = { HTML: 'var(--html-color)', CSS: 'var(--css-color)', JavaScript: 'var(--js-color)' };
+const LANG_LABEL = { HTML: 'HTML', CSS: 'CSS', JavaScript: 'JavaScript' };
+
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function buildTitle(term) {
+  const isSame = term.word.toLowerCase() === term.formal_name.toLowerCase();
+  if (isSame) {
+    return `<span class="word">${escapeHtml(term.word)}</span> <span class="ja">— ${escapeHtml(term.formal_name_ja)}</span>`;
+  }
+  return `<span class="word">${escapeHtml(term.word)}</span> <span class="formal">— ${escapeHtml(term.formal_name)}</span> <span class="ja">（${escapeHtml(term.formal_name_ja)}）</span>`;
+}
+
+function buildCard(term) {
+  const codeLang = term.category === 'HTML' ? 'html' : term.category === 'CSS' ? 'css' : 'javascript';
+  const ex = term.examples[0];
+
+  const similarHTML = term.similar.length > 0 ? `
+    <div>
+      <div class="term-section-title">【関連】</div>
+      <ul class="term-related-list">
+        ${term.similar.map(s => {
+          const rel = TERMS_DATA.find(t => t.id === s.id);
+          const name = rel ? rel.word : s.id;
+          return `<li><a href="#${s.id}">\`${escapeHtml(name)}\`</a> → ${escapeHtml(s.diff)}</li>`;
+        }).join('')}
+      </ul>
+    </div>` : '';
+
+  const mistakesHTML = term.mistakes.length > 0 ? `
+    <div>
+      <div class="term-section-title">【注意】</div>
+      <ul class="term-mistakes-list">
+        ${term.mistakes.map(m => `<li>${escapeHtml(m)}</li>`).join('')}
+      </ul>
+    </div>` : '';
+
+  const errorsHTML = term.error_patterns && term.error_patterns.length > 0 ? `
+    <div>
+      <div class="term-section-title">【エラー】</div>
+      <ul class="term-error-list">
+        ${term.error_patterns.map(e => `<li>${escapeHtml(e)}</li>`).join('')}
+      </ul>
+    </div>` : '';
+
+  const noteHTML = ex.note ? `<div class="code-note">${escapeHtml(ex.note)}</div>` : '';
+
+  return `
+    <div class="term-card" id="${term.id}" data-category="${term.category}" data-word="${term.word}" data-summary="${escapeHtml(term.summary)}">
+      <div class="term-header">
+        <div class="term-title">${buildTitle(term)}</div>
+        <div class="term-summary">${escapeHtml(term.summary)}</div>
+      </div>
+      <div class="term-body">
+        <div>
+          <div class="term-section-title">【用途】</div>
+          <div class="term-usage">${escapeHtml(term.usage)}</div>
+        </div>
+        <div>
+          <div class="term-section-title">【構文】</div>
+          <div class="term-code-block">
+            <div class="code-header">
+              <span class="code-lang">${codeLang}</span>
+              <button class="copy-btn" onclick="copyCode(this)">コピー</button>
+            </div>
+            <pre>${escapeHtml(ex.code)}</pre>
+            ${noteHTML}
+          </div>
+        </div>
+        <div class="term-full">
+          ${similarHTML}
+          ${mistakesHTML}
+          ${errorsHTML}
+        </div>
+      </div>
+      <div class="term-footer">
+        <a href="${term.mdn_url}" target="_blank" rel="noopener" class="mdn-link">MDN リファレンス（日本語）→</a>
+      </div>
+    </div>`;
+}
+
+// ===== サイドバー生成 =====
+function buildSidebar(terms) {
+  const groups = { HTML: [], CSS: [], JavaScript: [] };
+  terms.forEach(t => groups[t.category] && groups[t.category].push(t));
+
+  return Object.entries(groups).map(([lang, items]) => {
+    if (!items.length) return '';
+    const color = LANG_COLOR[lang];
+    const itemsHTML = items.map(t =>
+      `<a href="#${t.id}" class="sidebar-item" data-id="${t.id}">${t.word}</a>`
+    ).join('');
+    return `
+      <div class="sidebar-group">
+        <div class="sidebar-group-title">
+          <span class="lang-dot" style="background:${color}"></span>${lang}
+        </div>
+        ${itemsHTML}
+      </div>`;
+  }).join('');
+}
+
+// ===== メインコンテンツ生成 =====
+function buildContent(terms) {
+  const groups = {};
+  terms.forEach(t => {
+    if (!groups[t.category]) groups[t.category] = [];
+    groups[t.category].push(t);
+  });
+
+  return Object.entries(groups).map(([lang, items]) => {
+    const color = LANG_COLOR[lang];
+    const cardsHTML = items.map(buildCard).join('');
+    return `
+      <div class="category-section">
+        <div class="category-title">
+          <span class="lang-dot" style="background:${color}; width:10px; height:10px; border-radius:50%; display:inline-block;"></span>
+          ${lang}
+        </div>
+        ${cardsHTML}
+      </div>`;
+  }).join('');
+}
+
+// ===== 統計 =====
+function buildStats(terms) {
+  const counts = { HTML: 0, CSS: 0, JavaScript: 0 };
+  terms.forEach(t => counts[t.category]++);
+  return `
+    <div class="stat">HTML <span class="html">${counts.HTML}</span></div>
+    <div class="stat">CSS <span class="css">${counts.CSS}</span></div>
+    <div class="stat">JavaScript <span class="js">${counts.JavaScript}</span></div>
+    <div class="stat">合計 <span>${terms.length}</span></div>`;
+}
+
+// ===== 初期表示 =====
+document.getElementById('sidebarContent').innerHTML = buildSidebar(TERMS_DATA);
+document.getElementById('termsContent').innerHTML   = buildContent(TERMS_DATA);
+document.getElementById('pageStats').innerHTML      = buildStats(TERMS_DATA);
+
+// ===== 検索 =====
+document.getElementById('searchInput').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  const filtered = q
+    ? TERMS_DATA.filter(t =>
+        t.word.toLowerCase().includes(q) ||
+        t.formal_name.toLowerCase().includes(q) ||
+        t.formal_name_ja.includes(q) ||
+        t.summary.includes(q) ||
+        t.aliases.some(a => a.toLowerCase().includes(q))
+      )
+    : TERMS_DATA;
+
+  document.getElementById('termsContent').innerHTML = filtered.length ? buildContent(filtered) : '';
+  document.getElementById('sidebarContent').innerHTML = buildSidebar(filtered);
+  document.getElementById('emptyState').classList.toggle('visible', filtered.length === 0);
+  document.getElementById('emptyQuery').textContent = q;
+});
+
+// ===== コピーボタン =====
+function copyCode(btn) {
+  const code = btn.closest('.term-code-block').querySelector('pre').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = 'コピー完了！';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'コピー';
+      btn.classList.remove('copied');
+    }, 1500);
+  });
+}
+
+// ===== スクロールでサイドバーのアクティブ更新 =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
+      const active = document.querySelector(`.sidebar-item[data-id="${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.term-card').forEach(el => observer.observe(el));
+
+// ===== URLのハッシュで該当用語にジャンプ =====
+if (location.hash) {
+  const id = location.hash.slice(1);
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) { el.scrollIntoView({ behavior: 'smooth' }); el.classList.add('highlighted'); }
+  }, 100);
+}
+</script>
+
+</body>
+</html>

@@ -109,6 +109,7 @@ function buildContent(term: Term): vscode.MarkdownString {
     md.appendMarkdown('\n');
   }
 
-  md.appendMarkdown(`[MDN リファレンス（日本語）](${term.mdn_url})`);
+  const termsUrl = `https://kiroworks.com/tools/japanese-hover-docs/terms/#${term.id}`;
+  md.appendMarkdown(`[詳しく見る →](${termsUrl}) &nbsp;&nbsp; [MDN リファレンス（日本語）](${term.mdn_url})`);
   return md;
 }
