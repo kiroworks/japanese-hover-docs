@@ -2,7 +2,7 @@
   "name": "japanese-hover-docs",
   "displayName": "Japanese Hover Docs",
   "description": "HTML・CSS・JavaScriptの用語にカーソルを当てると日本語解説が表示されます",
-  "version": "0.5.1",
+  "version": "0.5.4",
   "publisher": "kiroworks",
   "license": "MIT",
   "repository": {
