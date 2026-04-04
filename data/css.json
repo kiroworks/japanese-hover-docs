@@ -5,16 +5,19 @@
     "formal_name": "Display",
     "formal_name_ja": "表示方法",
     "category": "CSS",
-    "aliases": ["display"],
+    "aliases": [
+      "display"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/display",
     "summary": "要素の表示方法を指定する。flexboxやgridレイアウトの起点になる最重要プロパティ。",
     "usage": "要素を横並びにしたいとき・非表示にしたいとき。",
     "examples": [
-      { "code": ".container { display: flex; }  // Flexboxを有効にする\n.hidden    { display: none; }  // 要素を非表示にする", "note": "" }
+      {
+        "code": ".container { display: flex; }  // Flexboxを有効にする\n.hidden    { display: none; }  // 要素を非表示にする",
+        "note": ""
+      }
     ],
-    "similar": [
-      { "id": "visibility", "diff": "visibility: hiddenは非表示だがスペースは残る" }
-    ],
+    "similar": [],
     "mistakes": [
       "display: noneとvisibility: hiddenの違いを混同する（noneはスペースも消える）"
     ],
@@ -26,16 +29,27 @@
     "formal_name": "Padding",
     "formal_name_ja": "内側の余白",
     "category": "CSS",
-    "aliases": ["padding", "padding-top", "padding-right", "padding-bottom", "padding-left"],
+    "aliases": [
+      "padding",
+      "padding-top",
+      "padding-right",
+      "padding-bottom",
+      "padding-left"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/padding",
     "summary": "要素の内側の余白を指定する。背景色はpaddingの範囲まで広がる。",
     "usage": "ボタンやカードのテキストが端に張り付かないようにしたいとき。",
     "examples": [
-      { "code": ".box { padding: 16px; }        // 上下左右すべて\n.box { padding: 8px 16px; }    // 上下 左右", "note": "" }
+      {
+        "code": ".box { padding: 16px; }        // 上下左右すべて\n.box { padding: 8px 16px; }    // 上下 左右",
+        "note": ""
+      }
     ],
     "similar": [
-      { "id": "margin", "diff": "外側の余白。paddingは内側・marginは外側" },
-      { "id": "box-sizing", "diff": "border-boxでpaddingを幅の計算に含められる" }
+      {
+        "id": "margin",
+        "diff": "外側の余白。paddingは内側・marginは外側"
+      }
     ],
     "mistakes": [
       "marginとpaddingを逆に使う（paddingは内側・marginは外側）",
@@ -49,15 +63,27 @@
     "formal_name": "Margin",
     "formal_name_ja": "外側の余白",
     "category": "CSS",
-    "aliases": ["margin", "margin-top", "margin-right", "margin-bottom", "margin-left"],
+    "aliases": [
+      "margin",
+      "margin-top",
+      "margin-right",
+      "margin-bottom",
+      "margin-left"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/margin",
     "summary": "要素の外側の余白を指定する。margin: 0 autoで左右中央寄せになる。",
     "usage": "要素と要素の間に余白をつけたいとき・要素を中央に寄せたいとき。",
     "examples": [
-      { "code": ".box { margin: 16px; }      // 上下左右すべて\n.box { margin: 0 auto; }    // 左右中央寄せ", "note": "margin: 0 autoはwidthと一緒に使う" }
+      {
+        "code": ".box { margin: 16px; }      // 上下左右すべて\n.box { margin: 0 auto; }    // 左右中央寄せ",
+        "note": "margin: 0 autoはwidthと一緒に使う"
+      }
     ],
     "similar": [
-      { "id": "padding", "diff": "内側の余白。背景色が広がる" }
+      {
+        "id": "padding",
+        "diff": "内側の余白。背景色が広がる"
+      }
     ],
     "mistakes": [
       "margin: 0 autoで中央寄せするにはwidthの指定が必要"
@@ -70,17 +96,19 @@
     "formal_name": "Color",
     "formal_name_ja": "文字色",
     "category": "CSS",
-    "aliases": ["color"],
+    "aliases": [
+      "color"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/color",
     "summary": "テキストの色を指定する。キーワード・16進数・rgb()などで指定できる。",
     "usage": "テキストの色を変えたいとき。",
     "examples": [
-      { "code": ".text { color: #333333; }             // 16進数\n.text { color: rgba(0, 0, 0, 0.5); }  // 半透明", "note": "" }
+      {
+        "code": ".text { color: #333333; }             // 16進数\n.text { color: rgba(0, 0, 0, 0.5); }  // 半透明",
+        "note": ""
+      }
     ],
-    "similar": [
-      { "id": "background-color", "diff": "背景の色を指定する" },
-      { "id": "opacity", "diff": "要素全体の透明度（テキストも背景も一緒に薄くなる）" }
-    ],
+    "similar": [],
     "mistakes": [
       "opacityで文字を薄くすると背景も一緒に薄くなる → rgba()を使う"
     ],
@@ -92,16 +120,19 @@
     "formal_name": "Transition",
     "formal_name_ja": "アニメーション遷移",
     "category": "CSS",
-    "aliases": ["transition"],
+    "aliases": [
+      "transition"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/transition",
     "summary": "プロパティの変化をなめらかにアニメーションさせる。",
     "usage": "ホバー時の色変化・拡大をなめらかにしたいとき。",
     "examples": [
-      { "code": ".btn {\n  background: blue;\n  transition: background 0.3s ease;\n}\n.btn:hover { background: darkblue; }", "note": "transitionは変化する前の要素に指定する" }
+      {
+        "code": ".btn {\n  background: blue;\n  transition: background 0.3s ease;\n}\n.btn:hover { background: darkblue; }",
+        "note": "transitionは変化する前の要素に指定する"
+      }
     ],
-    "similar": [
-      { "id": "animation", "diff": "@keyframesと組み合わせる・より複雑なアニメーション" }
-    ],
+    "similar": [],
     "mistakes": [
       "transitionを:hoverに書くと元に戻るときが即時になる（変化前の要素に書く）"
     ],

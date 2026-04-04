@@ -31,33 +31,48 @@ function provideHover(
   position: vscode.Position,
   categories: string[]
 ): vscode.Hover | undefined {
-  const config = vscode.workspace.getConfiguration('japaneseHoverDocs');
-  if (!config.get<boolean>('enabled', true)) { return undefined; }
+  try {
+    const config = vscode.workspace.getConfiguration('japaneseHoverDocs');
+    if (!config.get<boolean>('enabled', true)) { return undefined; }
 
-  const wordRange = document.getWordRangeAtPosition(position, /[\w.-]+/);
-  if (!wordRange) { return undefined; }
+    // CSS の padding-top など - を含む用語に対応するため [:] も追加
+    const wordRange = document.getWordRangeAtPosition(position, /[\w.:-]+/);
+    if (!wordRange) { return undefined; }
 
-  const raw = document.getText(wordRange).toLowerCase();
-  let term  = termMap.get(raw);
+    const raw = document.getText(wordRange).toLowerCase();
+    let term  = termMap.get(raw);
 
-  if (!term && raw.includes('.')) {
-    for (const part of raw.split('.')) {
-      term = termMap.get(part);
-      if (term) { break; }
+    // ドット区切りで部分検索（例: JSON.stringify → stringify）
+    if (!term && raw.includes('.')) {
+      for (const part of raw.split('.')) {
+        term = termMap.get(part);
+        if (term) { break; }
+      }
     }
+
+    // ハイフン区切りで部分検索（例: padding-top → padding）
+    if (!term && raw.includes('-')) {
+      for (const part of raw.split('-')) {
+        term = termMap.get(part);
+        if (term) { break; }
+      }
+    }
+
+    if (!term || !categories.includes(term.category)) { return undefined; }
+
+    return new vscode.Hover(buildContent(term), wordRange);
+  } catch (err) {
+    // エラーが起きても VS Code がクラッシュしないよう握りつぶす
+    console.error('[Japanese Hover Docs] エラー:', err);
+    return undefined;
   }
-
-  if (!term || !categories.includes(term.category)) { return undefined; }
-
-  return new vscode.Hover(buildContent(term), wordRange);
 }
 
 function buildContent(term: Term): vscode.MarkdownString {
   const md = new vscode.MarkdownString();
   md.isTrusted = true;
 
-  // タイトル（太字）
-  // wordとformal_nameが同じ場合は formal_name を省略
+  // タイトル：wordとformal_nameが同じ場合はformal_nameを省略
   const isSameName = term.word.toLowerCase() === term.formal_name.toLowerCase();
   const title = isSameName
     ? `**${term.word}（${term.formal_name_ja}）**`
@@ -75,11 +90,13 @@ function buildContent(term: Term): vscode.MarkdownString {
     md.appendMarkdown(`**【用途】**\n\n${term.usage}\n\n`);
   }
 
-  // 【構文】
+  // 【構文】（1件のみ）
   if (term.examples.length > 0) {
     md.appendMarkdown(`**【構文】**\n\n`);
-    const lang = term.category === 'HTML' ? 'html' : term.category === 'CSS' ? 'css' : 'javascript';
-    const ex   = term.examples[0];
+    const lang = term.category === 'HTML' ? 'html'
+               : term.category === 'CSS'  ? 'css'
+               : 'javascript';
+    const ex = term.examples[0];
     md.appendCodeblock(ex.code, lang);
     if (ex.note) { md.appendMarkdown(`*${ex.note}*\n\n`); }
   }
@@ -95,12 +112,12 @@ function buildContent(term: Term): vscode.MarkdownString {
     md.appendMarkdown('\n');
   }
 
-  // 【注意】（最重要の1件のみ）
+  // 【注意】（最重要1件のみ）
   if (term.mistakes.length > 0) {
     md.appendMarkdown(`**【注意】**\n\n- ${term.mistakes[0]}\n\n`);
   }
 
-  // 【エラー】（error_patternsがある場合）
+  // 【エラー】
   if (term.error_patterns && term.error_patterns.length > 0) {
     md.appendMarkdown(`**【エラー】**\n\n`);
     for (const e of term.error_patterns) {
@@ -109,7 +126,9 @@ function buildContent(term: Term): vscode.MarkdownString {
     md.appendMarkdown('\n');
   }
 
+  // フッター
   const termsUrl = `https://kiroworks.com/tools/japanese-hover-docs/terms/#${term.id}`;
   md.appendMarkdown(`[詳しく見る →](${termsUrl}) &nbsp;&nbsp; [MDN リファレンス（日本語）](${term.mdn_url})`);
+
   return md;
 }

@@ -2,12 +2,22 @@
   "name": "japanese-hover-docs",
   "displayName": "Japanese Hover Docs",
   "description": "HTML・CSS・JavaScriptの用語にカーソルを当てると日本語解説が表示されます",
-  "version": "0.5.0-test",
+  "version": "0.5.0",
   "publisher": "kiroworks",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiroworks/japanese-hover-docs"
+  },
+  "homepage": "https://kiroworks.com/tools/japanese-hover-docs",
+  "bugs": {
+    "url": "https://github.com/kiroworks/japanese-hover-docs/issues"
+  },
   "engines": { "vscode": "^1.74.0" },
   "categories": ["Education", "Other"],
+  "keywords": ["japanese","日本語","hover","docs","html","css","javascript","初心者","beginner"],
   "activationEvents": [
-    "onLanguage:html","onLanguage:css","onLanguage:scss",
+    "onLanguage:html","onLanguage:css","onLanguage:scss","onLanguage:less",
     "onLanguage:javascript","onLanguage:javascriptreact",
     "onLanguage:typescript","onLanguage:typescriptreact"
   ],
@@ -17,14 +27,19 @@
       "title": "Japanese Hover Docs",
       "properties": {
         "japaneseHoverDocs.enabled": {
-          "type": "boolean", "default": true,
+          "type": "boolean",
+          "default": true,
           "description": "Japanese Hover Docsの解説表示を有効にする"
         }
       }
     }
   },
   "scripts": {
-    "build": "tsc -p ./",
+    "validate": "node ../scripts/validate-terms.js",
+    "build:terms": "node ../scripts/build-terms.js",
+    "build:site": "node ../scripts/build-site.js",
+    "build": "npm run validate && npm run build:terms && tsc -p ./ && npm run build:site",
+    "watch": "npm run build:terms && tsc -watch -p ./",
     "package": "npm run build && vsce package --no-dependencies"
   },
   "devDependencies": {

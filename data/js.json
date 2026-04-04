@@ -5,21 +5,31 @@
     "formal_name": "const",
     "formal_name_ja": "変更不可の変数",
     "category": "JavaScript",
-    "aliases": ["const"],
+    "aliases": [
+      "const"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const",
     "summary": "一度代入したら変更できない変数を宣言するキーワード。基本的にconstを使い、変更が必要なときだけletに変える。",
     "usage": "変更しない値を宣言するとき。",
     "examples": [
-      { "code": "const name = '田中';\n// name = '鈴木'; // エラー！再代入不可", "note": "" }
+      {
+        "code": "const name = '田中';\n// name = '鈴木'; // エラー！再代入不可",
+        "note": ""
+      }
     ],
     "similar": [
-      { "id": "let", "diff": "再代入可能・変化する値に使う" }
+      {
+        "id": "let",
+        "diff": "再代入可能・変化する値に使う"
+      }
     ],
     "mistakes": [
       "constはオブジェクトの中身の変更は禁止しない（再代入のみ禁止）"
     ],
     "browser_support": "全ブラウザ対応",
-    "error_patterns": ["Assignment to constant variable"]
+    "error_patterns": [
+      "Assignment to constant variable"
+    ]
   },
   {
     "id": "let",
@@ -27,15 +37,23 @@
     "formal_name": "let",
     "formal_name_ja": "変更可能な変数",
     "category": "JavaScript",
-    "aliases": ["let"],
+    "aliases": [
+      "let"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let",
     "summary": "後から値を変更できる変数を宣言するキーワード。",
     "usage": "ループのカウンターや状態管理など値が変わる変数を作るとき。",
     "examples": [
-      { "code": "let count = 0;\ncount = count + 1; // 再代入できる", "note": "" }
+      {
+        "code": "let count = 0;\ncount = count + 1; // 再代入できる",
+        "note": ""
+      }
     ],
     "similar": [
-      { "id": "const", "diff": "再代入不可・変更しない値に使う（推奨）" }
+      {
+        "id": "const",
+        "diff": "再代入不可・変更しない値に使う（推奨）"
+      }
     ],
     "mistakes": [
       "変更しない値にletを使う（constを使うのが正しい）"
@@ -48,21 +66,27 @@
     "formal_name": "querySelector / querySelectorAll",
     "formal_name_ja": "CSSセレクタで要素を取得",
     "category": "JavaScript",
-    "aliases": ["querySelector", "querySelectorAll"],
+    "aliases": [
+      "querySelector",
+      "querySelectorAll"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/Document/querySelector",
     "summary": "CSSセレクタの書き方でHTML要素を取得するメソッド。querySelectorAllは全件取得する。",
     "usage": "クラス名・タグ名など柔軟な条件で要素を取得したいとき。",
     "examples": [
-      { "code": "const card  = document.querySelector('.card');    // 最初の1件\nconst cards = document.querySelectorAll('.card'); // 全件", "note": "" }
+      {
+        "code": "const card  = document.querySelector('.card');    // 最初の1件\nconst cards = document.querySelectorAll('.card'); // 全件",
+        "note": ""
+      }
     ],
-    "similar": [
-      { "id": "getElementById", "diff": "idだけで検索・こちらよりシンプル" }
-    ],
+    "similar": [],
     "mistakes": [
       "querySelectorは最初の1件しか返さない（全件はquerySelectorAllを使う）"
     ],
     "browser_support": "全ブラウザ対応",
-    "error_patterns": ["Cannot read properties of null"]
+    "error_patterns": [
+      "Cannot read properties of null"
+    ]
   },
   {
     "id": "addEventListener",
@@ -70,22 +94,33 @@
     "formal_name": "addEventListener",
     "formal_name_ja": "イベント登録",
     "category": "JavaScript",
-    "aliases": ["addEventListener"],
+    "aliases": [
+      "addEventListener"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener",
     "summary": "要素にイベントが起きたときに実行する処理を登録するメソッド。",
     "usage": "ボタンをクリックしたとき・フォームに入力したときなど何かが起きたときに処理を動かしたいとき。",
     "examples": [
-      { "code": "const btn = document.getElementById('myBtn');\nbtn.addEventListener('click', () => {\n  alert('クリックされました');\n});\n\n// よく使うイベント名\n// 'click'   クリックしたとき\n// 'input'   文字を入力したとき\n// 'submit'  フォームを送信したとき", "note": "" }
+      {
+        "code": "const btn = document.getElementById('myBtn');\nbtn.addEventListener('click', () => {\n  alert('クリックされました');\n});\n\n// よく使うイベント名\n// 'click'   クリックしたとき\n// 'input'   文字を入力したとき\n// 'submit'  フォームを送信したとき",
+        "note": ""
+      }
     ],
     "similar": [
-      { "id": "querySelector", "diff": "イベントを登録したい要素を取得するのに使う" }
+      {
+        "id": "querySelector",
+        "diff": "イベントを登録したい要素を取得するのに使う"
+      }
     ],
     "mistakes": [
       "イベント名をクォートで囲み忘れる（'click'のように文字列で渡す）",
       "DOMが読み込まれる前に実行されるとnullエラーになる"
     ],
     "browser_support": "全ブラウザ対応",
-    "error_patterns": ["is not a function", "Cannot read properties of null"]
+    "error_patterns": [
+      "is not a function",
+      "Cannot read properties of null"
+    ]
   },
   {
     "id": "localStorage",
@@ -93,16 +128,22 @@
     "formal_name": "localStorage",
     "formal_name_ja": "ブラウザへのデータ保存",
     "category": "JavaScript",
-    "aliases": ["localStorage", "setItem", "getItem", "removeItem"],
+    "aliases": [
+      "localStorage",
+      "setItem",
+      "getItem",
+      "removeItem"
+    ],
     "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage",
     "summary": "ブラウザにデータを永続保存する仕組み。ページを閉じてもデータが残る。文字列のみ保存できる。",
     "usage": "ユーザーの設定・進捗などをブラウザに保存したいとき。",
     "examples": [
-      { "code": "localStorage.setItem('name', '田中');\nconst name = localStorage.getItem('name');\n\n// オブジェクトはJSON.stringifyが必要\nlocalStorage.setItem('user', JSON.stringify({ name: '田中' }));\nconst user = JSON.parse(localStorage.getItem('user'));", "note": "" }
+      {
+        "code": "localStorage.setItem('name', '田中');\nconst name = localStorage.getItem('name');\n\n// オブジェクトはJSON.stringifyが必要\nlocalStorage.setItem('user', JSON.stringify({ name: '田中' }));\nconst user = JSON.parse(localStorage.getItem('user'));",
+        "note": ""
+      }
     ],
-    "similar": [
-      { "id": "sessionStorage", "diff": "タブを閉じると消える" }
-    ],
+    "similar": [],
     "mistakes": [
       "文字列しか保存できない（オブジェクトはJSON.stringifyが必要）"
     ],
