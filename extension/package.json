@@ -13,13 +13,33 @@
   "bugs": {
     "url": "https://github.com/kiroworks/japanese-hover-docs/issues"
   },
-  "engines": { "vscode": "^1.74.0" },
-  "categories": ["Education", "Other"],
-  "keywords": ["japanese","日本語","hover","docs","html","css","javascript","初心者","beginner"],
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Education",
+    "Other"
+  ],
+  "keywords": [
+    "japanese",
+    "日本語",
+    "hover",
+    "docs",
+    "html",
+    "css",
+    "javascript",
+    "初心者",
+    "beginner"
+  ],
   "activationEvents": [
-    "onLanguage:html","onLanguage:css","onLanguage:scss","onLanguage:less",
-    "onLanguage:javascript","onLanguage:javascriptreact",
-    "onLanguage:typescript","onLanguage:typescriptreact"
+    "onLanguage:html",
+    "onLanguage:css",
+    "onLanguage:scss",
+    "onLanguage:less",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -46,5 +66,6 @@
     "@types/node": "^22.0.0",
     "@types/vscode": "^1.74.0",
     "typescript": "^5.0.0"
-  }
+  },
+  "icon": "icon.png"
 }

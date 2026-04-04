@@ -1398,5 +1398,791 @@
     ],
     "mistakes": [],
     "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "flex-wrap",
+    "word": "flex-wrap",
+    "formal_name": "Flex Wrap",
+    "formal_name_ja": "Flexboxの折り返し",
+    "category": "CSS",
+    "aliases": [
+      "flex-wrap"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/flex-wrap",
+    "summary": "Flexboxのアイテムが1行に収まらない場合に折り返すかどうかを指定する。",
+    "usage": "横並びの要素を画面幅に合わせて自動で折り返したいとき。",
+    "examples": [
+      {
+        "code": ".container {\n  display: flex;\n  flex-wrap: wrap; // 折り返す\n}",
+        "note": "レスポンシブレイアウトの定番"
+      }
+    ],
+    "similar": [
+      {
+        "id": "flex-direction",
+        "diff": "flex-directionは並び方向を指定する"
+      }
+    ],
+    "mistakes": [
+      "flex-wrap: wrapにしないと要素が1行に押し込まれて崩れる"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "flex",
+    "word": "flex",
+    "formal_name": "Flex",
+    "formal_name_ja": "Flexboxの拡縮比率",
+    "category": "CSS",
+    "aliases": [
+      "flex",
+      "flex-grow",
+      "flex-shrink",
+      "flex-basis"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/flex",
+    "summary": "Flexboxのアイテムがどれだけ伸び縮みするかを指定するショートハンド。",
+    "usage": "特定の要素だけ残りのスペースを埋めたいとき。",
+    "examples": [
+      {
+        "code": ".sidebar { width: 240px; }\n.main    { flex: 1; } // 残りのスペースをすべて使う",
+        "note": "サイドバー+メインレイアウトの定番"
+      }
+    ],
+    "similar": [
+      {
+        "id": "display",
+        "diff": "display: flexを親要素に指定してから使う"
+      }
+    ],
+    "mistakes": [
+      "flex: 1はflex-grow: 1の省略形で親にdisplay: flexが必要"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "background-size",
+    "word": "background-size",
+    "formal_name": "Background Size",
+    "formal_name_ja": "背景画像のサイズ",
+    "category": "CSS",
+    "aliases": [
+      "background-size"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/background-size",
+    "summary": "背景画像のサイズを指定する。coverで要素を覆う・containで要素内に収まる。",
+    "usage": "背景画像を要素全体に広げたいとき。",
+    "examples": [
+      {
+        "code": ".hero {\n  background-image: url('bg.jpg');\n  background-size: cover;   // 要素を覆う\n  background-position: center;\n}",
+        "note": "ヒーローセクションの定番設定"
+      }
+    ],
+    "similar": [
+      {
+        "id": "background",
+        "diff": "backgroundはショートハンドでbackground-sizeも含められる"
+      },
+      {
+        "id": "object-fit",
+        "diff": "object-fitはimgタグの画像フィット"
+      }
+    ],
+    "mistakes": [
+      "background-sizeだけ指定してもbackground-imageがないと効かない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "background-position",
+    "word": "background-position",
+    "formal_name": "Background Position",
+    "formal_name_ja": "背景画像の位置",
+    "category": "CSS",
+    "aliases": [
+      "background-position"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/background-position",
+    "summary": "背景画像の表示位置を指定する。center・top・bottomなどのキーワードやpx・%で指定できる。",
+    "usage": "背景画像の表示位置を調整したいとき。",
+    "examples": [
+      {
+        "code": ".hero {\n  background-image: url('bg.jpg');\n  background-position: center center;\n}",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "background-size",
+        "diff": "background-sizeは背景画像のサイズ"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "max-width",
+    "word": "max-width",
+    "formal_name": "Max Width",
+    "formal_name_ja": "最大横幅",
+    "category": "CSS",
+    "aliases": [
+      "max-width"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/max-width",
+    "summary": "要素の最大横幅を指定する。これを超えて広がらない。",
+    "usage": "コンテンツが大画面で広がりすぎないよう制限したいとき。",
+    "examples": [
+      {
+        "code": ".container {\n  width: 100%;\n  max-width: 1200px;\n  margin: 0 auto; // 中央寄せ\n}",
+        "note": "レスポンシブレイアウトの定番パターン"
+      }
+    ],
+    "similar": [
+      {
+        "id": "width",
+        "diff": "widthは横幅の固定値"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "min-height",
+    "word": "min-height",
+    "formal_name": "Min Height",
+    "formal_name_ja": "最小高さ",
+    "category": "CSS",
+    "aliases": [
+      "min-height"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/min-height",
+    "summary": "要素の最小高さを指定する。コンテンツが少なくてもこの高さは確保される。",
+    "usage": "カードやセクションで最低限の高さを確保したいとき。",
+    "examples": [
+      {
+        "code": ".card {\n  min-height: 200px;\n}\n.hero {\n  min-height: 100vh; // 画面の高さ以上を確保\n}",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "height",
+        "diff": "heightは固定の高さ・min-heightは最小値"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "padding-inline",
+    "word": "padding-inline",
+    "formal_name": "Padding Inline",
+    "formal_name_ja": "論理プロパティ（左右の余白）",
+    "category": "CSS",
+    "aliases": [
+      "padding-inline",
+      "padding-block",
+      "margin-inline",
+      "margin-block"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/padding-inline",
+    "summary": "論理プロパティで左右（インライン方向）の余白を指定する。padding-left + padding-rightをまとめて指定できる。",
+    "usage": "左右の余白をまとめて指定したいとき。",
+    "examples": [
+      {
+        "code": ".container {\n  padding-inline: 24px; // 左右24px\n  padding-block: 16px;  // 上下16px\n}",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "padding",
+        "diff": "paddingは上下左右をまとめて指定"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "inset",
+    "word": "inset",
+    "formal_name": "Inset",
+    "formal_name_ja": "位置指定のショートハンド",
+    "category": "CSS",
+    "aliases": [
+      "inset"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/inset",
+    "summary": "top・right・bottom・leftをまとめて指定するショートハンド。positionと一緒に使う。",
+    "usage": "要素を親の全体に広げたいとき（オーバーレイなど）。",
+    "examples": [
+      {
+        "code": ".overlay {\n  position: absolute;\n  inset: 0; // top:0 right:0 bottom:0 left:0 と同じ\n}",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "position",
+        "diff": "positionで配置方法を指定してからinsetで位置を決める"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応（Chrome 87以降）"
+  },
+  {
+    "id": "grid-template-areas",
+    "word": "grid-template-areas",
+    "formal_name": "Grid Template Areas",
+    "formal_name_ja": "Gridのエリア定義",
+    "category": "CSS",
+    "aliases": [
+      "grid-template-areas",
+      "grid-area"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-areas",
+    "summary": "Gridレイアウトでエリアに名前をつけて視覚的にレイアウトを定義する。",
+    "usage": "ヘッダー・サイドバー・メイン・フッターなど複雑なレイアウトを組むとき。",
+    "examples": [
+      {
+        "code": ".container {\n  display: grid;\n  grid-template-areas:\n    'header header'\n    'sidebar main'\n    'footer footer';\n}",
+        "note": "名前で視覚的にレイアウトを設計できる"
+      }
+    ],
+    "similar": [
+      {
+        "id": "grid-template-columns",
+        "diff": "grid-template-columnsは列の幅を指定する"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "place-items",
+    "word": "place-items",
+    "formal_name": "Place Items",
+    "formal_name_ja": "Grid/Flexboxの縦横中央揃え",
+    "category": "CSS",
+    "aliases": [
+      "place-items",
+      "place-content"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/place-items",
+    "summary": "align-itemsとjustify-itemsをまとめて指定するショートハンド。centerで縦横中央揃えになる。",
+    "usage": "要素を縦横中央に揃えたいとき（Gridで最もシンプル）。",
+    "examples": [
+      {
+        "code": ".container {\n  display: grid;\n  place-items: center; // 縦横中央揃え\n}",
+        "note": "Gridで中央揃えする最もシンプルな方法"
+      }
+    ],
+    "similar": [
+      {
+        "id": "justify-content",
+        "diff": "justify-contentは主軸方向の揃え"
+      },
+      {
+        "id": "align-items",
+        "diff": "align-itemsは交差軸方向の揃え"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "clip-path",
+    "word": "clip-path",
+    "formal_name": "Clip Path",
+    "formal_name_ja": "クリッピング",
+    "category": "CSS",
+    "aliases": [
+      "clip-path"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/clip-path",
+    "summary": "要素を指定した形に切り抜く。円・多角形・SVGパスなどで形を指定できる。",
+    "usage": "画像を丸く切り抜いたり、独特の形のバナーを作るとき。",
+    "examples": [
+      {
+        "code": ".circle { clip-path: circle(50%); }         // 円形\n.hex    { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "border-radius",
+        "diff": "border-radiusは角を丸くするだけ・clip-pathはより複雑な形"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "counter",
+    "word": "counter",
+    "formal_name": "CSS Counter",
+    "formal_name_ja": "CSSカウンター",
+    "category": "CSS",
+    "aliases": [
+      "counter",
+      "counter-reset",
+      "counter-increment"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/CSS_counter_styles",
+    "summary": "CSSだけで自動的に番号を生成する仕組み。JavaScriptなしで連番を振れる。",
+    "usage": "手順リストや章番号を自動で採番したいとき。",
+    "examples": [
+      {
+        "code": "ol {\n  counter-reset: step;\n  list-style: none;\n}\nli::before {\n  counter-increment: step;\n  content: counter(step) '.';\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "custom-property",
+    "word": "--（カスタムプロパティ）",
+    "formal_name": "CSS Custom Property",
+    "formal_name_ja": "CSS変数",
+    "category": "CSS",
+    "aliases": [
+      "--",
+      "var",
+      "custom property",
+      "css variable"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/--*",
+    "summary": "CSS変数。--で始まる名前で値を定義してvar()で使い回せる。",
+    "usage": "色・フォントサイズなど繰り返し使う値を1か所で管理したいとき。",
+    "examples": [
+      {
+        "code": ":root {\n  --primary: #58a6ff;\n  --spacing: 16px;\n}\n\n.btn {\n  background: var(--primary);\n  padding: var(--spacing);\n}",
+        "note": ":rootで定義するとページ全体で使える"
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "--で始まらない変数名は無効",
+      "var()の中の変数名は--で始める必要がある"
+    ],
+    "browser_support": "全ブラウザ対応（IE非対応）"
+  },
+  {
+    "id": "media-query",
+    "word": "@media",
+    "formal_name": "Media Query",
+    "formal_name_ja": "メディアクエリ",
+    "category": "CSS",
+    "aliases": [
+      "@media",
+      "media query"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/CSS_media_queries",
+    "summary": "画面サイズなどの条件に応じてスタイルを切り替える。レスポンシブデザインの基本。",
+    "usage": "スマホとPCで異なるスタイルを適用したいとき。",
+    "examples": [
+      {
+        "code": "/* スマホ（768px以下）のとき */\n@media (max-width: 768px) {\n  .container {\n    flex-direction: column;\n  }\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "max-widthとmin-widthを逆に使う（max-widthは「以下」・min-widthは「以上」）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "pseudo-class",
+    "word": ":hover・:focus・:active",
+    "formal_name": "Pseudo Class",
+    "formal_name_ja": "疑似クラス",
+    "category": "CSS",
+    "aliases": [
+      ":hover",
+      ":focus",
+      ":active",
+      ":visited",
+      ":first-child",
+      ":last-child",
+      ":nth-child",
+      ":not",
+      ":checked"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/Pseudo-classes",
+    "summary": "要素の状態（ホバー・フォーカスなど）に応じてスタイルを適用する。",
+    "usage": "マウスを乗せたとき・クリックしたとき・フォーカスしたときにスタイルを変えたいとき。",
+    "examples": [
+      {
+        "code": ".btn:hover  { background: darkblue; }\n.btn:active { transform: scale(0.98); }\ninput:focus { border-color: blue; }",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "pseudo-element",
+        "diff": "疑似要素（::before等）はコンテンツを追加する"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "pseudo-element",
+    "word": "::before・::after",
+    "formal_name": "Pseudo Element",
+    "formal_name_ja": "疑似要素",
+    "category": "CSS",
+    "aliases": [
+      "::before",
+      "::after",
+      "::placeholder",
+      "::selection"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/Pseudo-elements",
+    "summary": "要素の前後に仮想のコンテンツを追加する。contentプロパティと一緒に使う。",
+    "usage": "要素の前後に装飾を追加したいとき（アイコン・区切り線など）。",
+    "examples": [
+      {
+        "code": ".required::after {\n  content: ' *';\n  color: red;\n}\n\n.divider::before {\n  content: '';\n  display: block;\n  border-top: 1px solid #ccc;\n}",
+        "note": "content: ''は必須（空でも書く）"
+      }
+    ],
+    "similar": [
+      {
+        "id": "content",
+        "diff": "contentプロパティで疑似要素の内容を指定する"
+      }
+    ],
+    "mistakes": [
+      "content プロパティを書き忘れると疑似要素が表示されない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "calc",
+    "word": "calc()",
+    "formal_name": "Calc Function",
+    "formal_name_ja": "計算関数",
+    "category": "CSS",
+    "aliases": [
+      "calc"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/calc",
+    "summary": "CSSの値を計算式で指定する。異なる単位同士の計算もできる。",
+    "usage": "100%から固定値を引いた幅など、計算が必要なサイズを指定したいとき。",
+    "examples": [
+      {
+        "code": ".sidebar { width: 240px; }\n.main    { width: calc(100% - 240px); } // 残り幅\n\n.centered { margin-top: calc(50vh - 100px); }",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "演算子の前後にスペースが必要（calc(100%-240px)はNG）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "clamp",
+    "word": "clamp()",
+    "formal_name": "Clamp Function",
+    "formal_name_ja": "範囲制限関数",
+    "category": "CSS",
+    "aliases": [
+      "clamp",
+      "min()",
+      "max()"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/clamp",
+    "summary": "最小値・推奨値・最大値の範囲内で値を自動調整する。レスポンシブなフォントサイズに便利。",
+    "usage": "画面幅に応じてフォントサイズを滑らかに変化させたいとき。",
+    "examples": [
+      {
+        "code": ".title {\n  font-size: clamp(24px, 5vw, 48px);\n  // 最小24px・画面幅の5%・最大48px\n}",
+        "note": "メディアクエリなしでレスポンシブなサイズ指定ができる"
+      }
+    ],
+    "similar": [
+      {
+        "id": "media-query",
+        "diff": "@mediaは条件で切り替え・clampは連続的に変化"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応（Chrome 79以降）"
+  },
+  {
+    "id": "variable-font",
+    "word": "font-variation-settings",
+    "formal_name": "Variable Font",
+    "formal_name_ja": "可変フォント設定",
+    "category": "CSS",
+    "aliases": [
+      "font-variation-settings",
+      "font-optical-sizing"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/font-variation-settings",
+    "summary": "可変フォントの軸（太さ・幅など）を細かく制御する。",
+    "usage": "可変フォントを使って太さや幅を細かく調整したいとき。",
+    "examples": [
+      {
+        "code": ".text {\n  font-variation-settings: 'wght' 350, 'wdth' 75;\n}",
+        "note": "可変フォントが必要（Google Fontsなどで対応フォントを確認）"
+      }
+    ],
+    "similar": [
+      {
+        "id": "font-weight",
+        "diff": "font-weightは100刻みの指定・こちらは1刻みで細かく指定できる"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "scroll-snap",
+    "word": "scroll-snap-type",
+    "formal_name": "Scroll Snap",
+    "formal_name_ja": "スクロールスナップ",
+    "category": "CSS",
+    "aliases": [
+      "scroll-snap-type",
+      "scroll-snap-align"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/scroll-snap-type",
+    "summary": "スクロール時に特定の位置でピタッと止まる動作をCSSだけで実現する。",
+    "usage": "スライドショーやページごとのスクロールをJavaScriptなしで実装したいとき。",
+    "examples": [
+      {
+        "code": ".container {\n  scroll-snap-type: y mandatory;\n  overflow-y: scroll;\n}\n.section {\n  scroll-snap-align: start;\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "scroll-snap-typeを親に・scroll-snap-alignを子に指定する"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "isolation",
+    "word": "isolation",
+    "formal_name": "Isolation",
+    "formal_name_ja": "重なり順の独立",
+    "category": "CSS",
+    "aliases": [
+      "isolation"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/isolation",
+    "summary": "要素が新しいスタッキングコンテキストを作るかどうかを指定する。z-indexの影響範囲を制限できる。",
+    "usage": "z-indexが意図せず別の要素に影響しているときに影響範囲を分離したいとき。",
+    "examples": [
+      {
+        "code": ".modal-container {\n  isolation: isolate; // このdiv内でz-indexを独立させる\n}",
+        "note": "z-indexの問題を解決する最後の手段"
+      }
+    ],
+    "similar": [
+      {
+        "id": "z-index",
+        "diff": "z-indexは重なり順・isolationは重なり順の影響範囲を制限する"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "accent-color",
+    "word": "accent-color",
+    "formal_name": "Accent Color",
+    "formal_name_ja": "アクセントカラー",
+    "category": "CSS",
+    "aliases": [
+      "accent-color"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/accent-color",
+    "summary": "チェックボックス・ラジオボタン・レンジスライダーなどのフォームUIのアクセントカラーを指定する。",
+    "usage": "フォームのチェックボックスなどをブランドカラーに合わせたいとき。",
+    "examples": [
+      {
+        "code": ":root { accent-color: #58a6ff; }\n// または個別に\ninput[type=\"checkbox\"] { accent-color: #58a6ff; }",
+        "note": "1行で簡単にフォームの色を変えられる"
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応（Chrome 93以降）"
+  },
+  {
+    "id": "overscroll-behavior",
+    "word": "overscroll-behavior",
+    "formal_name": "Overscroll Behavior",
+    "formal_name_ja": "スクロールの連鎖制御",
+    "category": "CSS",
+    "aliases": [
+      "overscroll-behavior"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/overscroll-behavior",
+    "summary": "スクロールの端に達したときに親要素までスクロールが連鎖するかどうかを制御する。",
+    "usage": "モーダルやサイドバーのスクロールが背景に伝わらないようにしたいとき。",
+    "examples": [
+      {
+        "code": ".modal {\n  overflow-y: auto;\n  overscroll-behavior: contain; // スクロール連鎖を防ぐ\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "appearance",
+    "word": "appearance",
+    "formal_name": "Appearance",
+    "formal_name_ja": "ネイティブUIスタイルの制御",
+    "category": "CSS",
+    "aliases": [
+      "appearance",
+      "-webkit-appearance"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/appearance",
+    "summary": "ブラウザ標準のUIスタイルを使うかどうかを指定する。noneでフォームのスタイルをリセットできる。",
+    "usage": "セレクトボックスやチェックボックスをCSSで自由にスタイリングしたいとき。",
+    "examples": [
+      {
+        "code": "select {\n  appearance: none; // ブラウザ標準の矢印を消す\n  background: url('arrow.svg') no-repeat right 12px center;\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "gap-flex",
+    "word": "column-gap・row-gap",
+    "formal_name": "Column Gap / Row Gap",
+    "formal_name_ja": "列間・行間の余白",
+    "category": "CSS",
+    "aliases": [
+      "column-gap",
+      "row-gap"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/column-gap",
+    "summary": "Flexbox・Gridで列間・行間の余白を個別に指定する。gapのショートハンドより細かく制御できる。",
+    "usage": "横の余白と縦の余白を異なる値にしたいとき。",
+    "examples": [
+      {
+        "code": ".grid {\n  display: grid;\n  column-gap: 24px; // 列間24px\n  row-gap: 16px;    // 行間16px\n}",
+        "note": "gap: 16px 24px でも同じ"
+      }
+    ],
+    "similar": [
+      {
+        "id": "gap",
+        "diff": "gapは縦横まとめて指定するショートハンド"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "writing-mode",
+    "word": "writing-mode",
+    "formal_name": "Writing Mode",
+    "formal_name_ja": "テキストの書き方向",
+    "category": "CSS",
+    "aliases": [
+      "writing-mode"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/writing-mode",
+    "summary": "テキストの書き方向を指定する。縦書きにしたいときに使う。",
+    "usage": "日本語の縦書きレイアウトを作りたいとき。",
+    "examples": [
+      {
+        "code": ".vertical {\n  writing-mode: vertical-rl; // 縦書き（右から左）\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "mix-blend-mode",
+    "word": "mix-blend-mode",
+    "formal_name": "Mix Blend Mode",
+    "formal_name_ja": "ブレンドモード",
+    "category": "CSS",
+    "aliases": [
+      "mix-blend-mode"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/mix-blend-mode",
+    "summary": "要素と背景を合成する方法を指定する。Photoshopのレイヤーブレンドと同じ概念。",
+    "usage": "テキストを背景画像に馴染ませたい・重なった要素を合成したいとき。",
+    "examples": [
+      {
+        "code": ".text {\n  mix-blend-mode: multiply; // 乗算\n  mix-blend-mode: screen;   // スクリーン\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "touch-action",
+    "word": "touch-action",
+    "formal_name": "Touch Action",
+    "formal_name_ja": "タッチ操作の制御",
+    "category": "CSS",
+    "aliases": [
+      "touch-action"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/touch-action",
+    "summary": "タッチデバイスでのスクロールやズームの動作を制御する。",
+    "usage": "地図やキャンバスでブラウザのデフォルトのタッチ操作を無効にしたいとき。",
+    "examples": [
+      {
+        "code": ".map {\n  touch-action: none; // ブラウザのタッチ操作を無効\n}\n.slider {\n  touch-action: pan-x; // 横スクロールのみ許可\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "will-change",
+    "word": "will-change",
+    "formal_name": "Will Change",
+    "formal_name_ja": "パフォーマンス最適化ヒント",
+    "category": "CSS",
+    "aliases": [
+      "will-change"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/will-change",
+    "summary": "これから変化するプロパティをブラウザに事前に伝えてGPUアクセラレーションを有効にする。",
+    "usage": "アニメーションがカクつく要素のパフォーマンスを改善したいとき。",
+    "examples": [
+      {
+        "code": ".animated {\n  will-change: transform; // transformの変化を事前にブラウザに伝える\n}",
+        "note": "過剰に使うとメモリを消費する"
+      }
+    ],
+    "similar": [
+      {
+        "id": "transform",
+        "diff": "transformは変形を指定する・will-changeはブラウザへのヒント"
+      }
+    ],
+    "mistakes": [
+      "全ての要素に指定するのはNG（メモリが増加する）"
+    ],
+    "browser_support": "全ブラウザ対応"
   }
 ]
