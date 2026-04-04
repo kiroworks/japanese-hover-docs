@@ -1,138 +1,38 @@
 [
-  {
-    "id": "div",
-    "word": "div",
-    "formal_name": "Division",
-    "formal_name_ja": "汎用ブロック要素",
-    "category": "HTML",
-    "aliases": [
-      "div"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/div",
-    "summary": "意味を持たない汎用の箱。CSSでレイアウトを組むときに要素をグループにまとめる。",
-    "usage": "複数の要素をまとめてCSSで一括管理したいとき。",
-    "examples": [
-      {
-        "code": "<div class=\"card\">\n  <h2>タイトル</h2>\n  <p>内容</p>\n</div>",
-        "note": "クラスをつけてCSSで装飾"
-      }
-    ],
-    "similar": [],
-    "mistakes": [
-      "意味のある場所にdivを使いすぎる（divスープ）→ nav・section・articleを使う"
-    ],
-    "browser_support": "全ブラウザ対応"
-  },
-  {
-    "id": "p",
-    "word": "p",
-    "formal_name": "Paragraph",
-    "formal_name_ja": "段落",
-    "category": "HTML",
-    "aliases": [
-      "p"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/p",
-    "summary": "段落を表すタグ。前後に自動的に余白が入る。",
-    "usage": "文章のまとまりを表すとき。",
-    "examples": [
-      {
-        "code": "<p>1つ目の段落です。</p>\n<p>2つ目の段落です。</p>",
-        "note": "段落ごとにpタグで囲む"
-      }
-    ],
-    "similar": [
-      {
-        "id": "div",
-        "diff": "divは意味なし・レイアウト目的。pは段落という意味を持つ"
-      }
-    ],
-    "mistakes": [
-      "改行したいだけでbrタグを多用する（余白はCSSのmarginで調整する）"
-    ],
-    "browser_support": "全ブラウザ対応"
-  },
-  {
-    "id": "a",
-    "word": "a",
-    "formal_name": "Anchor",
-    "formal_name_ja": "リンク",
-    "category": "HTML",
-    "aliases": [
-      "a",
-      "href"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/a",
-    "summary": "リンクを作るタグ。href属性にURLを指定する。",
-    "usage": "他のページや外部サイトへのリンクを作るとき。",
-    "examples": [
-      {
-        "code": "<a href=\"https://example.com\" target=\"_blank\" rel=\"noopener\">別タブで開く</a>",
-        "note": "target=\"_blank\"には rel=\"noopener\"も一緒に書く"
-      }
-    ],
-    "similar": [
-      {
-        "id": "button",
-        "diff": "buttonはクリックで処理を実行する・aはページ移動"
-      }
-    ],
-    "mistakes": [
-      "target=\"_blank\"にrel=\"noopener\"を書き忘れるとセキュリティリスクになる"
-    ],
-    "browser_support": "全ブラウザ対応"
-  },
-  {
-    "id": "button",
-    "word": "button",
-    "formal_name": "Button",
-    "formal_name_ja": "ボタン",
-    "category": "HTML",
-    "aliases": [
-      "button"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/button",
-    "summary": "クリックできるボタンを作るタグ。",
-    "usage": "クリック時に処理を実行したいとき。JavaScriptのaddEventListenerと組み合わせる。",
-    "examples": [
-      {
-        "code": "<button type=\"button\" id=\"myBtn\">クリック</button>",
-        "note": "type=\"button\"を明示するのが安全"
-      }
-    ],
-    "similar": [
-      {
-        "id": "a",
-        "diff": "aはページ移動・buttonはアクション実行"
-      }
-    ],
-    "mistakes": [
-      "form内のbuttonはデフォルトでtype=\"submit\"になる（意図しない送信に注意）"
-    ],
-    "browser_support": "全ブラウザ対応"
-  },
-  {
-    "id": "input",
-    "word": "input",
-    "formal_name": "Input",
-    "formal_name_ja": "入力欄",
-    "category": "HTML",
-    "aliases": [
-      "input"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/input",
-    "summary": "フォームの入力欄を作るタグ。type属性で種類を変えられる。閉じタグは不要。",
-    "usage": "テキスト入力・チェックボックス・ラジオボタンなどを作るとき。",
-    "examples": [
-      {
-        "code": "<input type=\"text\" placeholder=\"名前を入力\">\n<input type=\"email\" placeholder=\"メールアドレス\">",
-        "note": "typeで入力の種類を変える"
-      }
-    ],
-    "similar": [],
-    "mistakes": [
-      "labelと紐付けないとアクセシビリティが下がる"
-    ],
-    "browser_support": "全ブラウザ対応"
-  }
+  {"id":"div","word":"div","formal_name":"Division","formal_name_ja":"汎用ブロック要素","category":"HTML","aliases":["div"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/div","summary":"意味を持たない汎用の箱。CSSでレイアウトを組むときに要素をグループにまとめる。","usage":"複数の要素をまとめてCSSで一括管理したいとき。","examples":[{"code":"<div class=\"card\">\n  <h2>タイトル</h2>\n  <p>内容</p>\n</div>","note":"クラスをつけてCSSで装飾"}],"similar":[{"id":"span","diff":"改行なし・文中の一部に使うインライン要素"},{"id":"section","diff":"意味を持つ・章の区切りに使う"}],"mistakes":["意味のある場所にdivを使いすぎる（divスープ）→ nav・section・articleを使う"],"browser_support":"全ブラウザ対応"},
+  {"id":"span","word":"span","formal_name":"Span","formal_name_ja":"汎用インライン要素","category":"HTML","aliases":["span"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/span","summary":"テキストの一部だけを装飾するための汎用タグ。前後に改行が入らない。","usage":"文中の一部だけ色を変えたり太字にしたりするとき。","examples":[{"code":"<p>ここが<span style=\"color: red;\">赤い</span>テキスト</p>","note":"文中の一部だけ色を変える"}],"similar":[{"id":"div","diff":"ブロック要素・前後に改行が入る"}],"mistakes":["divとspanを混同する（spanはインラインなのでレイアウトには使えない）"],"browser_support":"全ブラウザ対応"},
+  {"id":"p","word":"p","formal_name":"Paragraph","formal_name_ja":"段落","category":"HTML","aliases":["p"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/p","summary":"段落を表すタグ。前後に自動的に余白が入る。","usage":"文章のまとまりを表すとき。","examples":[{"code":"<p>1つ目の段落です。</p>\n<p>2つ目の段落です。</p>","note":"段落ごとにpタグで囲む"}],"similar":[{"id":"div","diff":"divは意味なし・レイアウト目的。pは段落という意味を持つ"}],"mistakes":["改行したいだけでbrタグを多用する（余白はCSSのmarginで調整する）"],"browser_support":"全ブラウザ対応"},
+  {"id":"a","word":"a","formal_name":"Anchor","formal_name_ja":"リンク","category":"HTML","aliases":["a","href"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/a","summary":"リンクを作るタグ。href属性にURLを指定する。","usage":"他のページや外部サイトへのリンクを作るとき。","examples":[{"code":"<a href=\"https://example.com\" target=\"_blank\" rel=\"noopener\">別タブで開く</a>","note":"target=\"_blank\"にはrel=\"noopener\"も一緒に書く"}],"similar":[{"id":"button","diff":"buttonはクリックで処理を実行する・aはページ移動"}],"mistakes":["target=\"_blank\"にrel=\"noopener\"を書き忘れるとセキュリティリスクになる"],"browser_support":"全ブラウザ対応"},
+  {"id":"button","word":"button","formal_name":"Button","formal_name_ja":"ボタン","category":"HTML","aliases":["button"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/button","summary":"クリックできるボタンを作るタグ。","usage":"クリック時に処理を実行したいとき。JavaScriptのaddEventListenerと組み合わせる。","examples":[{"code":"<button type=\"button\" id=\"myBtn\">クリック</button>","note":"type=\"button\"を明示するのが安全"}],"similar":[{"id":"a","diff":"aはページ移動・buttonはアクション実行"}],"mistakes":["form内のbuttonはデフォルトでtype=\"submit\"になる（意図しない送信に注意）"],"browser_support":"全ブラウザ対応"},
+  {"id":"input","word":"input","formal_name":"Input","formal_name_ja":"入力欄","category":"HTML","aliases":["input"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/input","summary":"フォームの入力欄を作るタグ。type属性で種類を変えられる。閉じタグは不要。","usage":"テキスト入力・チェックボックス・ラジオボタンなどを作るとき。","examples":[{"code":"<input type=\"text\" placeholder=\"名前を入力\">\n<input type=\"email\" placeholder=\"メールアドレス\">","note":"typeで入力の種類を変える"}],"similar":[{"id":"textarea","diff":"textareaは複数行のテキスト入力"},{"id":"select","diff":"selectはドロップダウン選択"}],"mistakes":["labelと紐付けないとアクセシビリティが下がる"],"browser_support":"全ブラウザ対応"},
+  {"id":"html","word":"html","formal_name":"HTML","formal_name_ja":"ルート要素","category":"HTML","aliases":["html"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/html","summary":"HTMLページ全体を囲むルート要素。すべての内容はこのタグの中に書く。","usage":"HTMLファイルを作るとき必ず1つだけ書く。lang=\"ja\"をつけると日本語ページとして認識される。","examples":[{"code":"<html lang=\"ja\">\n  <!-- ページの内容 -->\n</html>","note":"lang属性は必ず指定する"}],"similar":[{"id":"head","diff":"htmlの中に入る・設定情報を書く場所"},{"id":"body","diff":"htmlの中に入る・表示内容を書く場所"}],"mistakes":["lang属性を書き忘れると言語の判定がブラウザ任せになる"],"browser_support":"全ブラウザ対応"},
+  {"id":"head","word":"head","formal_name":"Head","formal_name_ja":"ページ設定情報","category":"HTML","aliases":["head"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/head","summary":"ページの設定情報を書く場所。画面には表示されない。","usage":"タイトル・文字コード・CSSの読み込みなど、ページの裏側の設定を書くとき。","examples":[{"code":"<head>\n  <meta charset=\"UTF-8\">\n  <title>タイトル</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>","note":"基本的なheadの中身"}],"similar":[{"id":"body","diff":"画面に表示される内容を書く場所"}],"mistakes":["CSSの<link>をbodyに書いてしまう（headに書くのが正しい）"],"browser_support":"全ブラウザ対応"},
+  {"id":"body","word":"body","formal_name":"Body","formal_name_ja":"ページ本文","category":"HTML","aliases":["body"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/body","summary":"画面に表示されるすべての内容を書く場所。","usage":"テキスト・画像・ボタンなどユーザーが実際に見るものをすべてここに書く。","examples":[{"code":"<body>\n  <h1>見出し</h1>\n  <p>テキスト</p>\n</body>","note":"基本的なbodyの中身"}],"similar":[{"id":"head","diff":"画面に表示されない設定情報を書く場所"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"meta","word":"meta","formal_name":"Meta","formal_name_ja":"メタ情報","category":"HTML","aliases":["meta"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/meta","summary":"ページの設定情報を指定するタグ。閉じタグは不要。","usage":"文字コードの指定・スマホ対応（viewport）・ページの説明文などを設定するとき。","examples":[{"code":"<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">","note":"この2行はほぼ必須"}],"similar":[{"id":"link","diff":"外部ファイルを読み込む・metaはページ情報を設定する"}],"mistakes":["charsetのmetaを書き忘れると文字化けの原因になる"],"browser_support":"全ブラウザ対応"},
+  {"id":"title","word":"title","formal_name":"Title","formal_name_ja":"ページタイトル","category":"HTML","aliases":["title"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/title","summary":"ブラウザのタブや検索結果に表示されるページのタイトルを設定する。","usage":"ページのタイトルを設定するとき。headの中に1つだけ書く。","examples":[{"code":"<title>ページタイトル | サイト名</title>","note":"基本的な書き方"}],"similar":[{"id":"h1","diff":"h1はページ内に表示される見出し・titleはタブに表示される"}],"mistakes":["長すぎると検索結果で省略される（30〜35文字が目安）"],"browser_support":"全ブラウザ対応"},
+  {"id":"link","word":"link","formal_name":"Link","formal_name_ja":"外部リソース読み込み","category":"HTML","aliases":["link"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/link","summary":"外部リソース（主にCSS）をページに読み込むタグ。headの中に書く。","usage":"CSSファイルをHTMLに読み込むとき。","examples":[{"code":"<link rel=\"stylesheet\" href=\"style.css\">","note":"CSSファイルの読み込み（最もよく使う）"}],"similar":[{"id":"script","diff":"scriptはJavaScriptを読み込む"}],"mistakes":["bodyの中に書いてしまう（headの中に書くのが正しい）"],"browser_support":"全ブラウザ対応"},
+  {"id":"script","word":"script","formal_name":"Script","formal_name_ja":"スクリプト読み込み","category":"HTML","aliases":["script"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/script","summary":"JavaScriptを読み込む・直接書くためのタグ。","usage":"JavaScriptファイルを読み込むとき。</body>の直前に書くのが基本。","examples":[{"code":"<script src=\"script.js\"></script>","note":"</body>直前に書く（推奨）"}],"similar":[{"id":"link","diff":"linkはCSSを読み込む"}],"mistakes":["headの中に書くとDOMが読み込まれる前に実行されてエラーになる"],"browser_support":"全ブラウザ対応"},
+  {"id":"h1","word":"h1","formal_name":"Heading 1","formal_name_ja":"最重要見出し","category":"HTML","aliases":["h1"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/Heading_Elements","summary":"ページで最も重要な見出し。1ページに1つが基本。","usage":"ページのメインタイトルを表すとき。SEOに最も影響する見出し。","examples":[{"code":"<h1>ページのメインタイトル</h1>","note":"1ページに1つだけ"}],"similar":[{"id":"h2","diff":"h2はセクションの見出し・h1の次に重要"},{"id":"title","diff":"titleはタブに表示される・h1はページ内に表示される"}],"mistakes":["1ページに複数のh1を使う（SEO的に悪影響）"],"browser_support":"全ブラウザ対応"},
+  {"id":"h2","word":"h2","formal_name":"Heading 2-6","formal_name_ja":"セクション見出し","category":"HTML","aliases":["h2","h3","h4","h5","h6"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/Heading_Elements","summary":"セクションの見出し。h2〜h6まであり数字が大きいほど重要度が下がる。","usage":"ページ内のセクションを区切るとき。","examples":[{"code":"<h2>セクションの見出し</h2>\n<h3>小見出し</h3>","note":"階層構造で使う"}],"similar":[{"id":"h1","diff":"h1はページタイトル・1つしか使えない"}],"mistakes":["見出しをスキップする（h1→h3のように飛ばすのはNG）"],"browser_support":"全ブラウザ対応"},
+  {"id":"img","word":"img","formal_name":"Image","formal_name_ja":"画像","category":"HTML","aliases":["img","src","alt"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/img","summary":"画像を表示するタグ。閉じタグは不要。","usage":"ページに画像を表示するとき。","examples":[{"code":"<img src=\"photo.jpg\" alt=\"プロフィール写真\">","note":"altは必ず書く"}],"similar":[{"id":"picture","diff":"pictureは複数の画像ソースを指定してブラウザが最適なものを選ぶ"}],"mistakes":["altを書き忘れる（アクセシビリティ・SEO両面で必要）"],"browser_support":"全ブラウザ対応"},
+  {"id":"ul","word":"ul","formal_name":"Unordered List","formal_name_ja":"順序なしリスト","category":"HTML","aliases":["ul"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/ul","summary":"箇条書きのリストを作るタグ。中身はliタグで書く。","usage":"順序に意味がないリストを作るとき（ナビゲーション・機能一覧など）。","examples":[{"code":"<ul>\n  <li>りんご</li>\n  <li>みかん</li>\n</ul>","note":"基本的な箇条書き"}],"similar":[{"id":"ol","diff":"olは番号付きリスト・順序に意味があるとき"},{"id":"li","diff":"liはul・olの中に入る各項目"}],"mistakes":["ulの直下にliタグ以外を書く（divやpを直接入れるのはNG）"],"browser_support":"全ブラウザ対応"},
+  {"id":"ol","word":"ol","formal_name":"Ordered List","formal_name_ja":"順序ありリスト","category":"HTML","aliases":["ol"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/ol","summary":"番号付きのリストを作るタグ。中身はliタグで書く。","usage":"手順・ランキングなど順序に意味があるリストを作るとき。","examples":[{"code":"<ol>\n  <li>ステップ1</li>\n  <li>ステップ2</li>\n</ol>","note":"手順書などに使う"}],"similar":[{"id":"ul","diff":"ulは順序なし箇条書き"},{"id":"li","diff":"liはol・ulの中に入る各項目"}],"mistakes":["olの直下にliタグ以外を書く"],"browser_support":"全ブラウザ対応"},
+  {"id":"li","word":"li","formal_name":"List Item","formal_name_ja":"リストの項目","category":"HTML","aliases":["li"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/li","summary":"リストの各項目を表すタグ。ulまたはolの中に書く。","usage":"ulまたはolの中で各項目を定義するとき。","examples":[{"code":"<ul>\n  <li>項目1</li>\n  <li>項目2</li>\n</ul>","note":"ulの中のli"}],"similar":[{"id":"ul","diff":"ulはliを囲む親タグ（順序なし）"},{"id":"ol","diff":"olはliを囲む親タグ（番号付き）"}],"mistakes":["ulやolの外にliだけを書いても無効"],"browser_support":"全ブラウザ対応"},
+  {"id":"form","word":"form","formal_name":"Form","formal_name_ja":"フォーム","category":"HTML","aliases":["form"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/form","summary":"フォーム全体を囲むタグ。","usage":"入力欄・送信ボタンをまとめてサーバーに送信するとき。","examples":[{"code":"<form action=\"/submit\" method=\"post\">\n  <input type=\"text\" name=\"name\">\n  <button type=\"submit\">送信</button>\n</form>","note":"基本的なフォーム"}],"similar":[{"id":"input","diff":"inputはformの中に入る入力欄"},{"id":"button","diff":"buttonはフォームの送信ボタンに使う"}],"mistakes":["name属性がないinputはサーバーに送信されない"],"browser_support":"全ブラウザ対応"},
+  {"id":"label","word":"label","formal_name":"Label","formal_name_ja":"ラベル","category":"HTML","aliases":["label"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/label","summary":"フォームの入力欄にラベルをつけるタグ。","usage":"inputにラベルをつけるとき。for属性とinputのidを一致させるとラベルをクリックしてもフォーカスが当たる。","examples":[{"code":"<label for=\"name\">名前</label>\n<input type=\"text\" id=\"name\">","note":"forとidを一致させる"}],"similar":[{"id":"input","diff":"inputは入力欄・labelは入力欄の説明"}],"mistakes":["for属性とinputのidが一致していないと紐付かない"],"browser_support":"全ブラウザ対応"},
+  {"id":"textarea","word":"textarea","formal_name":"Textarea","formal_name_ja":"複数行テキスト入力","category":"HTML","aliases":["textarea"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/textarea","summary":"複数行のテキスト入力欄を作るタグ。","usage":"コメント欄・メッセージ入力など複数行の入力が必要なとき。","examples":[{"code":"<textarea rows=\"4\" placeholder=\"メッセージを入力\"></textarea>","note":"rows属性で行数を指定"}],"similar":[{"id":"input","diff":"inputは1行の入力欄"}],"mistakes":["inputと違い閉じタグが必要"],"browser_support":"全ブラウザ対応"},
+  {"id":"select","word":"select","formal_name":"Select","formal_name_ja":"ドロップダウン選択","category":"HTML","aliases":["select","option"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/select","summary":"ドロップダウンのセレクトボックスを作るタグ。中身はoptionタグで書く。","usage":"複数の選択肢から1つを選ばせるとき。","examples":[{"code":"<select name=\"lang\">\n  <option value=\"html\">HTML</option>\n  <option value=\"css\">CSS</option>\n</select>","note":"基本的なドロップダウン"}],"similar":[{"id":"input","diff":"input type=\"radio\"でも選択肢を作れる・見た目が異なる"}],"mistakes":["optionのvalue属性を書き忘れると送信される値が空になる"],"browser_support":"全ブラウザ対応"},
+  {"id":"section","word":"section","formal_name":"Section","formal_name_ja":"セクション","category":"HTML","aliases":["section"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/section","summary":"ページをセクション（章）に分けるタグ。divと見た目は同じだが「章」という意味を持つ。","usage":"ページをAbout・Works・Contactなどの章に分けるとき。","examples":[{"code":"<section id=\"about\">\n  <h2>About</h2>\n  <p>自己紹介文</p>\n</section>","note":"idをつけてページ内リンクの目印にもなる"}],"similar":[{"id":"div","diff":"divは意味なし・sectionは「章」という意味を持つ"},{"id":"article","diff":"articleは単独で成立するコンテンツ（ブログ記事など）"}],"mistakes":["sectionの中に見出し（h2など）がないと意味が不完全になる"],"browser_support":"全ブラウザ対応"},
+  {"id":"header","word":"header","formal_name":"Header","formal_name_ja":"ヘッダー","category":"HTML","aliases":["header"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/header","summary":"ページやセクションの上部を表すタグ。","usage":"ロゴ・ナビゲーション・タイトルなどページ上部の要素をまとめるとき。","examples":[{"code":"<header>\n  <h1>サイト名</h1>\n  <nav>\n    <a href=\"#about\">About</a>\n  </nav>\n</header>","note":"ナビゲーションと一緒に使うことが多い"}],"similar":[{"id":"footer","diff":"footerはページ下部"},{"id":"nav","diff":"navはナビゲーションリンクのみを表す"}],"mistakes":["headタグと混同する（headerは表示要素・headは設定情報）"],"browser_support":"全ブラウザ対応"},
+  {"id":"footer","word":"footer","formal_name":"Footer","formal_name_ja":"フッター","category":"HTML","aliases":["footer"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/footer","summary":"ページやセクションの下部を表すタグ。","usage":"コピーライト・リンク・連絡先などページ下部の情報をまとめるとき。","examples":[{"code":"<footer>\n  <p>&copy; 2024 サイト名</p>\n</footer>","note":"コピーライト表記"}],"similar":[{"id":"header","diff":"headerはページ上部"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"nav","word":"nav","formal_name":"Navigation","formal_name_ja":"ナビゲーション","category":"HTML","aliases":["nav"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/nav","summary":"ナビゲーションリンクのまとまりを表すタグ。","usage":"メニュー・サイト内リンクをまとめるとき。","examples":[{"code":"<nav>\n  <a href=\"#home\">ホーム</a>\n  <a href=\"#about\">About</a>\n</nav>","note":"ページ内リンクのナビゲーション"}],"similar":[{"id":"header","diff":"headerの中にnavを入れることが多い"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"main","word":"main","formal_name":"Main","formal_name_ja":"メインコンテンツ","category":"HTML","aliases":["main"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/main","summary":"ページのメインコンテンツを表すタグ。1ページに1つだけ使う。","usage":"ヘッダー・フッター・サイドバーを除いたメインの内容を囲むとき。","examples":[{"code":"<main>\n  <h1>メインコンテンツ</h1>\n  <p>内容</p>\n</main>","note":"1ページに1つだけ"}],"similar":[{"id":"section","diff":"sectionはmainの中に入る章の区切り"}],"mistakes":["1ページに複数のmainを使う（1つだけが正しい）"],"browser_support":"全ブラウザ対応"},
+  {"id":"article","word":"article","formal_name":"Article","formal_name_ja":"記事コンテンツ","category":"HTML","aliases":["article"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/article","summary":"それ単独で成立するコンテンツを表すタグ。","usage":"ブログ記事・ニュース記事・カードなど単独で意味をなすコンテンツに使う。","examples":[{"code":"<article>\n  <h2>記事タイトル</h2>\n  <p>記事の内容</p>\n</article>","note":"ブログ記事など"}],"similar":[{"id":"section","diff":"sectionはページの章・articleは単独で成立する記事"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"picture","word":"picture","formal_name":"Picture","formal_name_ja":"レスポンシブ画像","category":"HTML","aliases":["picture"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/picture","summary":"複数の画像ソースを指定しブラウザが最適なものを選ぶタグ。","usage":"画面サイズによって異なる画像を表示したいとき。","examples":[{"code":"<picture>\n  <source media=\"(max-width: 768px)\" srcset=\"small.jpg\">\n  <img src=\"large.jpg\" alt=\"画像\">\n</picture>","note":"スマホとPCで異なる画像を表示"}],"similar":[{"id":"img","diff":"imgは1つの画像を表示するだけ"}],"mistakes":["pictureの中に必ずimgタグを書く（フォールバック用）"],"browser_support":"全ブラウザ対応"},
+  {"id":"table","word":"table","formal_name":"Table","formal_name_ja":"表","category":"HTML","aliases":["table","tr","td","th","thead","tbody"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/table","summary":"表を作るタグ。trで行・thで見出しセル・tdでデータセルを作る。","usage":"データを表形式で表示するとき。","examples":[{"code":"<table>\n  <thead>\n    <tr><th>名前</th><th>年齢</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>田中</td><td>25</td></tr>\n  </tbody>\n</table>","note":"thead・tbodyで分けると管理しやすい"}],"similar":[],"mistakes":["レイアウトにtableを使う（昔の書き方・今はFlexbox/Gridを使う）"],"browser_support":"全ブラウザ対応"},
+  {"id":"details","word":"details","formal_name":"Details","formal_name_ja":"折りたたみコンテンツ","category":"HTML","aliases":["details","summary"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/details","summary":"クリックで開閉できる折りたたみコンテンツを作るタグ。","usage":"FAQやアコーディオンメニューなどJavaScriptなしで開閉したいとき。","examples":[{"code":"<details>\n  <summary>クリックして開く</summary>\n  <p>折りたたまれた内容</p>\n</details>","note":"JavaScriptなしで動く"}],"similar":[{"id":"div","diff":"divは開閉機能を持たない・JavaScriptで実装が必要"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"br","word":"br","formal_name":"Line Break","formal_name_ja":"改行","category":"HTML","aliases":["br"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/br","summary":"改行を入れるタグ。閉じタグは不要。","usage":"住所・詩など意味のある改行が必要なとき。余白調整にはCSSのmarginを使う。","examples":[{"code":"<p>〒100-0001<br>東京都千代田区</p>","note":"住所など意味のある改行"}],"similar":[{"id":"p","diff":"段落の区切りにはbrではなくpタグを使う"}],"mistakes":["余白を作るためにbrを多用する（CSSのmarginやpaddingで調整するのが正しい）"],"browser_support":"全ブラウザ対応"},
+  {"id":"strong","word":"strong","formal_name":"Strong","formal_name_ja":"重要テキスト","category":"HTML","aliases":["strong","em","b","i"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/strong","summary":"重要なテキストを表すタグ。太字で表示される。","usage":"意味的に重要なテキストを強調するとき。","examples":[{"code":"<p>ここが<strong>重要</strong>です。</p>","note":"重要な部分をstrongで囲む"}],"similar":[{"id":"span","diff":"spanはCSS font-weight: boldで太字にするだけ・意味はない"}],"mistakes":["デザイン目的だけで太字にするときはCSSのfont-weight: boldを使う"],"browser_support":"全ブラウザ対応"},
+  {"id":"iframe","word":"iframe","formal_name":"Inline Frame","formal_name_ja":"インラインフレーム","category":"HTML","aliases":["iframe"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe","summary":"別のページをインラインで埋め込むタグ。","usage":"YouTubeやGoogleマップなど外部サービスを埋め込むとき。","examples":[{"code":"<iframe\n  src=\"https://www.youtube.com/embed/xxxxx\"\n  width=\"560\" height=\"315\"\n  allowfullscreen>\n</iframe>","note":"YouTube埋め込みの基本形"}],"similar":[],"mistakes":["信頼できないサイトをiframeで埋め込むとセキュリティリスクになる"],"browser_support":"全ブラウザ対応"},
+  {"id":"video","word":"video","formal_name":"Video","formal_name_ja":"動画","category":"HTML","aliases":["video","audio"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/HTML/Element/video","summary":"動画を表示するタグ。controls属性でコントロールバーを表示する。","usage":"ページに動画を埋め込むとき。","examples":[{"code":"<video src=\"movie.mp4\" controls></video>","note":"controls属性がないと操作できない"}],"similar":[{"id":"iframe","diff":"iframeはYouTubeなど外部サービスの動画を埋め込む"}],"mistakes":["controls属性を書き忘れると操作できない動画になる"],"browser_support":"全ブラウザ対応"}
 ]

@@ -1,0 +1,64 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 依存パッケージのインストール
+        working-directory: extension
+        run: npm install
+
+      - name: バリデーション・ビルド
+        working-directory: extension
+        run: npm run build
+
+      - name: VSIXパッケージの作成
+        working-directory: extension
+        run: npx @vscode/vsce package --no-dependencies
+
+      - name: バージョン番号を取得
+        id: version
+        working-directory: extension
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: 変更内容を取得
+        id: changelog
+        run: |
+          PREV=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -z "$PREV" ]; then
+            LOG=$(git log --pretty=format:"- %s" HEAD)
+          else
+            LOG=$(git log --pretty=format:"- %s" ${PREV}..HEAD)
+          fi
+          echo "LOG<<EOF" >> $GITHUB_OUTPUT
+          echo "$LOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: GitHubリリースを作成
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.VERSION }}
+          name: v${{ steps.version.outputs.VERSION }}
+          body: |
+            ## 変更内容
+            ${{ steps.changelog.outputs.LOG }}
+
+            ## インストール
+            VS Code の拡張機能パネルで「Japanese Hover Docs」を検索
+          files: extension/japanese-hover-docs-*.vsix

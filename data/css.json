@@ -17,11 +17,146 @@
         "note": ""
       }
     ],
-    "similar": [],
+    "similar": [
+      {
+        "id": "visibility",
+        "diff": "visibility: hiddenは非表示だがスペースは残る"
+      },
+      {
+        "id": "flex-direction",
+        "diff": "display: flexにした後に並び方向を指定する"
+      }
+    ],
     "mistakes": [
       "display: noneとvisibility: hiddenの違いを混同する（noneはスペースも消える）"
     ],
     "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "flex-direction",
+    "word": "flex-direction",
+    "formal_name": "Flex Direction",
+    "formal_name_ja": "Flexbox並び方向",
+    "category": "CSS",
+    "aliases": [
+      "flex-direction"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/flex-direction",
+    "summary": "Flexboxの並び方向を指定する。rowで横並び・columnで縦並び。",
+    "usage": "display: flexにした後、要素を縦に並べたいとき。",
+    "examples": [
+      {
+        "code": ".container {\n  display: flex;\n  flex-direction: column; // 縦並び\n}",
+        "note": "デフォルトはrow（横並び）"
+      }
+    ],
+    "similar": [
+      {
+        "id": "justify-content",
+        "diff": "主軸方向の位置揃え"
+      },
+      {
+        "id": "align-items",
+        "diff": "交差軸方向の位置揃え"
+      }
+    ],
+    "mistakes": [
+      "display: flexを書かずにflex-directionだけ書いても効かない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "justify-content",
+    "word": "justify-content",
+    "formal_name": "Justify Content",
+    "formal_name_ja": "主軸方向の位置揃え",
+    "category": "CSS",
+    "aliases": [
+      "justify-content"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/justify-content",
+    "summary": "Flexbox・Gridで主軸方向（デフォルトは横）の位置揃えを指定する。",
+    "usage": "要素を中央に揃えたい・均等に並べたいとき。",
+    "examples": [
+      {
+        "code": ".container {\n  display: flex;\n  justify-content: center;        // 中央\n  justify-content: space-between; // 両端揃え\n}",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "align-items",
+        "diff": "align-itemsは交差軸方向（デフォルトは縦）の位置揃え"
+      },
+      {
+        "id": "display",
+        "diff": "display: flexを先に指定する必要がある"
+      }
+    ],
+    "mistakes": [
+      "justify-contentとalign-itemsの軸を混同する"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "align-items",
+    "word": "align-items",
+    "formal_name": "Align Items",
+    "formal_name_ja": "交差軸方向の位置揃え",
+    "category": "CSS",
+    "aliases": [
+      "align-items"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/align-items",
+    "summary": "Flexbox・Gridで交差軸方向（デフォルトは縦）の位置揃えを指定する。",
+    "usage": "要素を縦方向に中央揃えしたいとき。",
+    "examples": [
+      {
+        "code": ".container {\n  display: flex;\n  justify-content: center; // 横中央\n  align-items: center;     // 縦中央\n}",
+        "note": "2つ合わせると完全中央揃えになる"
+      }
+    ],
+    "similar": [
+      {
+        "id": "justify-content",
+        "diff": "justify-contentは主軸方向（デフォルトは横）の位置揃え"
+      }
+    ],
+    "mistakes": [
+      "justify-contentとalign-itemsの軸を混同する（方向が逆になる）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "gap",
+    "word": "gap",
+    "formal_name": "Gap",
+    "formal_name_ja": "要素間の余白",
+    "category": "CSS",
+    "aliases": [
+      "gap",
+      "row-gap",
+      "column-gap"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/gap",
+    "summary": "FlexboxやGridで要素間の余白をまとめて指定する。",
+    "usage": "要素間に均等な余白をつけたいとき。marginをひとつひとつ設定するより簡単。",
+    "examples": [
+      {
+        "code": ".container {\n  display: flex;\n  gap: 16px;       // 全方向の余白\n  gap: 16px 24px;  // 縦16px 横24px\n}",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "margin",
+        "diff": "marginは要素の外側の余白・gapはFlex/Grid専用"
+      }
+    ],
+    "mistakes": [
+      "display: flexやgridを指定していないと効かない"
+    ],
+    "browser_support": "全ブラウザ対応（IE非対応）"
   },
   {
     "id": "padding",
@@ -49,6 +184,10 @@
       {
         "id": "margin",
         "diff": "外側の余白。paddingは内側・marginは外側"
+      },
+      {
+        "id": "box-sizing",
+        "diff": "border-boxでpaddingを幅の計算に含められる"
       }
     ],
     "mistakes": [
@@ -83,10 +222,147 @@
       {
         "id": "padding",
         "diff": "内側の余白。背景色が広がる"
+      },
+      {
+        "id": "gap",
+        "diff": "Flex/Grid専用の要素間余白"
       }
     ],
     "mistakes": [
       "margin: 0 autoで中央寄せするにはwidthの指定が必要"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "border",
+    "word": "border",
+    "formal_name": "Border",
+    "formal_name_ja": "枠線",
+    "category": "CSS",
+    "aliases": [
+      "border",
+      "border-top",
+      "border-right",
+      "border-bottom",
+      "border-left",
+      "border-width",
+      "border-style",
+      "border-color"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/border",
+    "summary": "要素に枠線をつける。太さ・種類・色の順で指定する。",
+    "usage": "カード・ボタン・入力欄に枠線をつけるとき。",
+    "examples": [
+      {
+        "code": ".card {\n  border: 1px solid #ccc;\n  border-radius: 8px;\n}",
+        "note": "borderとborder-radiusをよく一緒に使う"
+      }
+    ],
+    "similar": [
+      {
+        "id": "border-radius",
+        "diff": "border-radiusは角の丸みを指定する"
+      },
+      {
+        "id": "outline",
+        "diff": "outlineは要素の外側の輪郭線・レイアウトに影響しない"
+      }
+    ],
+    "mistakes": [
+      "border: none で枠線を消せる（border: 0 でも可）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "border-radius",
+    "word": "border-radius",
+    "formal_name": "Border Radius",
+    "formal_name_ja": "角の丸み",
+    "category": "CSS",
+    "aliases": [
+      "border-radius"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/border-radius",
+    "summary": "要素の角を丸くする。50%にすると円になる。",
+    "usage": "カード・ボタン・アバター画像の角を丸くするとき。",
+    "examples": [
+      {
+        "code": ".card   { border-radius: 8px; }  // 少し丸く\n.circle { border-radius: 50%; }  // 円形",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "border",
+        "diff": "borderは枠線のスタイル"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "width",
+    "word": "width",
+    "formal_name": "Width",
+    "formal_name_ja": "横幅",
+    "category": "CSS",
+    "aliases": [
+      "width",
+      "min-width",
+      "max-width"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/width",
+    "summary": "要素の横幅を指定する。px（固定）・%（親要素基準）・vw（画面幅基準）などで指定できる。",
+    "usage": "要素の幅を固定したいとき・画面幅いっぱいに広げたいとき。",
+    "examples": [
+      {
+        "code": ".container {\n  width: 100%;\n  max-width: 960px; // 最大幅の制限\n  margin: 0 auto;   // 中央寄せ\n}",
+        "note": "レスポンシブの定番パターン"
+      }
+    ],
+    "similar": [
+      {
+        "id": "height",
+        "diff": "heightは縦方向の高さ"
+      },
+      {
+        "id": "box-sizing",
+        "diff": "box-sizingでpaddingやborderを幅の計算に含めるか決める"
+      }
+    ],
+    "mistakes": [
+      "widthとbox-sizingを組み合わせていないとpaddingで幅が変わる"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "height",
+    "word": "height",
+    "formal_name": "Height",
+    "formal_name_ja": "高さ",
+    "category": "CSS",
+    "aliases": [
+      "height",
+      "min-height",
+      "max-height"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/height",
+    "summary": "要素の高さを指定する。内容に合わせて自動で変わるauto（デフォルト）のまま使うことが多い。",
+    "usage": "ヒーローセクションを画面いっぱいにしたいとき・最低高さを確保したいとき。",
+    "examples": [
+      {
+        "code": ".hero { height: 100vh; }       // 画面の高さいっぱい\n.card { min-height: 200px; }   // 最低200pxは確保",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "width",
+        "diff": "widthは横幅"
+      }
+    ],
+    "mistakes": [
+      "height: 100%は親要素に高さが指定されていないと効かない"
     ],
     "browser_support": "全ブラウザ対応"
   },
@@ -108,9 +384,380 @@
         "note": ""
       }
     ],
-    "similar": [],
+    "similar": [
+      {
+        "id": "background-color",
+        "diff": "背景の色を指定する"
+      },
+      {
+        "id": "opacity",
+        "diff": "要素全体の透明度（テキストも背景も一緒に薄くなる）"
+      }
+    ],
     "mistakes": [
       "opacityで文字を薄くすると背景も一緒に薄くなる → rgba()を使う"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "background-color",
+    "word": "background-color",
+    "formal_name": "Background Color",
+    "formal_name_ja": "背景色",
+    "category": "CSS",
+    "aliases": [
+      "background-color"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/background-color",
+    "summary": "背景色を指定する。rgba()で透明度を設定することもできる。",
+    "usage": "要素の背景に色をつけたいとき。",
+    "examples": [
+      {
+        "code": ".card    { background-color: #f5f5f5; }\n.overlay { background-color: rgba(0,0,0,0.5); }",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "background",
+        "diff": "backgroundは色・画像・位置などをまとめて指定するショートハンド"
+      },
+      {
+        "id": "color",
+        "diff": "colorはテキストの色"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "background",
+    "word": "background",
+    "formal_name": "Background",
+    "formal_name_ja": "背景",
+    "category": "CSS",
+    "aliases": [
+      "background",
+      "background-image",
+      "background-size",
+      "background-position",
+      "background-repeat"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/background",
+    "summary": "背景に関する設定をまとめて指定できるショートハンド。色・画像・位置・繰り返しなどを一括指定できる。",
+    "usage": "背景画像を設定したいとき。",
+    "examples": [
+      {
+        "code": ".hero {\n  background: url('bg.jpg') center/cover no-repeat;\n}",
+        "note": "背景画像をカバー表示"
+      }
+    ],
+    "similar": [
+      {
+        "id": "background-color",
+        "diff": "background-colorは色のみ"
+      }
+    ],
+    "mistakes": [
+      "background: url()でパスが間違っていると画像が表示されない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "font-size",
+    "word": "font-size",
+    "formal_name": "Font Size",
+    "formal_name_ja": "文字サイズ",
+    "category": "CSS",
+    "aliases": [
+      "font-size"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/font-size",
+    "summary": "テキストの大きさを指定する。px（固定）・rem（ルート要素基準）・em（親要素基準）で指定できる。",
+    "usage": "テキストのサイズを変えたいとき。",
+    "examples": [
+      {
+        "code": ".title { font-size: 32px; }  // 固定サイズ\nbody  { font-size: 16px; }\n.text { font-size: 1rem; }   // bodyの1倍 = 16px",
+        "note": "remはbodyのフォントサイズが変わっても追従する"
+      }
+    ],
+    "similar": [
+      {
+        "id": "font-weight",
+        "diff": "font-weightはテキストの太さ"
+      },
+      {
+        "id": "line-height",
+        "diff": "line-heightは行間"
+      }
+    ],
+    "mistakes": [
+      "pxで固定するとブラウザのフォントサイズ設定を無視してしまう（remを使うと追従する）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "font-weight",
+    "word": "font-weight",
+    "formal_name": "Font Weight",
+    "formal_name_ja": "文字の太さ",
+    "category": "CSS",
+    "aliases": [
+      "font-weight"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/font-weight",
+    "summary": "テキストの太さを指定する。bold（太字）・normal（通常）・数値（100〜900）で指定できる。",
+    "usage": "テキストを太くしたいとき。",
+    "examples": [
+      {
+        "code": ".title { font-weight: bold; }   // 太字 = 700\n.label { font-weight: 600; }    // やや太め\n.body  { font-weight: normal; } // 通常 = 400",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "font-size",
+        "diff": "font-sizeはテキストの大きさ"
+      }
+    ],
+    "mistakes": [
+      "フォントが対応していない太さを指定しても変化しない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "font-family",
+    "word": "font-family",
+    "formal_name": "Font Family",
+    "formal_name_ja": "フォント",
+    "category": "CSS",
+    "aliases": [
+      "font-family"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/font-family",
+    "summary": "フォントを指定する。複数書くと左から順に対応フォントを探す。最後に総称ファミリを書くのが基本。",
+    "usage": "フォントを変えたいとき。",
+    "examples": [
+      {
+        "code": "body {\n  font-family: 'Noto Sans JP', sans-serif;\n}",
+        "note": "日本語フォントの基本形"
+      }
+    ],
+    "similar": [
+      {
+        "id": "font-size",
+        "diff": "font-sizeはテキストの大きさ"
+      }
+    ],
+    "mistakes": [
+      "フォント名にスペースがある場合はクォートで囲む",
+      "最後に必ずsans-serifなどの総称ファミリを書く（フォールバック用）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "line-height",
+    "word": "line-height",
+    "formal_name": "Line Height",
+    "formal_name_ja": "行間",
+    "category": "CSS",
+    "aliases": [
+      "line-height"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/line-height",
+    "summary": "行間を指定する。単位なしの数値（例：1.6）で指定するのが推奨。",
+    "usage": "テキストの行間を調整したいとき。日本語は1.6〜1.8が読みやすい。",
+    "examples": [
+      {
+        "code": "body { line-height: 1.6; }     // 推奨\n.tight { line-height: 1.2; }   // 詰め",
+        "note": "単位なし数値が推奨"
+      }
+    ],
+    "similar": [
+      {
+        "id": "font-size",
+        "diff": "font-sizeはテキストの大きさ"
+      }
+    ],
+    "mistakes": [
+      "pxで指定するとフォントサイズが変わったときに比率が崩れる（単位なし数値を使う）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "text-align",
+    "word": "text-align",
+    "formal_name": "Text Align",
+    "formal_name_ja": "テキスト揃え",
+    "category": "CSS",
+    "aliases": [
+      "text-align"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/text-align",
+    "summary": "テキストの水平方向の揃え方を指定する。center・left・right・justifyがある。",
+    "usage": "テキストを中央揃えにしたいとき。",
+    "examples": [
+      {
+        "code": ".title { text-align: center; }   // 中央揃え\n.body  { text-align: left; }     // 左揃え（デフォルト）",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "justify-content",
+        "diff": "justify-contentはFlexbox/Gridの要素の位置揃え"
+      }
+    ],
+    "mistakes": [
+      "text-alignで要素自体を中央に置けるわけではない（テキストの揃えのみ）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "text-decoration",
+    "word": "text-decoration",
+    "formal_name": "Text Decoration",
+    "formal_name_ja": "テキスト装飾",
+    "category": "CSS",
+    "aliases": [
+      "text-decoration"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/text-decoration",
+    "summary": "テキストの装飾を指定する。リンクの下線を消すときによく使う。",
+    "usage": "リンクのデフォルト下線を消したいとき。",
+    "examples": [
+      {
+        "code": "a { text-decoration: none; }           // 下線なし\na:hover { text-decoration: underline; } // ホバー時に下線",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "position",
+    "word": "position",
+    "formal_name": "Position",
+    "formal_name_ja": "配置方法",
+    "category": "CSS",
+    "aliases": [
+      "position",
+      "relative",
+      "absolute",
+      "fixed",
+      "sticky"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/position",
+    "summary": "要素の配置方法を指定する。absoluteは最も近いposition: relativeの親を基準に配置される。",
+    "usage": "要素を特定の位置に固定したいとき・画面に固定したいとき。",
+    "examples": [
+      {
+        "code": ".parent { position: relative; }\n.badge  {\n  position: absolute;\n  top: 0; right: 0; // 親の右上に配置\n}",
+        "note": "absoluteを使うときは親にrelativeを必ずつける"
+      }
+    ],
+    "similar": [
+      {
+        "id": "z-index",
+        "diff": "z-indexはpositionを指定した要素の重なり順を決める"
+      }
+    ],
+    "mistakes": [
+      "absoluteを使うときに親要素にrelativeを指定し忘れる（意図しない場所に配置される）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "z-index",
+    "word": "z-index",
+    "formal_name": "Z-Index",
+    "formal_name_ja": "重なり順",
+    "category": "CSS",
+    "aliases": [
+      "z-index"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/z-index",
+    "summary": "要素の重なり順を指定する。数値が大きいほど手前に表示される。",
+    "usage": "モーダル・ドロップダウン・ツールチップなど要素を重ねるとき。",
+    "examples": [
+      {
+        "code": ".modal   { z-index: 100; position: fixed; }\n.overlay { z-index: 99;  position: fixed; }",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "position",
+        "diff": "z-indexはpositionを指定した要素にしか効かない"
+      }
+    ],
+    "mistakes": [
+      "positionを指定していない要素にz-indexを使っても効かない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "overflow",
+    "word": "overflow",
+    "formal_name": "Overflow",
+    "formal_name_ja": "はみ出し処理",
+    "category": "CSS",
+    "aliases": [
+      "overflow",
+      "overflow-x",
+      "overflow-y"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/overflow",
+    "summary": "コンテンツが要素からはみ出したときの処理を指定する。",
+    "usage": "画像の角丸が効かないとき・テキストのはみ出しを防ぎたいとき。",
+    "examples": [
+      {
+        "code": ".card { overflow: hidden; }   // はみ出しを隠す\n.box  { overflow: auto; }     // 必要時にスクロール",
+        "note": "border-radiusと一緒によく使う"
+      }
+    ],
+    "similar": [
+      {
+        "id": "text-overflow",
+        "diff": "text-overflowはテキストのみのはみ出し処理"
+      }
+    ],
+    "mistakes": [
+      "border-radiusで角丸にしても中の画像がはみ出す場合はoverflow: hiddenを追加する"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "opacity",
+    "word": "opacity",
+    "formal_name": "Opacity",
+    "formal_name_ja": "透明度",
+    "category": "CSS",
+    "aliases": [
+      "opacity"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/opacity",
+    "summary": "要素の透明度を0（完全透明）〜1（不透明）で指定する。子要素にも影響する。",
+    "usage": "要素全体を半透明にしたいとき。",
+    "examples": [
+      {
+        "code": ".ghost  { opacity: 0.5; }  // 半透明\n.hidden { opacity: 0; }    // 完全透明（スペースは残る）",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "visibility",
+        "diff": "visibility: hiddenも透明だがスペースが残る"
+      },
+      {
+        "id": "color",
+        "diff": "テキストだけ半透明にするならrgba()を使う"
+      }
+    ],
+    "mistakes": [
+      "opacityは子要素も一緒に透明になる（テキストだけ透明にしたいならrgba()を使う）"
     ],
     "browser_support": "全ブラウザ対応"
   },
@@ -132,10 +779,624 @@
         "note": "transitionは変化する前の要素に指定する"
       }
     ],
-    "similar": [],
+    "similar": [
+      {
+        "id": "animation",
+        "diff": "@keyframesと組み合わせる・より複雑なアニメーション"
+      },
+      {
+        "id": "transform",
+        "diff": "transformでtransitionの変化をなめらかにすることが多い"
+      }
+    ],
     "mistakes": [
       "transitionを:hoverに書くと元に戻るときが即時になる（変化前の要素に書く）"
     ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "transform",
+    "word": "transform",
+    "formal_name": "Transform",
+    "formal_name_ja": "変形",
+    "category": "CSS",
+    "aliases": [
+      "transform"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/transform",
+    "summary": "要素の変形（移動・回転・拡大縮小）を指定する。レイアウトに影響を与えずに視覚的な変形ができる。",
+    "usage": "要素をわずかに動かしたいとき・拡大したいとき。transitionと組み合わせて使う。",
+    "examples": [
+      {
+        "code": ".card:hover { transform: translateY(-4px); } // 上に浮かせる\n.icon:hover { transform: scale(1.1); }       // 拡大",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "transition",
+        "diff": "transitionでtransformの変化をなめらかにする"
+      }
+    ],
+    "mistakes": [
+      "transformはレイアウトに影響しない（他の要素の位置が変わらない）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "animation",
+    "word": "animation",
+    "formal_name": "Animation",
+    "formal_name_ja": "アニメーション",
+    "category": "CSS",
+    "aliases": [
+      "animation",
+      "@keyframes"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/animation",
+    "summary": "@keyframesで定義したアニメーションを要素に適用する。",
+    "usage": "ローディングスピナー・フェードイン・繰り返しアニメーションなど。",
+    "examples": [
+      {
+        "code": "@keyframes fadeIn {\n  from { opacity: 0; }\n  to   { opacity: 1; }\n}\n.box { animation: fadeIn 0.5s ease; }",
+        "note": "フェードインアニメーション"
+      }
+    ],
+    "similar": [
+      {
+        "id": "transition",
+        "diff": "transitionはホバーなど状態変化のアニメーション・animationは自動再生"
+      }
+    ],
+    "mistakes": [
+      "@keyframesの名前とanimationプロパティの名前を一致させる必要がある"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "box-sizing",
+    "word": "box-sizing",
+    "formal_name": "Box Sizing",
+    "formal_name_ja": "ボックスサイズの計算方法",
+    "category": "CSS",
+    "aliases": [
+      "box-sizing"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/box-sizing",
+    "summary": "要素の幅・高さの計算方法を指定する。border-boxにするとpaddingとborderを含めたサイズがwidthになる。",
+    "usage": "paddingを追加しても幅が変わらないようにしたいとき。",
+    "examples": [
+      {
+        "code": "* {\n  box-sizing: border-box; // 全要素に適用するのが一般的\n}",
+        "note": "CSSの最初に書いておくと便利"
+      }
+    ],
+    "similar": [
+      {
+        "id": "padding",
+        "diff": "paddingの値がwidthに含まれるかどうかがbox-sizingで変わる"
+      }
+    ],
+    "mistakes": [
+      "box-sizing: content-box（デフォルト）はpaddingが幅に追加されるので要素が大きくなる"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "box-shadow",
+    "word": "box-shadow",
+    "formal_name": "Box Shadow",
+    "formal_name_ja": "影",
+    "category": "CSS",
+    "aliases": [
+      "box-shadow"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/box-shadow",
+    "summary": "要素に影をつける。水平・垂直・ぼかし・広がり・色の順で指定する。",
+    "usage": "カード・ボタンに立体感・浮き感をつけるとき。",
+    "examples": [
+      {
+        "code": ".card {\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n}",
+        "note": "ふんわりした影（カードによく使う）"
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "cursor",
+    "word": "cursor",
+    "formal_name": "Cursor",
+    "formal_name_ja": "カーソルの形",
+    "category": "CSS",
+    "aliases": [
+      "cursor"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/cursor",
+    "summary": "マウスカーソルの形を指定する。クリックできる要素にはpointerをつけるとUXが向上する。",
+    "usage": "ボタンやリンクのようなクリックできる要素に指マークを表示したいとき。",
+    "examples": [
+      {
+        "code": ".btn  { cursor: pointer; }   // 指マーク\n.drag { cursor: grab; }      // 掴む",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "visibility",
+    "word": "visibility",
+    "formal_name": "Visibility",
+    "formal_name_ja": "表示/非表示",
+    "category": "CSS",
+    "aliases": [
+      "visibility"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/visibility",
+    "summary": "要素の表示・非表示を指定する。hiddenにすると見えなくなるがスペースは残る。",
+    "usage": "要素を隠したいがレイアウトは崩したくないとき。",
+    "examples": [
+      {
+        "code": ".hidden { visibility: hidden; } // 非表示・スペース残る\n.gone   { display: none; }      // 非表示・スペースも消える",
+        "note": "display: noneとの違い"
+      }
+    ],
+    "similar": [
+      {
+        "id": "display",
+        "diff": "display: noneはスペースごと消える"
+      },
+      {
+        "id": "opacity",
+        "diff": "opacity: 0は透明だがクリックイベントは受け取る"
+      }
+    ],
+    "mistakes": [
+      "display: noneとvisibility: hiddenの違いを混同する"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "object-fit",
+    "word": "object-fit",
+    "formal_name": "Object Fit",
+    "formal_name_ja": "画像のフィット方法",
+    "category": "CSS",
+    "aliases": [
+      "object-fit"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/object-fit",
+    "summary": "画像・動画を要素内にどのように表示するかを指定する。coverで要素を覆う・containで要素内に収まる。",
+    "usage": "画像をトリミングして要素にきれいに収めたいとき。",
+    "examples": [
+      {
+        "code": "img {\n  width: 200px;\n  height: 200px;\n  object-fit: cover; // 要素を覆う・トリミングされる\n}",
+        "note": "正方形のサムネイルによく使う"
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "grid-template-columns",
+    "word": "grid-template-columns",
+    "formal_name": "Grid Template Columns",
+    "formal_name_ja": "Gridの列構成",
+    "category": "CSS",
+    "aliases": [
+      "grid-template-columns",
+      "grid-template-rows",
+      "grid-column",
+      "grid-row"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-columns",
+    "summary": "Gridの列の構成を指定する。1frは使用可能なスペースを均等に分割する。",
+    "usage": "カードを均等なグリッドに並べたいとき。",
+    "examples": [
+      {
+        "code": ".grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 16px;\n}",
+        "note": "3列の均等グリッド"
+      }
+    ],
+    "similar": [
+      {
+        "id": "display",
+        "diff": "display: gridを指定してから使う"
+      },
+      {
+        "id": "gap",
+        "diff": "gapでグリッドアイテム間の余白を指定"
+      }
+    ],
+    "mistakes": [
+      "display: gridを書かずに使っても効かない"
+    ],
+    "browser_support": "全ブラウザ対応（IE非対応）"
+  },
+  {
+    "id": "text-overflow",
+    "word": "text-overflow",
+    "formal_name": "Text Overflow",
+    "formal_name_ja": "テキストのはみ出し処理",
+    "category": "CSS",
+    "aliases": [
+      "text-overflow"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/text-overflow",
+    "summary": "テキストがあふれたときの表示方法を指定する。ellipsisで末尾が...になる。",
+    "usage": "長いテキストを1行で省略したいとき。",
+    "examples": [
+      {
+        "code": ".truncate {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; // 末尾を...にする\n}",
+        "note": "3つセットで使う（これが定番）"
+      }
+    ],
+    "similar": [
+      {
+        "id": "overflow",
+        "diff": "overflowは要素全体のはみ出し処理"
+      }
+    ],
+    "mistakes": [
+      "overflow: hiddenとwhite-space: nowrapを一緒に指定しないと効かない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "white-space",
+    "word": "white-space",
+    "formal_name": "White Space",
+    "formal_name_ja": "空白文字の扱い",
+    "category": "CSS",
+    "aliases": [
+      "white-space"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/white-space",
+    "summary": "空白文字の扱い方を指定する。nowrapで折り返しなし・preで空白をそのまま表示する。",
+    "usage": "テキストを1行に強制したいとき（text-overflowと一緒に使う）。",
+    "examples": [
+      {
+        "code": ".nowrap { white-space: nowrap; } // 折り返しなし\n.pre    { white-space: pre; }    // 空白をそのまま",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "text-overflow",
+        "diff": "text-overflowと組み合わせて省略記号を表示する"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "outline",
+    "word": "outline",
+    "formal_name": "Outline",
+    "formal_name_ja": "輪郭線",
+    "category": "CSS",
+    "aliases": [
+      "outline",
+      "outline-offset"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/outline",
+    "summary": "要素の外側に輪郭線をつける。borderと違いレイアウトに影響しない。",
+    "usage": "フォーカス時のスタイルをカスタマイズしたいとき。",
+    "examples": [
+      {
+        "code": "input:focus {\n  outline: 2px solid blue;\n  outline-offset: 2px;\n}",
+        "note": "アクセシビリティに重要"
+      }
+    ],
+    "similar": [
+      {
+        "id": "border",
+        "diff": "borderはレイアウトに影響する・outlineは影響しない"
+      }
+    ],
+    "mistakes": [
+      "outline: noneで消すとキーボード操作のフォーカスがわからなくなる（アクセシビリティに悪影響）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "scroll-behavior",
+    "word": "scroll-behavior",
+    "formal_name": "Scroll Behavior",
+    "formal_name_ja": "スクロール動作",
+    "category": "CSS",
+    "aliases": [
+      "scroll-behavior"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/scroll-behavior",
+    "summary": "スクロールの動作を指定する。smoothでなめらかにスクロールする。",
+    "usage": "ページ内リンクのジャンプをなめらかにしたいとき。",
+    "examples": [
+      {
+        "code": "html { scroll-behavior: smooth; }",
+        "note": "ページ全体のスクロールをなめらかにする（1行で完了）"
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応（Safari 15.4以降）"
+  },
+  {
+    "id": "aspect-ratio",
+    "word": "aspect-ratio",
+    "formal_name": "Aspect Ratio",
+    "formal_name_ja": "縦横比",
+    "category": "CSS",
+    "aliases": [
+      "aspect-ratio"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/aspect-ratio",
+    "summary": "要素の縦横比を指定する。16/9のように指定できる。",
+    "usage": "動画サムネイル・カードの画像など縦横比を固定したいとき。",
+    "examples": [
+      {
+        "code": ".video {\n  width: 100%;\n  aspect-ratio: 16 / 9; // 幅に合わせて高さが自動で決まる\n}",
+        "note": "レスポンシブな動画表示"
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応（Chrome 88以降）"
+  },
+  {
+    "id": "list-style",
+    "word": "list-style",
+    "formal_name": "List Style",
+    "formal_name_ja": "リストのスタイル",
+    "category": "CSS",
+    "aliases": [
+      "list-style",
+      "list-style-type"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/list-style",
+    "summary": "リストのマーカー（点・番号）のスタイルを指定する。noneでマーカーを消せる。",
+    "usage": "ナビゲーションメニューなどリストのデフォルトの点を消したいとき。",
+    "examples": [
+      {
+        "code": "ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}",
+        "note": "ナビゲーションメニューの定番設定"
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "list-style: noneだけでなくpadding: 0も一緒に指定する（デフォルトのインデントが残るため）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "pointer-events",
+    "word": "pointer-events",
+    "formal_name": "Pointer Events",
+    "formal_name_ja": "ポインターイベント制御",
+    "category": "CSS",
+    "aliases": [
+      "pointer-events"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/pointer-events",
+    "summary": "要素がマウスイベントを受け取るかどうかを指定する。noneにするとクリックを透過する。",
+    "usage": "オーバーレイ要素の下にある要素をクリックできるようにしたいとき。",
+    "examples": [
+      {
+        "code": ".overlay { pointer-events: none; } // クリックを透過",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "cursor",
+        "diff": "cursorはカーソルの見た目を変えるだけ"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "user-select",
+    "word": "user-select",
+    "formal_name": "User Select",
+    "formal_name_ja": "テキスト選択の制御",
+    "category": "CSS",
+    "aliases": [
+      "user-select"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/user-select",
+    "summary": "テキストのユーザー選択を制御する。noneにすると選択できなくなる。",
+    "usage": "ボタンのラベルやアイコンが誤って選択されるのを防ぎたいとき。",
+    "examples": [
+      {
+        "code": ".btn { user-select: none; } // テキスト選択不可",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "css-filter",
+    "word": "filter",
+    "formal_name": "Filter",
+    "formal_name_ja": "フィルター効果",
+    "category": "CSS",
+    "aliases": [
+      "filter",
+      "backdrop-filter"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/filter",
+    "summary": "要素にぼかし・明度・彩度などの視覚効果を適用する。",
+    "usage": "画像を白黒にしたいとき・ぼかし効果をつけたいとき。",
+    "examples": [
+      {
+        "code": ".blur { filter: blur(4px); }         // ぼかし\n.dark { filter: brightness(0.5); }   // 暗くする\n.gray { filter: grayscale(100%); }   // グレースケール",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "opacity",
+        "diff": "opacityは透明度・filterはより多彩な視覚効果"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "content",
+    "word": "content",
+    "formal_name": "Content",
+    "formal_name_ja": "疑似要素のコンテンツ",
+    "category": "CSS",
+    "aliases": [
+      "content"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/content",
+    "summary": "::beforeや::after疑似要素でコンテンツを挿入する。",
+    "usage": "アイコン・記号などをCSSだけで要素の前後に追加したいとき。",
+    "examples": [
+      {
+        "code": ".required::after {\n  content: \" *\";\n  color: red;\n}",
+        "note": "必須項目の * マークをCSSで追加"
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "content: \"\"でも空文字を指定しないと疑似要素が表示されない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "resize",
+    "word": "resize",
+    "formal_name": "Resize",
+    "formal_name_ja": "リサイズ制御",
+    "category": "CSS",
+    "aliases": [
+      "resize"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/resize",
+    "summary": "ユーザーが要素のサイズを変更できるかどうかを指定する。テキストエリアによく使う。",
+    "usage": "テキストエリアのリサイズを縦方向のみに制限したいとき。",
+    "examples": [
+      {
+        "code": "textarea {\n  resize: vertical; // 縦方向のみ\n  resize: none;     // リサイズ不可\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "text-shadow",
+    "word": "text-shadow",
+    "formal_name": "Text Shadow",
+    "formal_name_ja": "テキストの影",
+    "category": "CSS",
+    "aliases": [
+      "text-shadow"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/text-shadow",
+    "summary": "テキストに影をつける。水平・垂直・ぼかし・色の順で指定する。",
+    "usage": "テキストを目立たせたいとき・背景との視認性を高めたいとき。",
+    "examples": [
+      {
+        "code": ".shadow {\n  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);\n}",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "box-shadow",
+        "diff": "box-shadowは要素全体に影をつける"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "word-break",
+    "word": "word-break",
+    "formal_name": "Word Break",
+    "formal_name_ja": "単語の折り返し",
+    "category": "CSS",
+    "aliases": [
+      "word-break",
+      "overflow-wrap"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/word-break",
+    "summary": "長い単語の折り返し方を指定する。break-allで文字単位で折り返す。",
+    "usage": "URLや長い英単語が要素からはみ出すのを防ぎたいとき。",
+    "examples": [
+      {
+        "code": ".text {\n  word-break: break-all;\n  overflow-wrap: break-word;\n}",
+        "note": "日本語テキストによく使う"
+      }
+    ],
+    "similar": [
+      {
+        "id": "overflow",
+        "diff": "overflowは要素全体のはみ出し処理"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "text-transform",
+    "word": "text-transform",
+    "formal_name": "Text Transform",
+    "formal_name_ja": "テキストの大文字小文字変換",
+    "category": "CSS",
+    "aliases": [
+      "text-transform"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/text-transform",
+    "summary": "テキストの大文字・小文字変換を指定する。uppercase・lowercase・capitalizeがある。",
+    "usage": "見出しをすべて大文字にしたいとき・英語テキストの先頭を大文字にしたいとき。",
+    "examples": [
+      {
+        "code": ".upper { text-transform: uppercase; }  // すべて大文字\n.cap   { text-transform: capitalize; } // 先頭大文字",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "vertical-align",
+    "word": "vertical-align",
+    "formal_name": "Vertical Align",
+    "formal_name_ja": "垂直方向の揃え",
+    "category": "CSS",
+    "aliases": [
+      "vertical-align"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/vertical-align",
+    "summary": "インライン要素・テーブルセル内の垂直方向の揃え方を指定する。",
+    "usage": "画像とテキストを縦方向に揃えたいとき。",
+    "examples": [
+      {
+        "code": "img { vertical-align: middle; } // 画像をテキストの中央に揃える\ntd  { vertical-align: top; }    // テーブルセルの上揃え",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "align-items",
+        "diff": "align-itemsはFlexbox/Gridの垂直揃え"
+      }
+    ],
+    "mistakes": [],
     "browser_support": "全ブラウザ対応"
   }
 ]

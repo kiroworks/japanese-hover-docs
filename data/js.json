@@ -1,152 +1,30 @@
 [
-  {
-    "id": "const",
-    "word": "const",
-    "formal_name": "const",
-    "formal_name_ja": "変更不可の変数",
-    "category": "JavaScript",
-    "aliases": [
-      "const"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const",
-    "summary": "一度代入したら変更できない変数を宣言するキーワード。基本的にconstを使い、変更が必要なときだけletに変える。",
-    "usage": "変更しない値を宣言するとき。",
-    "examples": [
-      {
-        "code": "const name = '田中';\n// name = '鈴木'; // エラー！再代入不可",
-        "note": ""
-      }
-    ],
-    "similar": [
-      {
-        "id": "let",
-        "diff": "再代入可能・変化する値に使う"
-      }
-    ],
-    "mistakes": [
-      "constはオブジェクトの中身の変更は禁止しない（再代入のみ禁止）"
-    ],
-    "browser_support": "全ブラウザ対応",
-    "error_patterns": [
-      "Assignment to constant variable"
-    ]
-  },
-  {
-    "id": "let",
-    "word": "let",
-    "formal_name": "let",
-    "formal_name_ja": "変更可能な変数",
-    "category": "JavaScript",
-    "aliases": [
-      "let"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let",
-    "summary": "後から値を変更できる変数を宣言するキーワード。",
-    "usage": "ループのカウンターや状態管理など値が変わる変数を作るとき。",
-    "examples": [
-      {
-        "code": "let count = 0;\ncount = count + 1; // 再代入できる",
-        "note": ""
-      }
-    ],
-    "similar": [
-      {
-        "id": "const",
-        "diff": "再代入不可・変更しない値に使う（推奨）"
-      }
-    ],
-    "mistakes": [
-      "変更しない値にletを使う（constを使うのが正しい）"
-    ],
-    "browser_support": "全ブラウザ対応"
-  },
-  {
-    "id": "querySelector",
-    "word": "querySelector",
-    "formal_name": "querySelector / querySelectorAll",
-    "formal_name_ja": "CSSセレクタで要素を取得",
-    "category": "JavaScript",
-    "aliases": [
-      "querySelector",
-      "querySelectorAll"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/Document/querySelector",
-    "summary": "CSSセレクタの書き方でHTML要素を取得するメソッド。querySelectorAllは全件取得する。",
-    "usage": "クラス名・タグ名など柔軟な条件で要素を取得したいとき。",
-    "examples": [
-      {
-        "code": "const card  = document.querySelector('.card');    // 最初の1件\nconst cards = document.querySelectorAll('.card'); // 全件",
-        "note": ""
-      }
-    ],
-    "similar": [],
-    "mistakes": [
-      "querySelectorは最初の1件しか返さない（全件はquerySelectorAllを使う）"
-    ],
-    "browser_support": "全ブラウザ対応",
-    "error_patterns": [
-      "Cannot read properties of null"
-    ]
-  },
-  {
-    "id": "addEventListener",
-    "word": "addEventListener",
-    "formal_name": "addEventListener",
-    "formal_name_ja": "イベント登録",
-    "category": "JavaScript",
-    "aliases": [
-      "addEventListener"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener",
-    "summary": "要素にイベントが起きたときに実行する処理を登録するメソッド。",
-    "usage": "ボタンをクリックしたとき・フォームに入力したときなど何かが起きたときに処理を動かしたいとき。",
-    "examples": [
-      {
-        "code": "const btn = document.getElementById('myBtn');\nbtn.addEventListener('click', () => {\n  alert('クリックされました');\n});\n\n// よく使うイベント名\n// 'click'   クリックしたとき\n// 'input'   文字を入力したとき\n// 'submit'  フォームを送信したとき",
-        "note": ""
-      }
-    ],
-    "similar": [
-      {
-        "id": "querySelector",
-        "diff": "イベントを登録したい要素を取得するのに使う"
-      }
-    ],
-    "mistakes": [
-      "イベント名をクォートで囲み忘れる（'click'のように文字列で渡す）",
-      "DOMが読み込まれる前に実行されるとnullエラーになる"
-    ],
-    "browser_support": "全ブラウザ対応",
-    "error_patterns": [
-      "is not a function",
-      "Cannot read properties of null"
-    ]
-  },
-  {
-    "id": "localStorage",
-    "word": "localStorage",
-    "formal_name": "localStorage",
-    "formal_name_ja": "ブラウザへのデータ保存",
-    "category": "JavaScript",
-    "aliases": [
-      "localStorage",
-      "setItem",
-      "getItem",
-      "removeItem"
-    ],
-    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage",
-    "summary": "ブラウザにデータを永続保存する仕組み。ページを閉じてもデータが残る。文字列のみ保存できる。",
-    "usage": "ユーザーの設定・進捗などをブラウザに保存したいとき。",
-    "examples": [
-      {
-        "code": "localStorage.setItem('name', '田中');\nconst name = localStorage.getItem('name');\n\n// オブジェクトはJSON.stringifyが必要\nlocalStorage.setItem('user', JSON.stringify({ name: '田中' }));\nconst user = JSON.parse(localStorage.getItem('user'));",
-        "note": ""
-      }
-    ],
-    "similar": [],
-    "mistakes": [
-      "文字列しか保存できない（オブジェクトはJSON.stringifyが必要）"
-    ],
-    "browser_support": "全ブラウザ対応"
-  }
+  {"id":"const","word":"const","formal_name":"const","formal_name_ja":"変更不可の変数","category":"JavaScript","aliases":["const"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const","summary":"一度代入したら変更できない変数を宣言するキーワード。基本的にconstを使い、変更が必要なときだけletに変える。","usage":"変更しない値を宣言するとき。","examples":[{"code":"const name = '田中';\n// name = '鈴木'; // エラー！再代入不可","note":""}],"similar":[{"id":"let","diff":"再代入可能・変化する値に使う"}],"mistakes":["constはオブジェクトの中身の変更は禁止しない（再代入のみ禁止）"],"browser_support":"全ブラウザ対応","error_patterns":["Assignment to constant variable"]},
+  {"id":"let","word":"let","formal_name":"let","formal_name_ja":"変更可能な変数","category":"JavaScript","aliases":["let"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let","summary":"後から値を変更できる変数を宣言するキーワード。","usage":"ループのカウンターや状態管理など値が変わる変数を作るとき。","examples":[{"code":"let count = 0;\ncount = count + 1; // 再代入できる","note":""}],"similar":[{"id":"const","diff":"再代入不可・変更しない値に使う（推奨）"}],"mistakes":["変更しない値にletを使う（constを使うのが正しい）"],"browser_support":"全ブラウザ対応"},
+  {"id":"var","word":"var","formal_name":"var","formal_name_ja":"古い変数宣言","category":"JavaScript","aliases":["var"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/var","summary":"変数を宣言する古いキーワード。スコープの扱いが独特でバグの原因になるため非推奨。","usage":"新しいコードでは使わない。let/constを使う。","examples":[{"code":"// 古い書き方（非推奨）\nvar name = '田中';\n\n// 現代の書き方\nconst name2 = '田中';","note":""}],"similar":[{"id":"let","diff":"letはブロックスコープ・varは関数スコープ"},{"id":"const","diff":"constは再代入不可"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"function","word":"function","formal_name":"Function","formal_name_ja":"関数","category":"JavaScript","aliases":["function"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/function","summary":"処理をまとめて名前をつけたもの。何度も使う処理を関数にすることでコードを整理できる。","usage":"同じ処理を何度も書きたくないとき・処理に名前をつけて意図を伝えたいとき。","examples":[{"code":"function greet(name) {\n  return 'こんにちは、' + name + 'さん！';\n}\nconst msg = greet('田中'); // 'こんにちは、田中さん！'","note":"基本的な関数の定義と呼び出し"}],"similar":[{"id":"return","diff":"returnは関数から値を返すキーワード"}],"mistakes":[],"browser_support":"全ブラウザ対応","error_patterns":["is not a function"]},
+  {"id":"return","word":"return","formal_name":"return","formal_name_ja":"戻り値","category":"JavaScript","aliases":["return"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/return","summary":"関数から値を返すキーワード。returnに達すると関数の処理はそこで終了する。","usage":"関数の処理結果を呼び出し元に渡したいとき。","examples":[{"code":"function add(a, b) {\n  return a + b;\n}\nconst result = add(3, 5); // 8","note":""}],"similar":[{"id":"function","diff":"functionで関数を定義する・returnで値を返す"}],"mistakes":["returnを書かないとundefinedが返る","returnの後の処理は実行されない"],"browser_support":"全ブラウザ対応"},
+  {"id":"if","word":"if","formal_name":"if","formal_name_ja":"条件分岐","category":"JavaScript","aliases":["if","else"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/if...else","summary":"条件によって処理を分岐させる構文。条件がtrueのときにブロック内の処理を実行する。","usage":"条件によって異なる処理をしたいとき。","examples":[{"code":"const score = 75;\n\nif (score >= 80) {\n  console.log('優秀！');\n} else if (score >= 60) {\n  console.log('合格');\n} else {\n  console.log('不合格');\n}","note":""}],"similar":[],"mistakes":["= は代入・=== は比較（型も一致する必要がある）"],"browser_support":"全ブラウザ対応"},
+  {"id":"for","word":"for","formal_name":"for","formal_name_ja":"ループ","category":"JavaScript","aliases":["for","while"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for","summary":"指定した回数だけ処理を繰り返すループ構文。","usage":"同じ処理を複数回繰り返したいとき。配列の全要素を処理するときはforEachが推奨。","examples":[{"code":"for (let i = 0; i < 3; i++) {\n  console.log(i); // 0, 1, 2\n}","note":""}],"similar":[{"id":"forEach","diff":"forEachは配列専用のループ・forより簡潔"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"forEach","word":"forEach","formal_name":"Array.forEach","formal_name_ja":"配列の繰り返し処理","category":"JavaScript","aliases":["forEach"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach","summary":"配列の全要素に対して処理を繰り返すメソッド。forループより簡潔に書ける。","usage":"配列の各要素に対して処理したいとき。","examples":[{"code":"const fruits = ['りんご', 'みかん'];\n\nfruits.forEach((fruit, index) => {\n  console.log(index, fruit);\n});","note":"第2引数にインデックスが入る"}],"similar":[{"id":"map","diff":"mapは各要素を変換した新しい配列を返す"},{"id":"filter","diff":"filterは条件を満たす要素だけの新しい配列を返す"}],"mistakes":["forEachはreturnで途中終了できない（breakも使えない）"],"browser_support":"全ブラウザ対応","error_patterns":["is not a function"]},
+  {"id":"map","word":"map","formal_name":"Array.map","formal_name_ja":"配列の変換","category":"JavaScript","aliases":["map"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map","summary":"配列の全要素を変換して新しい配列を作るメソッド。元の配列は変更されない。","usage":"配列の各要素を加工した新しい配列が欲しいとき。","examples":[{"code":"const numbers = [1, 2, 3];\nconst doubled = numbers.map(n => n * 2);\nconsole.log(doubled); // [2, 4, 6]","note":"元の配列は変わらない"}],"similar":[{"id":"filter","diff":"filterは条件を満たす要素だけを返す"},{"id":"forEach","diff":"forEachは戻り値なし・mapは新しい配列を返す"}],"mistakes":["mapはreturnが必要（returnを書き忘れるとundefinedの配列になる）"],"browser_support":"全ブラウザ対応","error_patterns":["is not a function"]},
+  {"id":"filter","word":"filter","formal_name":"Array.filter","formal_name_ja":"配列の絞り込み","category":"JavaScript","aliases":["filter"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter","summary":"配列から条件を満たす要素だけを取り出して新しい配列を作るメソッド。","usage":"配列から特定の条件の要素だけを取り出したいとき。","examples":[{"code":"const numbers = [1, 2, 3, 4, 5, 6];\nconst evens = numbers.filter(n => n % 2 === 0);\nconsole.log(evens); // [2, 4, 6]","note":""}],"similar":[{"id":"map","diff":"mapは全要素を変換する・filterは条件を満たす要素のみ残す"}],"mistakes":[],"browser_support":"全ブラウザ対応","error_patterns":["is not a function"]},
+  {"id":"console.log","word":"console.log","formal_name":"console.log","formal_name_ja":"コンソール出力","category":"JavaScript","aliases":["console.log","console"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/console/log","summary":"ブラウザの開発者ツール（コンソール）に値を表示するメソッド。デバッグに使う。","usage":"変数の中身を確認したいとき・処理が実行されているか確認したいとき。","examples":[{"code":"const name = '田中';\nconsole.log(name);           // 田中\nconsole.log('名前:', name);  // 名前: 田中","note":""}],"similar":[],"mistakes":["リリース前にconsole.logを消し忘れる（本番コードには不要）"],"browser_support":"全ブラウザ対応"},
+  {"id":"document","word":"document","formal_name":"Document","formal_name_ja":"HTMLドキュメントオブジェクト","category":"JavaScript","aliases":["document"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Document","summary":"HTMLページ全体を表すオブジェクト。DOM操作の出発点。","usage":"HTML要素を取得・操作するとき。","examples":[{"code":"const title = document.getElementById('title');\nconst btn   = document.querySelector('.btn');\nconst items = document.querySelectorAll('li');","note":"要素を取得するメソッドの例"}],"similar":[{"id":"getElementById","diff":"getElementById・querySelectorはdocumentのメソッド"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"getElementById","word":"getElementById","formal_name":"getElementById","formal_name_ja":"IDで要素を取得","category":"JavaScript","aliases":["getElementById"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Document/getElementById","summary":"idを指定してHTML要素を1つ取得するメソッド。存在しない場合はnullが返る。","usage":"特定のidを持つ要素を取得してテキストやスタイルを変更したいとき。","examples":[{"code":"const el = document.getElementById('title');\n\nif (el) { // nullチェックが安全\n  el.textContent = '新しいタイトル';\n}","note":""}],"similar":[{"id":"querySelector","diff":"querySelectorはCSSセレクタで取得できる（より柔軟）"}],"mistakes":["idが存在しない場合nullが返る → そのまま操作するとエラーになる"],"browser_support":"全ブラウザ対応","error_patterns":["Cannot read properties of null"]},
+  {"id":"querySelector","word":"querySelector","formal_name":"querySelector / querySelectorAll","formal_name_ja":"CSSセレクタで要素を取得","category":"JavaScript","aliases":["querySelector","querySelectorAll"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Document/querySelector","summary":"CSSセレクタの書き方でHTML要素を取得するメソッド。querySelectorAllは全件取得する。","usage":"クラス名・タグ名など柔軟な条件で要素を取得したいとき。","examples":[{"code":"const card  = document.querySelector('.card');    // 最初の1件\nconst cards = document.querySelectorAll('.card'); // 全件","note":""}],"similar":[{"id":"getElementById","diff":"idだけで検索・こちらよりシンプル"}],"mistakes":["querySelectorは最初の1件しか返さない（全件はquerySelectorAllを使う）"],"browser_support":"全ブラウザ対応","error_patterns":["Cannot read properties of null"]},
+  {"id":"addEventListener","word":"addEventListener","formal_name":"addEventListener","formal_name_ja":"イベント登録","category":"JavaScript","aliases":["addEventListener"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener","summary":"要素にイベントが起きたときに実行する処理を登録するメソッド。","usage":"ボタンをクリックしたとき・フォームに入力したときなど何かが起きたときに処理を動かしたいとき。","examples":[{"code":"const btn = document.getElementById('myBtn');\nbtn.addEventListener('click', () => {\n  alert('クリックされました');\n});\n// 'click' / 'input' / 'submit' / 'keydown' / 'load'","note":"イベント名はクォートで囲む"}],"similar":[{"id":"querySelector","diff":"イベントを登録したい要素を取得するのに使う"}],"mistakes":["イベント名をクォートで囲み忘れる","DOMが読み込まれる前に実行されるとnullエラーになる"],"browser_support":"全ブラウザ対応","error_patterns":["is not a function","Cannot read properties of null"]},
+  {"id":"textContent","word":"textContent","formal_name":"textContent","formal_name_ja":"テキスト内容の取得・設定","category":"JavaScript","aliases":["textContent","innerText"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Node/textContent","summary":"要素のテキスト内容を取得・設定するプロパティ。HTMLタグは無視して純粋なテキストだけを扱う。","usage":"要素のテキストを変更したいとき。ユーザー入力を表示する場合はinnerHTMLよりこちらが安全。","examples":[{"code":"const el = document.getElementById('title');\nel.textContent = '新しいタイトル'; // 設定\nconst text = el.textContent;       // 取得","note":""}],"similar":[{"id":"innerHTML","diff":"innerHTMLはHTMLタグを含めて設定できるがXSSのリスクがある"}],"mistakes":["ユーザー入力をinnerHTMLに渡すとXSS攻撃の原因になる（textContentを使う）"],"browser_support":"全ブラウザ対応"},
+  {"id":"innerHTML","word":"innerHTML","formal_name":"innerHTML","formal_name_ja":"HTML内容の取得・設定","category":"JavaScript","aliases":["innerHTML"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Element/innerHTML","summary":"要素のHTML内容を取得・設定するプロパティ。HTMLタグを含めて設定できる。","usage":"HTMLを含むコンテンツを動的に生成したいとき。","examples":[{"code":"const el = document.getElementById('content');\nel.innerHTML = '<strong>太字</strong>のテキスト';","note":"ユーザー入力をそのまま渡すのは危険"}],"similar":[{"id":"textContent","diff":"textContentはHTMLタグをエスケープする・安全"}],"mistakes":["ユーザー入力をinnerHTMLに渡すとXSS（クロスサイトスクリプティング）攻撃の原因になる"],"browser_support":"全ブラウザ対応"},
+  {"id":"classList","word":"classList","formal_name":"classList","formal_name_ja":"クラスの操作","category":"JavaScript","aliases":["classList","classList.add","classList.remove","classList.toggle"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Element/classList","summary":"要素のCSSクラスを操作するプロパティ。add（追加）・remove（削除）・toggle（切り替え）メソッドがある。","usage":"JavaScriptでCSSクラスを動的に追加・削除したいとき。","examples":[{"code":"const el = document.getElementById('menu');\n\nel.classList.add('active');    // クラスを追加\nel.classList.remove('active'); // クラスを削除\nel.classList.toggle('open');   // あれば削除・なければ追加","note":""}],"similar":[{"id":"querySelector","diff":"querySelectorはCSSクラスで要素を取得する"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"localStorage","word":"localStorage","formal_name":"localStorage","formal_name_ja":"ブラウザへのデータ保存","category":"JavaScript","aliases":["localStorage","setItem","getItem","removeItem"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage","summary":"ブラウザにデータを永続保存する仕組み。ページを閉じてもデータが残る。文字列のみ保存できる。","usage":"ユーザーの設定・進捗などをブラウザに保存したいとき。","examples":[{"code":"localStorage.setItem('name', '田中');\nconst name = localStorage.getItem('name');\n\n// オブジェクトはJSON.stringifyが必要\nlocalStorage.setItem('user', JSON.stringify({ name: '田中' }));\nconst user = JSON.parse(localStorage.getItem('user'));","note":""}],"similar":[],"mistakes":["文字列しか保存できない（オブジェクトはJSON.stringifyが必要）"],"browser_support":"全ブラウザ対応"},
+  {"id":"JSON.stringify","word":"JSON.stringify","formal_name":"JSON.stringify","formal_name_ja":"オブジェクトをJSON文字列に変換","category":"JavaScript","aliases":["JSON.stringify","stringify"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify","summary":"JavaScriptのオブジェクトや配列をJSON文字列に変換するメソッド。","usage":"オブジェクトをlocalStorageに保存するとき・APIにデータを送るとき。","examples":[{"code":"const user = { name: '田中', age: 25 };\nconst str = JSON.stringify(user);\nconsole.log(str); // '{\"name\":\"田中\",\"age\":25}'","note":""}],"similar":[{"id":"JSON.parse","diff":"JSON.parseは文字列 → オブジェクトに変換"}],"mistakes":[],"browser_support":"全ブラウザ対応"},
+  {"id":"JSON.parse","word":"JSON.parse","formal_name":"JSON.parse","formal_name_ja":"JSON文字列をオブジェクトに変換","category":"JavaScript","aliases":["JSON.parse","parse"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse","summary":"JSON文字列をJavaScriptのオブジェクトや配列に変換するメソッド。","usage":"localStorageから取得したデータをオブジェクトに戻すとき。","examples":[{"code":"const str = '{\"name\":\"田中\",\"age\":25}';\nconst obj = JSON.parse(str);\nconsole.log(obj.name); // '田中'","note":""}],"similar":[{"id":"JSON.stringify","diff":"JSON.stringifyはオブジェクト → 文字列に変換"}],"mistakes":["不正なJSON文字列を渡すとエラーになる（try-catchで囲むのが安全）"],"browser_support":"全ブラウザ対応","error_patterns":["Unexpected token"]},
+  {"id":"fetch","word":"fetch","formal_name":"Fetch API","formal_name_ja":"APIリクエスト","category":"JavaScript","aliases":["fetch"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/Fetch_API","summary":"サーバーやAPIにリクエストを送るメソッド。非同期処理なのでawaitと組み合わせて使う。","usage":"外部APIからデータを取得したいとき。","examples":[{"code":"async function getData() {\n  try {\n    const res  = await fetch('https://api.example.com/data');\n    const data = await res.json();\n    console.log(data);\n  } catch (err) {\n    console.error('エラー:', err);\n  }\n}","note":"try-catchでエラーハンドリングするのが基本"}],"similar":[{"id":"async","diff":"async/awaitはfetchと一緒に使う非同期処理の構文"}],"mistakes":["awaitを書き忘れるとPromiseオブジェクトが返る（中身のデータではない）"],"browser_support":"全ブラウザ対応","error_patterns":["Failed to fetch"]},
+  {"id":"async","word":"async / await","formal_name":"async / await","formal_name_ja":"非同期処理","category":"JavaScript","aliases":["async","await"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/async_function","summary":"非同期処理を同期的に書くための構文。asyncをつけた関数の中でawaitが使える。","usage":"fetchなどの時間のかかる処理を順番に実行したいとき。","examples":[{"code":"async function loadData() {\n  const res  = await fetch('https://api.example.com');\n  const data = await res.json();\n  return data;\n}","note":"asyncをつけるとawaitが使える"}],"similar":[{"id":"fetch","diff":"fetchはAPIにリクエストを送るメソッド"}],"mistakes":["awaitはasync関数の中でしか使えない"],"browser_support":"全ブラウザ対応"},
+  {"id":"setTimeout","word":"setTimeout","formal_name":"setTimeout / setInterval","formal_name_ja":"タイマー処理","category":"JavaScript","aliases":["setTimeout","setInterval","clearTimeout","clearInterval"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/API/setTimeout","summary":"指定した時間（ミリ秒）後に処理を実行するメソッド。1000ミリ秒 = 1秒。","usage":"一定時間後に処理を実行したいとき・一定間隔で繰り返し実行したいとき。","examples":[{"code":"// 2秒後に実行\nsetTimeout(() => {\n  console.log('2秒経ちました');\n}, 2000);\n\n// 1秒ごとに繰り返す\nconst timer = setInterval(() => { ... }, 1000);\nclearInterval(timer); // 停止","note":""}],"similar":[],"mistakes":["setIntervalを停止しないとメモリリークの原因になる（clearIntervalで止める）"],"browser_support":"全ブラウザ対応"},
+  {"id":"try-catch","word":"try / catch","formal_name":"try / catch","formal_name_ja":"エラー処理","category":"JavaScript","aliases":["try","catch","finally"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/try...catch","summary":"エラーが起きたときにプログラムが止まらないようにするための構文。","usage":"fetchやJSON.parseなどエラーが起きる可能性がある処理を安全に扱いたいとき。","examples":[{"code":"try {\n  const data = JSON.parse(jsonString);\n  console.log(data);\n} catch (error) {\n  console.error('エラー:', error.message);\n}","note":"エラーが起きてもcatchで処理を継続できる"}],"similar":[],"mistakes":["catchを書かずにエラーを放置するとプログラムが止まる"],"browser_support":"全ブラウザ対応"},
+  {"id":"spread","word":"...（スプレッド）","formal_name":"Spread / Rest Operator","formal_name_ja":"スプレッド・レスト構文","category":"JavaScript","aliases":["spread","rest","..."],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax","summary":"配列やオブジェクトを展開する構文（...）。コピーや結合に便利。","usage":"配列・オブジェクトをコピー・結合したいとき。","examples":[{"code":"// 配列のコピー\nconst copy = [...original];\n\n// 配列の結合\nconst merged = [...arr1, ...arr2];\n\n// オブジェクトのコピー\nconst newObj = { ...obj, name: '新しい名前' };","note":""}],"similar":[],"mistakes":["スプレッドは浅いコピー（ネストしたオブジェクトは参照コピーになる）"],"browser_support":"全ブラウザ対応"},
+  {"id":"template-literal","word":"テンプレートリテラル","formal_name":"Template Literal","formal_name_ja":"テンプレートリテラル","category":"JavaScript","aliases":["template literal","`"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Template_literals","summary":"バッククォート（`）で文字列を囲むことで、変数を埋め込んだり複数行の文字列を書ける。","usage":"文字列の中に変数を埋め込みたいとき。","examples":[{"code":"const name = '田中';\n\n// 従来の書き方\nconst msg1 = 'こんにちは、' + name + 'さん';\n\n// テンプレートリテラル\nconst msg2 = `こんにちは、${name}さん`;","note":"バッククォートで囲む・変数は${}で埋め込む"}],"similar":[],"mistakes":["バッククォート（`）とシングルクォート（'）を混同する"],"browser_support":"全ブラウザ対応"},
+  {"id":"arrow-function","word":"アロー関数","formal_name":"Arrow Function","formal_name_ja":"アロー関数","category":"JavaScript","aliases":["=>","arrow function"],"mdn_url":"https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions","summary":"functionキーワードを省略した短い関数の書き方。=>（アロー）を使う。","usage":"コールバック関数など短い関数を書くとき。","examples":[{"code":"// 従来の書き方\nfunction add(a, b) { return a + b; }\n\n// アロー関数\nconst add2 = (a, b) => a + b;\n\n// コールバックに使う\n[1,2,3].map(n => n * 2); // [2,4,6]","note":""}],"similar":[{"id":"function","diff":"functionは従来の関数宣言・アロー関数はより短く書ける"}],"mistakes":["アロー関数はthisの扱いが通常の関数と異なる"],"browser_support":"全ブラウザ対応"}
 ]
