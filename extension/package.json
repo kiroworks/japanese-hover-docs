@@ -1,0 +1,35 @@
+{
+  "name": "japanese-hover-docs",
+  "displayName": "Japanese Hover Docs",
+  "description": "HTML・CSS・JavaScriptの用語にカーソルを当てると日本語解説が表示されます",
+  "version": "0.5.0-test",
+  "publisher": "kiroworks",
+  "engines": { "vscode": "^1.74.0" },
+  "categories": ["Education", "Other"],
+  "activationEvents": [
+    "onLanguage:html","onLanguage:css","onLanguage:scss",
+    "onLanguage:javascript","onLanguage:javascriptreact",
+    "onLanguage:typescript","onLanguage:typescriptreact"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Japanese Hover Docs",
+      "properties": {
+        "japaneseHoverDocs.enabled": {
+          "type": "boolean", "default": true,
+          "description": "Japanese Hover Docsの解説表示を有効にする"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "package": "npm run build && vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.0.0"
+  }
+}

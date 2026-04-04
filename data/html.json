@@ -1,0 +1,108 @@
+[
+  {
+    "id": "div",
+    "word": "div",
+    "formal_name": "Division",
+    "formal_name_ja": "汎用ブロック要素",
+    "category": "HTML",
+    "aliases": ["div"],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/div",
+    "summary": "意味を持たない汎用の箱。CSSでレイアウトを組むときに要素をグループにまとめる。",
+    "usage": "複数の要素をまとめてCSSで一括管理したいとき。",
+    "examples": [
+      { "code": "<div class=\"card\">\n  <h2>タイトル</h2>\n  <p>内容</p>\n</div>", "note": "クラスをつけてCSSで装飾" }
+    ],
+    "similar": [
+      { "id": "span", "diff": "改行なし・文中の一部に使うインライン要素" },
+      { "id": "section", "diff": "意味を持つ・章の区切りに使う" }
+    ],
+    "mistakes": [
+      "意味のある場所にdivを使いすぎる（divスープ）→ nav・section・articleを使う"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "p",
+    "word": "p",
+    "formal_name": "Paragraph",
+    "formal_name_ja": "段落",
+    "category": "HTML",
+    "aliases": ["p"],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/p",
+    "summary": "段落を表すタグ。前後に自動的に余白が入る。",
+    "usage": "文章のまとまりを表すとき。",
+    "examples": [
+      { "code": "<p>1つ目の段落です。</p>\n<p>2つ目の段落です。</p>", "note": "段落ごとにpタグで囲む" }
+    ],
+    "similar": [
+      { "id": "div", "diff": "divは意味なし・レイアウト目的。pは段落という意味を持つ" }
+    ],
+    "mistakes": [
+      "改行したいだけでbrタグを多用する（余白はCSSのmarginで調整する）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "a",
+    "word": "a",
+    "formal_name": "Anchor",
+    "formal_name_ja": "リンク",
+    "category": "HTML",
+    "aliases": ["a", "href"],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/a",
+    "summary": "リンクを作るタグ。href属性にURLを指定する。",
+    "usage": "他のページや外部サイトへのリンクを作るとき。",
+    "examples": [
+      { "code": "<a href=\"https://example.com\" target=\"_blank\" rel=\"noopener\">別タブで開く</a>", "note": "target=\"_blank\"には rel=\"noopener\"も一緒に書く" }
+    ],
+    "similar": [
+      { "id": "button", "diff": "buttonはクリックで処理を実行する・aはページ移動" }
+    ],
+    "mistakes": [
+      "target=\"_blank\"にrel=\"noopener\"を書き忘れるとセキュリティリスクになる"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "button",
+    "word": "button",
+    "formal_name": "Button",
+    "formal_name_ja": "ボタン",
+    "category": "HTML",
+    "aliases": ["button"],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/button",
+    "summary": "クリックできるボタンを作るタグ。",
+    "usage": "クリック時に処理を実行したいとき。JavaScriptのaddEventListenerと組み合わせる。",
+    "examples": [
+      { "code": "<button type=\"button\" id=\"myBtn\">クリック</button>", "note": "type=\"button\"を明示するのが安全" }
+    ],
+    "similar": [
+      { "id": "a", "diff": "aはページ移動・buttonはアクション実行" }
+    ],
+    "mistakes": [
+      "form内のbuttonはデフォルトでtype=\"submit\"になる（意図しない送信に注意）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "input",
+    "word": "input",
+    "formal_name": "Input",
+    "formal_name_ja": "入力欄",
+    "category": "HTML",
+    "aliases": ["input"],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/HTML/Element/input",
+    "summary": "フォームの入力欄を作るタグ。type属性で種類を変えられる。閉じタグは不要。",
+    "usage": "テキスト入力・チェックボックス・ラジオボタンなどを作るとき。",
+    "examples": [
+      { "code": "<input type=\"text\" placeholder=\"名前を入力\">\n<input type=\"email\" placeholder=\"メールアドレス\">", "note": "typeで入力の種類を変える" }
+    ],
+    "similar": [
+      { "id": "textarea", "diff": "textareaは複数行のテキスト入力" }
+    ],
+    "mistakes": [
+      "labelと紐付けないとアクセシビリティが下がる"
+    ],
+    "browser_support": "全ブラウザ対応"
+  }
+]

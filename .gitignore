@@ -1,0 +1,5 @@
+node_modules/
+extension/out/
+extension/src/terms.generated.ts
+extension/*.vsix
+.DS_Store
