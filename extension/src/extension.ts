@@ -39,7 +39,8 @@ function provideHover(
     const wordRange = document.getWordRangeAtPosition(position, /[\w.:-]+/);
     if (!wordRange) { return undefined; }
 
-    const raw = document.getText(wordRange).toLowerCase();
+    // コロンやセミコロンを末尾から除去（display: → display）
+    const raw = document.getText(wordRange).toLowerCase().replace(/[:;]+$/, '');
     let term  = termMap.get(raw);
 
     // ドット区切りで部分検索（例: JSON.stringify → stringify）
