@@ -1461,5 +1461,290 @@
     ],
     "mistakes": [],
     "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "Math",
+    "word": "Math",
+    "formal_name": "Math",
+    "formal_name_ja": "数学オブジェクト",
+    "category": "JavaScript",
+    "aliases": [
+      "Math",
+      "Math.random",
+      "Math.floor",
+      "Math.ceil",
+      "Math.round",
+      "Math.abs",
+      "Math.max",
+      "Math.min",
+      "Math.sqrt",
+      "Math.pow"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math",
+    "summary": "数学的な計算を行うためのオブジェクト。乱数生成・切り捨て・切り上げなどに使う。",
+    "usage": "乱数を生成したいとき・数値を整数に変換したいとき。",
+    "examples": [
+      {
+        "code": "Math.random()        // 0以上1未満の乱数\nMath.floor(3.7)      // 3（切り捨て）\nMath.ceil(3.2)       // 4（切り上げ）\nMath.round(3.5)      // 4（四捨五入）\nMath.max(1, 5, 3)    // 5（最大値）\nMath.min(1, 5, 3)    // 1（最小値）",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "Math.random()は0以上1未満（1は含まない）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "Date",
+    "word": "Date",
+    "formal_name": "Date",
+    "formal_name_ja": "日付・時刻オブジェクト",
+    "category": "JavaScript",
+    "aliases": [
+      "Date",
+      "Date.now",
+      "new Date"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "summary": "日付と時刻を扱うためのオブジェクト。",
+    "usage": "現在の日時を取得したいとき・日付の計算をしたいとき。",
+    "examples": [
+      {
+        "code": "const now = new Date();\nconsole.log(now.getFullYear()); // 年\nconsole.log(now.getMonth() + 1); // 月（0始まりなので+1）\nconsole.log(now.getDate());      // 日\n\n// タイムスタンプ（ミリ秒）\nconsole.log(Date.now());",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "getMonth()は0始まり（1月が0）→ +1が必要"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "parseInt",
+    "word": "parseInt / parseFloat",
+    "formal_name": "parseInt / parseFloat",
+    "formal_name_ja": "文字列を数値に変換",
+    "category": "JavaScript",
+    "aliases": [
+      "parseInt",
+      "parseFloat",
+      "Number"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/parseInt",
+    "summary": "文字列を整数または浮動小数点数に変換する関数。",
+    "usage": "フォームの入力値（文字列）を数値として計算したいとき。",
+    "examples": [
+      {
+        "code": "parseInt('42')       // 42（整数）\nparseFloat('3.14')   // 3.14（小数）\nNumber('42')         // 42（どちらでも対応）\n\n// 入力値の変換\nconst input = document.getElementById('num').value;\nconst num = parseInt(input, 10); // 第2引数に10（10進数）を指定",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "parseInt('08')などは8進数と解釈される場合がある → 第2引数に10を指定する"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "isNaN",
+    "word": "isNaN / Number.isNaN",
+    "formal_name": "isNaN / Number.isNaN",
+    "formal_name_ja": "NaN（数値でない）の確認",
+    "category": "JavaScript",
+    "aliases": [
+      "isNaN",
+      "Number.isNaN",
+      "NaN"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/isNaN",
+    "summary": "値がNaN（Not a Number・数値でない）かどうかを確認する関数。",
+    "usage": "数値変換に失敗していないかチェックしたいとき。",
+    "examples": [
+      {
+        "code": "isNaN('hello')     // true（数値ではない）\nisNaN(42)          // false（数値）\nisNaN('42')        // false（文字列でも数値に変換できる）\n\n// 厳密な判定にはNumber.isNaNを使う\nNumber.isNaN(NaN)  // true\nNumber.isNaN('hello') // false（型変換しない）",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "isNaN('123')はfalseを返す（文字列を数値変換してから判定するため）"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "Set",
+    "word": "Set",
+    "formal_name": "Set",
+    "formal_name_ja": "重複なしのコレクション",
+    "category": "JavaScript",
+    "aliases": [
+      "Set",
+      "new Set"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "summary": "重複しない値のコレクション。配列から重複を取り除くのに便利。",
+    "usage": "配列から重複を取り除きたいとき・値の存在確認を高速に行いたいとき。",
+    "examples": [
+      {
+        "code": "// 配列から重複を削除\nconst arr = [1, 2, 2, 3, 3, 3];\nconst unique = [...new Set(arr)]; // [1, 2, 3]\n\n// Setの基本操作\nconst set = new Set();\nset.add('apple');\nset.has('apple'); // true\nset.size;         // 1",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "filter",
+        "diff": "filterで重複削除もできるがSetの方がシンプル"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "Map",
+    "word": "Map",
+    "formal_name": "Map",
+    "formal_name_ja": "キーと値のコレクション",
+    "category": "JavaScript",
+    "aliases": [
+      "Map",
+      "new Map"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "summary": "キーと値のペアを管理するコレクション。オブジェクトと似ているが、任意の型をキーにできる。",
+    "usage": "オブジェクトより高性能なキーバリューストアが必要なとき。",
+    "examples": [
+      {
+        "code": "const map = new Map();\nmap.set('name', '田中');\nmap.set('age', 25);\n\nconsole.log(map.get('name')); // '田中'\nconsole.log(map.has('age'));  // true\nconsole.log(map.size);        // 2",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "object-methods",
+        "diff": "Object.keysなどでオブジェクトも反復処理できる"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "requestAnimationFrame",
+    "word": "requestAnimationFrame",
+    "formal_name": "requestAnimationFrame",
+    "formal_name_ja": "アニメーションフレーム要求",
+    "category": "JavaScript",
+    "aliases": [
+      "requestAnimationFrame",
+      "cancelAnimationFrame"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/window/requestAnimationFrame",
+    "summary": "次の画面描画のタイミングでコールバック関数を実行するメソッド。setIntervalよりもスムーズなアニメーションを実現できる。",
+    "usage": "JavaScriptでスムーズなアニメーションを実装したいとき。",
+    "examples": [
+      {
+        "code": "function animate() {\n  // アニメーションの処理\n  element.style.left = x + 'px';\n  x++;\n\n  requestAnimationFrame(animate); // 次のフレームで再実行\n}\n\nrequestAnimationFrame(animate); // 開始",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "setTimeout",
+        "diff": "setTimeoutは時間指定・rAFは画面更新に同期するため滑らか"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "history",
+    "word": "history",
+    "formal_name": "History API",
+    "formal_name_ja": "ブラウザ履歴の操作",
+    "category": "JavaScript",
+    "aliases": [
+      "history",
+      "history.pushState",
+      "history.back",
+      "history.go"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/History",
+    "summary": "ブラウザの閲覧履歴を操作するAPI。ページ遷移なしにURLを変更できる。",
+    "usage": "SPAでURLを変更したいとき・ブラウザの戻るボタンを制御したいとき。",
+    "examples": [
+      {
+        "code": "// URLを変更（ページ遷移なし）\nhistory.pushState({}, '', '/new-page');\n\n// 前のページに戻る\nhistory.back();\n\n// 現在のURL\nconsole.log(location.href);",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "window",
+        "diff": "windowはブラウザウィンドウ全体・historyはwindowのプロパティ"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "navigator",
+    "word": "navigator",
+    "formal_name": "Navigator",
+    "formal_name_ja": "ブラウザ情報オブジェクト",
+    "category": "JavaScript",
+    "aliases": [
+      "navigator",
+      "navigator.userAgent",
+      "navigator.language",
+      "navigator.onLine",
+      "navigator.geolocation"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/Navigator",
+    "summary": "ブラウザや端末の情報を提供するオブジェクト。",
+    "usage": "オンライン状態を確認したいとき・位置情報を取得したいとき。",
+    "examples": [
+      {
+        "code": "console.log(navigator.language);   // 'ja'（言語設定）\nconsole.log(navigator.onLine);      // true/false（オンライン状態）\n\n// 位置情報の取得\nnavigator.geolocation.getCurrentPosition(pos => {\n  console.log(pos.coords.latitude);  // 緯度\n  console.log(pos.coords.longitude); // 経度\n});",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "window",
+        "diff": "windowはウィンドウ全体・navigatorはブラウザの情報"
+      }
+    ],
+    "mistakes": [
+      "位置情報はHTTPS環境でないと動作しない"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "intersection-observer",
+    "word": "IntersectionObserver",
+    "formal_name": "IntersectionObserver",
+    "formal_name_ja": "交差監視API",
+    "category": "JavaScript",
+    "aliases": [
+      "IntersectionObserver"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/API/IntersectionObserver",
+    "summary": "要素が画面内に入ったか出たかを監視するAPI。スクロール検知の標準的な方法。",
+    "usage": "スクロールアニメーション・遅延読み込み・無限スクロールを実装したいとき。",
+    "examples": [
+      {
+        "code": "const observer = new IntersectionObserver(entries => {\n  entries.forEach(entry => {\n    if (entry.isIntersecting) {\n      entry.target.classList.add('visible');\n    }\n  });\n});\n\nobserver.observe(document.querySelector('.target'));",
+        "note": "scrollイベントよりもパフォーマンスが良い"
+      }
+    ],
+    "similar": [
+      {
+        "id": "addEventListener",
+        "diff": "scroll イベントは頻繁に発火してパフォーマンスが低下する"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
   }
 ]

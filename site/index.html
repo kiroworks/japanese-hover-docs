@@ -561,6 +561,14 @@
       font-size: 12px;
     }
 
+    .copy-btn-inline {
+      background: none; border: none; color: var(--text-muted);
+      font-size: 11px; cursor: pointer; padding: 3px 10px;
+      border-radius: 4px; font-family: 'Noto Sans JP', sans-serif;
+      transition: color .2s, background .2s;
+    }
+    .copy-btn-inline:hover { background: var(--border); color: var(--text); }
+
     /* ===== FOOTER ===== */
     footer {
       border-top: 1px solid var(--border);
@@ -594,9 +602,35 @@
       .demo-code { border-right: none; border-bottom: 1px solid var(--border); }
       .coverage-grid { grid-template-columns: 1fr; }
       .demo, .features, .coverage, .install, .settings { padding: 60px 16px; }
+
+      /* テーブルをスマホで縦並びに */
+      .settings-table thead { display: none; }
+      .settings-table tr {
+        display: block;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .settings-table tr:last-child { border-bottom: none; }
+      .settings-table td {
+        display: block;
+        padding: 4px 0;
+        border-bottom: none;
+      }
+      .settings-table td::before {
+        content: attr(data-label);
+        font-size: 11px;
+        color: var(--text-muted);
+        display: block;
+        margin-bottom: 2px;
+      }
+      .settings-table code {
+        font-size: 11px;
+        word-break: break-all;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -726,17 +760,17 @@
     <div class="coverage-grid">
       <a href="/tools/japanese-hover-docs/terms/" class="coverage-card coverage-link">
           <div class="coverage-lang">HTML</div>
-        <div class="coverage-count html">36</div>
+        <div class="coverage-count html">46</div>
         <div class="coverage-label">タグ・属性 →</div>
         </a>
       <a href="/tools/japanese-hover-docs/terms/" class="coverage-card coverage-link">
           <div class="coverage-lang">CSS</div>
-        <div class="coverage-count css">77</div>
+        <div class="coverage-count css">87</div>
         <div class="coverage-label">プロパティ →</div>
         </a>
       <a href="/tools/japanese-hover-docs/terms/" class="coverage-card coverage-link">
           <div class="coverage-lang">JavaScript</div>
-        <div class="coverage-count js">50</div>
+        <div class="coverage-count js">60</div>
         <div class="coverage-label">メソッド・構文 →</div>
         </a>
     </div>
@@ -778,49 +812,141 @@
   <section class="settings" id="settings">
     <div class="section-label">// settings</div>
     <h2 class="section-title">設定</h2>
-    <p class="section-desc">VS Code の settings.json から変更できます。</p>
+    <p class="section-desc">settings.json に追加することで動作をカスタマイズできます。</p>
 
-    <div style="background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-      <table class="settings-table">
-        <thead>
-          <tr>
-            <th>設定名</th>
-            <th>デフォルト</th>
-            <th>説明</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>japaneseHoverDocs.enabled</code></td>
-            <td><code>true</code></td>
-            <td style="color: var(--text-muted);">解説の表示を有効 / 無効にする</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;">
 
-    <div style="margin-top: 24px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px;">
-      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">VS Codeの英語ホバーを非表示にする場合（推奨）</div>
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.8; color: var(--text);">
-        <span style="color: #8b949e">// settings.json に追加</span><br>
-        "html.hover.documentation": <span style="color: #f0e68c">false</span>,<br>
-        "html.hover.references": <span style="color: #f0e68c">false</span>,<br>
-        "css.hover.documentation": <span style="color: #f0e68c">false</span>,<br>
-        "css.hover.references": <span style="color: #f0e68c">false</span>
+      <!-- settings.jsonの開き方 -->
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;">
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;">settings.json の開き方</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.8;">
+          VS Code上で <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 6px;border-radius:3px;color:var(--accent-3);font-size:12px;">⌘+Shift+P</code>（Mac）または <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 6px;border-radius:3px;color:var(--accent-3);font-size:12px;">Ctrl+Shift+P</code>（Windows）を押して、<br>
+          「<strong>Open User Settings JSON</strong>」と入力してEnterを押すと開きます。<br>
+          開いたファイルの <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 6px;border-radius:3px;color:var(--accent-3);font-size:12px;">{</code> と <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 6px;border-radius:3px;color:var(--accent-3);font-size:12px;">}</code> の中に設定を追加します。
+        </div>
       </div>
+
+      <!-- ① 英語ホバーOFF -->
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+        <div style="padding:18px 24px 14px;">
+          <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;">① 英語ホバーをOFFにする（推奨）</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">VS Code標準の英語ホバーを非表示にして、Japanese Hover Docs の日本語だけをクリーンに表示します。以下の4行をsettings.jsonに追加してください。</div>
+        </div>
+        <div style="border-top:1px solid var(--border);">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 16px;background:var(--bg-3);">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);">settings.json</span>
+            <button onclick="copySetting(this,'hover-off')" class="copy-btn-inline">コピー</button>
+          </div>
+          <pre style="padding:16px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.9;color:var(--text);overflow-x:auto;margin:0;">{
+  <span style="color:#8b949e">// 英語ホバーをOFFにする</span>
+  <span style="color:var(--accent-3)">"html.hover.documentation"</span>: <span style="color:#f0e68c">false</span>,
+  <span style="color:var(--accent-3)">"html.hover.references"</span>: <span style="color:#f0e68c">false</span>,
+  <span style="color:var(--accent-3)">"css.hover.documentation"</span>: <span style="color:#f0e68c">false</span>,
+  <span style="color:var(--accent-3)">"css.hover.references"</span>: <span style="color:#f0e68c">false</span>
+}</pre>
+        </div>
+      </div>
+
+      <!-- ② カスタマイズ -->
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+        <div style="padding:18px 24px 14px;">
+          <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;">② 表示セクションをカスタマイズする（オプション）</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">
+            ホバーパネルに表示するセクションと順番を自由に変更できます。<br>
+            <strong style="color:var(--text);">sections</strong>：表示したいセクションだけを配列で指定します。<br>
+            <strong style="color:var(--text);">sectionOrder</strong>：表示順を変更します。sectionsで指定したものと同じ項目を並べてください。<br>
+            <span style="color:var(--text-muted);">選択肢：</span>
+            <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 5px;border-radius:3px;color:var(--accent-3);font-size:11px;">"用途"</code>
+            <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 5px;border-radius:3px;color:var(--accent-3);font-size:11px;">"構文"</code>
+            <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 5px;border-radius:3px;color:var(--accent-3);font-size:11px;">"関連"</code>
+            <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 5px;border-radius:3px;color:var(--accent-3);font-size:11px;">"注意"</code>
+            <code style="font-family:'JetBrains Mono',monospace;background:var(--bg-3);padding:1px 5px;border-radius:3px;color:var(--accent-3);font-size:11px;">"エラー"</code>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--border);">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 16px;background:var(--bg-3);">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);">settings.json（例：用途と構文だけ表示）</span>
+            <button onclick="copySetting(this,'customize')" class="copy-btn-inline">コピー</button>
+          </div>
+          <pre style="padding:16px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.9;color:var(--text);overflow-x:auto;margin:0;">{
+  <span style="color:#8b949e">// 表示するセクションを選択</span>
+  <span style="color:var(--accent-3)">"japaneseHoverDocs.sections"</span>: [<span style="color:#a5d6ff">"用途"</span>, <span style="color:#a5d6ff">"構文"</span>],
+
+  <span style="color:#8b949e">// セクションの表示順（sectionsと同じ項目を並べる）</span>
+  <span style="color:var(--accent-3)">"japaneseHoverDocs.sectionOrder"</span>: [<span style="color:#a5d6ff">"用途"</span>, <span style="color:#a5d6ff">"構文"</span>]
+}</pre>
+        </div>
+      </div>
+
+      <!-- ①+② まとめてコピー -->
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+        <div style="padding:18px 24px 14px;">
+          <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;">① + ② まとめてコピー</div>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">英語ホバーOFF＋カスタマイズの設定をまとめてコピーできます。不要な項目は削除して使ってください。</div>
+        </div>
+        <div style="border-top:1px solid var(--border);">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 16px;background:var(--bg-3);">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);">settings.json（全設定）</span>
+            <button onclick="copySetting(this,'all-settings')" class="copy-btn-inline">コピー</button>
+          </div>
+          <pre style="padding:16px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.9;color:var(--text);overflow-x:auto;margin:0;">{
+  <span style="color:#8b949e">// ① 英語ホバーをOFFにする</span>
+  <span style="color:var(--accent-3)">"html.hover.documentation"</span>: <span style="color:#f0e68c">false</span>,
+  <span style="color:var(--accent-3)">"html.hover.references"</span>: <span style="color:#f0e68c">false</span>,
+  <span style="color:var(--accent-3)">"css.hover.documentation"</span>: <span style="color:#f0e68c">false</span>,
+  <span style="color:var(--accent-3)">"css.hover.references"</span>: <span style="color:#f0e68c">false</span>,
+
+  <span style="color:#8b949e">// ② カスタマイズ（不要なら削除してOK）</span>
+  <span style="color:var(--accent-3)">"japaneseHoverDocs.sections"</span>: [<span style="color:#a5d6ff">"用途"</span>, <span style="color:#a5d6ff">"構文"</span>, <span style="color:#a5d6ff">"関連"</span>, <span style="color:#a5d6ff">"注意"</span>, <span style="color:#a5d6ff">"エラー"</span>],
+  <span style="color:var(--accent-3)">"japaneseHoverDocs.sectionOrder"</span>: [<span style="color:#a5d6ff">"用途"</span>, <span style="color:#a5d6ff">"構文"</span>, <span style="color:#a5d6ff">"関連"</span>, <span style="color:#a5d6ff">"注意"</span>, <span style="color:#a5d6ff">"エラー"</span>]
+}</pre>
+        </div>
+      </div>
+
     </div>
   </section>
+  
+  <script>
+  var COPY_TEXTS = {
+    'hover-off': '  // 英語ホバーをOFFにする\n  "html.hover.documentation": false,\n  "html.hover.references": false,\n  "css.hover.documentation": false,\n  "css.hover.references": false',
+    'customize': '  // 表示するセクションを選択（例：用途と構文だけ）\n  "japaneseHoverDocs.sections": ["用途", "構文"],\n\n  // セクションの表示順を変更（例：構文を先に表示）\n  "japaneseHoverDocs.sectionOrder": ["構文", "用途"]',
+    'all-settings': '{\n  // 英語ホバーをOFFにする\n  "html.hover.documentation": false,\n  "html.hover.references": false,\n  "css.hover.documentation": false,\n  "css.hover.references": false,\n\n  // 表示セクション（不要なら削除）\n  "japaneseHoverDocs.sections": ["用途", "構文", "関連", "注意", "エラー"],\n  "japaneseHoverDocs.sectionOrder": ["用途", "構文", "関連", "注意", "エラー"]\n}'
+  };
+  function copySetting(btn, id) {
+    var text = COPY_TEXTS[id];
+    if (!text) return;
+    _doCopy(text, btn);
+  }
+  function _doCopy(text, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function() { _showCopied(btn); }).catch(function() { _fallback(text, btn); });
+    } else { _fallback(text, btn); }
+  }
+  function _fallback(text, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); _showCopied(btn); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+  function _showCopied(btn) {
+    var orig = btn.textContent;
+    btn.textContent = 'コピー完了！'; btn.style.color = 'var(--accent-2)';
+    setTimeout(function() { btn.textContent = orig; btn.style.color = 'var(--text-muted)'; }, 1500);
+  }
+  </script>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-links">
-      <a href="https://github.com/kiroworks/japanese-hover-docs" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://github.com/kiroworks/japanese-hover-docs/issues" target="_blank" rel="noopener">バグ報告・要望</a>
-      <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">VS Code Marketplace</a>
-      <a href="https://kiroworks.com" target="_blank" rel="noopener">kiroworks.com</a>
-    </div>
-    <div>© 2026 kiroworks. MIT License.</div>
-  </footer>
-
-</body>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japanese Hover Docs — VS Code拡張機能</title>
+  <meta name="description" content="HTML・CSS・JavaScriptの用語にカーソルを当てると日本語解説が表示されるVS Code拡張機能。初心者プログラマー向け。無料・APIキー不要。">
+  <link rel="icon" href="/tools/japanese-hover-docs/icon.png" type="image/png">
+  <link rel="shortcut icon" href="/tools/japanese-hover-docs/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tools/japanese-hover-docs/icon.png">
+  <meta property="og:image" content="https://kiroworks.com/tools/japanese-hover-docs/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  
 </html>

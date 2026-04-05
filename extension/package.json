@@ -2,7 +2,7 @@
   "name": "japanese-hover-docs",
   "displayName": "Japanese Hover Docs",
   "description": "HTML・CSS・JavaScriptの用語にカーソルを当てると日本語解説が表示されます",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "publisher": "kiroworks",
   "license": "MIT",
   "repository": {
@@ -50,6 +50,48 @@
           "type": "boolean",
           "default": true,
           "description": "Japanese Hover Docsの解説表示を有効にする"
+        },
+        "japaneseHoverDocs.sections": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "用途",
+              "構文",
+              "関連",
+              "注意",
+              "エラー"
+            ]
+          },
+          "default": [
+            "用途",
+            "構文",
+            "関連",
+            "注意",
+            "エラー"
+          ],
+          "description": "ホバーパネルに表示するセクションを選択します"
+        },
+        "japaneseHoverDocs.sectionOrder": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "用途",
+              "構文",
+              "関連",
+              "注意",
+              "エラー"
+            ]
+          },
+          "default": [
+            "用途",
+            "構文",
+            "関連",
+            "注意",
+            "エラー"
+          ],
+          "description": "ホバーパネルのセクションの表示順を指定します"
         }
       }
     }

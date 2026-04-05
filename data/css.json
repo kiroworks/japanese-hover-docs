@@ -2184,5 +2184,272 @@
       "全ての要素に指定するのはNG（メモリが増加する）"
     ],
     "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "float",
+    "word": "float",
+    "formal_name": "Float",
+    "formal_name_ja": "フロート",
+    "category": "CSS",
+    "aliases": [
+      "float",
+      "clear"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/float",
+    "summary": "要素を左右に寄せてテキストを回り込ませる。現在はFlexbox/Gridが推奨。",
+    "usage": "画像の周りにテキストを回り込ませたいとき。",
+    "examples": [
+      {
+        "code": "img {\n  float: left;\n  margin-right: 16px;\n}\n/* floatの解除 */\n.container::after {\n  content: '';\n  display: block;\n  clear: both;\n}",
+        "note": "現代のレイアウトにはFlexboxやGridを使う方が推奨"
+      }
+    ],
+    "similar": [
+      {
+        "id": "display",
+        "diff": "Flexbox（display: flex）はfloatより管理しやすい"
+      }
+    ],
+    "mistakes": [
+      "floatを解除しないと後続のレイアウトが崩れる"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "letter-spacing",
+    "word": "letter-spacing",
+    "formal_name": "Letter Spacing",
+    "formal_name_ja": "文字間隔",
+    "category": "CSS",
+    "aliases": [
+      "letter-spacing"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/letter-spacing",
+    "summary": "文字と文字の間隔を指定する。",
+    "usage": "見出しやロゴのテキストを広げて洗練された印象にしたいとき。",
+    "examples": [
+      {
+        "code": ".title  { letter-spacing: 0.1em; }  /* 広め */\n.tight  { letter-spacing: -0.02em; } /* 詰め */",
+        "note": "emで指定するとフォントサイズに比例する"
+      }
+    ],
+    "similar": [
+      {
+        "id": "word-spacing",
+        "diff": "word-spacingは単語間の間隔"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "word-spacing",
+    "word": "word-spacing",
+    "formal_name": "Word Spacing",
+    "formal_name_ja": "単語間隔",
+    "category": "CSS",
+    "aliases": [
+      "word-spacing"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/word-spacing",
+    "summary": "単語と単語の間隔を指定する。",
+    "usage": "英語テキストの単語間隔を調整したいとき。",
+    "examples": [
+      {
+        "code": ".wide { word-spacing: 0.2em; }",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "letter-spacing",
+        "diff": "letter-spacingは文字間の間隔"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "text-indent",
+    "word": "text-indent",
+    "formal_name": "Text Indent",
+    "formal_name_ja": "テキストの字下げ",
+    "category": "CSS",
+    "aliases": [
+      "text-indent"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/text-indent",
+    "summary": "段落の最初の行を字下げ（インデント）する。",
+    "usage": "小説・記事など段落の先頭を字下げしたいとき。",
+    "examples": [
+      {
+        "code": "p { text-indent: 1em; } /* 1文字分字下げ */",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "font-style",
+    "word": "font-style",
+    "formal_name": "Font Style",
+    "formal_name_ja": "フォントスタイル",
+    "category": "CSS",
+    "aliases": [
+      "font-style"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/font-style",
+    "summary": "テキストをイタリック（斜体）にするプロパティ。",
+    "usage": "引用や強調でイタリック体にしたいとき。",
+    "examples": [
+      {
+        "code": ".italic { font-style: italic; }  /* 斜体 */\n.normal { font-style: normal; }  /* 通常 */",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "font-weight",
+        "diff": "font-weightは太さ・font-styleは斜体"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "table-layout",
+    "word": "table-layout",
+    "formal_name": "Table Layout",
+    "formal_name_ja": "テーブルレイアウト",
+    "category": "CSS",
+    "aliases": [
+      "table-layout"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/table-layout",
+    "summary": "テーブルの列幅の計算方法を指定する。fixedにすると高速に描画される。",
+    "usage": "テーブルのレンダリングを高速化したいとき・列幅を固定したいとき。",
+    "examples": [
+      {
+        "code": "table {\n  table-layout: fixed;\n  width: 100%;\n}",
+        "note": "fixedにするとwidthで列幅を制御できる"
+      }
+    ],
+    "similar": [
+      {
+        "id": "table",
+        "diff": "tableはHTMLのテーブルタグ"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "border-collapse",
+    "word": "border-collapse",
+    "formal_name": "Border Collapse",
+    "formal_name_ja": "テーブルの枠線結合",
+    "category": "CSS",
+    "aliases": [
+      "border-collapse",
+      "border-spacing"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/border-collapse",
+    "summary": "テーブルのセル間の枠線を結合するかどうかを指定する。collapseで枠線が二重にならない。",
+    "usage": "テーブルの枠線を1本にしたいとき。",
+    "examples": [
+      {
+        "code": "table {\n  border-collapse: collapse; /* 枠線を結合 */\n}\ntd, th {\n  border: 1px solid #ccc;\n}",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [
+      "border-collapseを設定しないとセルの枠線が二重になる"
+    ],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "caption-side",
+    "word": "caption-side",
+    "formal_name": "Caption Side",
+    "formal_name_ja": "テーブルキャプションの位置",
+    "category": "CSS",
+    "aliases": [
+      "caption-side"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/caption-side",
+    "summary": "テーブルのキャプション（説明文）の表示位置を指定する。",
+    "usage": "テーブルの上下にタイトルをつけたいとき。",
+    "examples": [
+      {
+        "code": "caption { caption-side: bottom; } /* キャプションを下に */",
+        "note": ""
+      }
+    ],
+    "similar": [],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "columns",
+    "word": "columns",
+    "formal_name": "Columns",
+    "formal_name_ja": "複数カラムレイアウト",
+    "category": "CSS",
+    "aliases": [
+      "columns",
+      "column-count",
+      "column-width",
+      "column-gap",
+      "column-rule"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/columns",
+    "summary": "テキストを新聞のように複数カラムに分割するショートハンド。",
+    "usage": "長文を複数カラムに分割して読みやすくしたいとき。",
+    "examples": [
+      {
+        "code": ".article {\n  columns: 2;       /* 2カラム */\n  column-gap: 32px; /* カラム間の余白 */\n}",
+        "note": ""
+      }
+    ],
+    "similar": [
+      {
+        "id": "grid-template-columns",
+        "diff": "gridは柔軟なレイアウト・columnsはテキストの段組み専用"
+      }
+    ],
+    "mistakes": [],
+    "browser_support": "全ブラウザ対応"
+  },
+  {
+    "id": "order",
+    "word": "order",
+    "formal_name": "Order",
+    "formal_name_ja": "Flexboxの表示順",
+    "category": "CSS",
+    "aliases": [
+      "order"
+    ],
+    "mdn_url": "https://developer.mozilla.org/ja/docs/Web/CSS/order",
+    "summary": "Flexboxのアイテムの表示順序を指定する。HTMLの順序を変えずに見た目の順序を変えられる。",
+    "usage": "スマホとPCで要素の表示順を変えたいとき。",
+    "examples": [
+      {
+        "code": ".sidebar { order: 2; } /* 2番目に表示 */\n.main    { order: 1; } /* 1番目に表示 */",
+        "note": "デフォルトは0・数値が小さいほど先に表示"
+      }
+    ],
+    "similar": [
+      {
+        "id": "display",
+        "diff": "display: flexを親に指定してから使う"
+      }
+    ],
+    "mistakes": [
+      "アクセシビリティに注意（スクリーンリーダーはHTML順で読む）"
+    ],
+    "browser_support": "全ブラウザ対応"
   }
 ]

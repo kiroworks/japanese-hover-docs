@@ -26,17 +26,17 @@ module.exports = function({ counts, allTerms, safeJson, generatedAt }) {
     :root{--bg:#0d1117;--bg-2:#161b22;--bg-3:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--accent-2:#3fb950;--accent-3:#d2a8ff;--warning:#f0883e;--html-color:#f0883e;--css-color:#58a6ff;--js-color:#f0e68c}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
     header{position:sticky;top:0;background:rgba(13,17,23,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;z-index:100}
     .header-logo{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-muted);text-decoration:none}
     .header-logo span{color:var(--accent)}
-    .container{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 56px)}
+    .container{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 56px);overflow-x:hidden;width:100%}
     .sidebar{position:sticky;top:56px;height:calc(100vh - 56px);display:flex;flex-direction:column;border-right:1px solid var(--border)}
     .sidebar-search{padding:12px 12px 8px;flex-shrink:0;background:var(--bg);border-bottom:1px solid var(--border)}
     .search-input{width:100%;background:var(--bg-3);border:1px solid var(--border);border-radius:6px;padding:7px 10px;color:var(--text);font-size:13px;font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color .2s}
     .search-input:focus{border-color:var(--accent)}
     .search-input::placeholder{color:var(--text-muted)}
-    .sidebar-nav{flex:1;overflow-y:auto;padding:8px 0}
+    .sidebar-nav{flex:1;overflow-y:auto;padding:8px 0;min-height:0}
     .sidebar-nav::-webkit-scrollbar{width:3px}
     .sidebar-nav::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
     .sidebar-group{margin-bottom:2px}
@@ -45,12 +45,12 @@ module.exports = function({ counts, allTerms, safeJson, generatedAt }) {
     .sidebar-group-btn .arrow{font-size:10px;transition:transform .2s}
     .sidebar-group-btn.open .arrow{transform:rotate(90deg)}
     .sidebar-group-items{overflow:hidden;max-height:0;transition:max-height .3s ease}
-    .sidebar-group-items.open{max-height:9999px}
+    .sidebar-group-items.open{max-height:none}
     .lang-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-right:6px}
     .sidebar-item{display:block;padding:5px 12px 5px 28px;font-size:12px;color:var(--text-muted);text-decoration:none;transition:color .15s,background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'JetBrains Mono',monospace}
     .sidebar-item:hover{color:var(--text);background:var(--bg-2)}
     .sidebar-item.active{color:var(--accent);background:rgba(88,166,255,.08)}
-    .main{padding:40px 48px;max-width:860px}
+    .main{padding:40px 48px;max-width:860px;min-width:0;overflow-x:hidden}
     .page-header{margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--border)}
     .page-title{font-size:26px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
     .page-desc{color:var(--text-muted);font-size:14px}
@@ -63,20 +63,20 @@ module.exports = function({ counts, allTerms, safeJson, generatedAt }) {
     .term-card{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;margin-bottom:12px;overflow:hidden;scroll-margin-top:72px;transition:border-color .2s}
     .term-card:target,.term-card.highlighted{border-color:var(--accent)}
     .term-header{padding:16px 20px 14px;border-bottom:1px solid var(--border)}
-    .term-title{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px}
+    .term-title{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px;word-break:break-all;overflow-wrap:anywhere}
     .term-title .formal{color:var(--text-muted);font-weight:400}
     .term-title .ja{color:var(--text-muted);font-weight:400;font-family:'Noto Sans JP',sans-serif;font-size:12px}
-    .term-summary{font-size:13px;color:var(--text-muted);line-height:1.6}
+    .term-summary{font-size:13px;color:var(--text-muted);line-height:1.6;word-break:break-word;overflow-wrap:break-word}
     .term-body{padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
     .term-section-title{font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px}
-    .term-usage{font-size:13px;color:var(--text);line-height:1.6}
-    .term-code-block{background:var(--bg-3);border-radius:7px;overflow:hidden}
+    .term-usage{font-size:13px;color:var(--text);line-height:1.6;word-break:break-word;overflow-wrap:break-word}
+    .term-code-block{background:var(--bg-3);border-radius:7px;overflow:hidden;max-width:100%}
     .code-header{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;border-bottom:1px solid var(--border)}
     .code-lang{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted)}
     .copy-btn{background:none;border:none;color:var(--text-muted);font-size:11px;cursor:pointer;padding:2px 7px;border-radius:3px;transition:color .2s,background .2s;font-family:'Noto Sans JP',sans-serif}
     .copy-btn:hover{color:var(--text);background:var(--border)}
     .copy-btn.copied{color:var(--accent-2)}
-    pre{padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.7;color:var(--text);overflow-x:auto;white-space:pre}
+    pre{padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.7;color:var(--text);overflow-x:auto;white-space:pre;max-width:100%;box-sizing:border-box}
     .code-note{font-size:10px;color:var(--text-muted);padding:5px 10px 8px;font-style:italic}
     .term-full{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-top:14px;border-top:1px solid var(--border)}
     .term-related-list,.term-mistakes-list,.term-error-list{list-style:none}
@@ -94,7 +94,34 @@ module.exports = function({ counts, allTerms, safeJson, generatedAt }) {
     .back-to-top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;background:var(--bg-3);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--text-muted);text-decoration:none;transition:all .2s;opacity:0;pointer-events:none;z-index:50}
     .back-to-top.visible{opacity:1;pointer-events:all}
     .back-to-top:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-    @media(max-width:768px){.container{grid-template-columns:1fr}.sidebar{display:none}.main{padding:24px 16px}.term-body{grid-template-columns:1fr}.term-full{grid-template-columns:1fr}.back-to-top{bottom:16px;right:16px}}
+    .mobile-search{display:none;padding:8px 12px;background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:56px;z-index:90}
+    .mobile-search-input{width:100%;background:var(--bg-3);border:1px solid var(--border);border-radius:6px;padding:8px 12px;color:var(--text);font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;box-sizing:border-box}
+    .mobile-search-input:focus{border-color:var(--accent)}
+    @media(max-width:768px){
+      .mobile-search{display:block}
+      .container{grid-template-columns:1fr}
+      .sidebar{display:none}
+      .main{padding:10px 12px;width:100%!important;min-width:0!important;max-width:100%!important;overflow-x:hidden;box-sizing:border-box}
+      .term-body{display:block!important;padding:12px 14px;overflow-x:hidden;max-width:100%}
+      .term-full{display:block;padding-top:12px;border-top:1px solid var(--border)}.term-full>div{margin-bottom:10px}.term-full>div:last-child{margin-bottom:0}
+      .back-to-top{bottom:16px;right:16px}
+      .term-card{border-radius:8px;margin-bottom:8px;overflow:hidden}
+      .term-header{padding:12px 14px 10px}
+      .term-title{font-size:13px!important;word-break:break-all!important;overflow-wrap:anywhere!important;white-space:normal!important}
+      .term-summary{font-size:12px;word-break:break-word;overflow-wrap:break-word}
+      .term-usage{font-size:12px;word-break:break-word;overflow-wrap:break-word}
+      .term-code-block{overflow:hidden;max-width:100%}
+      pre{font-size:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;box-sizing:border-box}
+      .page-header{margin-bottom:16px;padding-bottom:14px}
+      .page-title{font-size:20px}
+      .category-title{font-size:11px;margin-bottom:10px}
+      .term-section-title{font-size:9px}.term-body>div{margin-bottom:12px}.term-body>div:last-child{margin-bottom:0}
+      .term-related-list li{font-size:11px;overflow-wrap:break-word;word-break:break-word}
+      .term-mistakes-list li{font-size:10px;overflow-wrap:break-word;word-break:break-word}
+      .term-error-list li{font-size:9px;overflow-wrap:break-word;word-break:break-word}
+      .page-stats{gap:8px;flex-wrap:wrap}
+      .stat{font-size:11px}
+    }
   </style>
 </head>
 <body>
@@ -102,6 +129,9 @@ module.exports = function({ counts, allTerms, safeJson, generatedAt }) {
   <a href="../" class="header-logo"><span>&gt;_</span> Japanese Hover Docs</a>
   <a href="https://github.com/kiroworks/japanese-hover-docs" target="_blank" rel="noopener" style="font-size:13px;color:var(--text-muted);text-decoration:none">GitHub</a>
 </header>
+<div class="mobile-search">
+  <input type="text" class="mobile-search-input" id="mobileSearchInput" placeholder="用語を検索...">
+</div>
 <div class="container">
   <aside class="sidebar">
     <div class="sidebar-search">
@@ -158,6 +188,11 @@ function buildContent(terms){
 }
 document.getElementById('sidebarContent').innerHTML=buildSidebar(TERMS_DATA);
 document.getElementById('termsContent').innerHTML=buildContent(TERMS_DATA);
+// スマホ検索との同期
+document.getElementById('mobileSearchInput').addEventListener('input',function(){
+  document.getElementById('searchInput').value=this.value;
+  document.getElementById('searchInput').dispatchEvent(new Event('input'));
+});
 document.getElementById('searchInput').addEventListener('input',function(){
   const q=this.value.toLowerCase().trim();
   const f=q?TERMS_DATA.filter(t=>t.word.toLowerCase().includes(q)||t.formal_name.toLowerCase().includes(q)||t.formal_name_ja.includes(q)||t.summary.includes(q)||t.aliases.some(a=>a.toLowerCase().includes(q))):TERMS_DATA;
@@ -168,24 +203,30 @@ document.getElementById('searchInput').addEventListener('input',function(){
   observeCards();
 });
 function copyCode(btn){const code=btn.closest('.term-code-block').querySelector('pre').textContent;navigator.clipboard.writeText(code).then(()=>{btn.textContent='コピー完了！';btn.classList.add('copied');setTimeout(()=>{btn.textContent='コピー';btn.classList.remove('copied');},1500);})}
-let obs=null;
-function observeCards(){
-  if(obs)obs.disconnect();
-  obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        document.querySelectorAll('.sidebar-item').forEach(el=>el.classList.remove('active'));
-        const a=document.querySelector(\`.sidebar-item[data-id="\${e.target.id}"]\`);
-        if(a){
-          a.classList.add('active');
-          const nav=document.querySelector('.sidebar-nav');
-          if(nav){const aTop=a.offsetTop;const nh=nav.clientHeight;if(aTop<nav.scrollTop||aTop>nav.scrollTop+nh-40){nav.scrollTo({top:aTop-nh/2,behavior:'smooth'});}}
-        }
-      }
-    });
-  },{rootMargin:'-56px 0px -65% 0px',threshold:0});
-  document.querySelectorAll('.term-card').forEach(el=>obs.observe(el));
+function setActive(id){
+  document.querySelectorAll('.sidebar-item').forEach(el=>{
+    el.classList.toggle('active',el.dataset.id===id);
+  });
+  const a=document.querySelector(\`.sidebar-item[data-id="\${id}"]\`);
+  if(a){
+    const nav=document.querySelector('.sidebar-nav');
+    if(nav){
+      const t=a.offsetTop,h=nav.clientHeight;
+      if(t<nav.scrollTop||t>nav.scrollTop+h-40)nav.scrollTo({top:t-h/2,behavior:'smooth'});
+    }
+  }
 }
+function updateActive(){
+  const cards=[...document.querySelectorAll('.term-card')];
+  if(!cards.length)return;
+  let best=cards[0].id;
+  for(const c of cards){
+    if(c.getBoundingClientRect().top<120)best=c.id;
+  }
+  setActive(best);
+}
+window.addEventListener('scroll',updateActive,{passive:true});
+function observeCards(){setTimeout(updateActive,50);}
 observeCards();
 if(location.hash){const id=location.hash.slice(1);setTimeout(()=>{const el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('highlighted');const a=document.querySelector(\`.sidebar-item[data-id="\${id}"]\`);if(a){document.querySelectorAll('.sidebar-item').forEach(x=>x.classList.remove('active'));a.classList.add('active');}}},300);}
 const btt=document.getElementById('backToTop');
