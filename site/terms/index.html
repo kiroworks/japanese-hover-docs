@@ -17,7 +17,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"用語一覧 — Japanese Hover Docs","description":"HTML・CSS・JavaScriptの用語一覧。初心者向け日本語解説。","url":"https://kiroworks.com/tools/japanese-hover-docs/terms/","isPartOf":{"@type":"WebSite","name":"Japanese Hover Docs","url":"https://kiroworks.com/tools/japanese-hover-docs/"}}
   </script>
-  <!-- 生成日時: 2026-04-05T03:55:14.520Z / 総用語数: 193件 -->
+  <!-- 生成日時: 2026-04-05T02:57:02.461Z / 総用語数: 193件 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -48,7 +48,8 @@
     .sidebar-item{display:block;padding:5px 12px 5px 28px;font-size:12px;color:var(--text-muted);text-decoration:none;transition:color .15s,background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'JetBrains Mono',monospace}
     .sidebar-item:hover{color:var(--text);background:var(--bg-2)}
     .sidebar-item.active{color:var(--accent);background:rgba(88,166,255,.08)}
-    .main{padding:40px 48px;max-width:860px;min-width:0;overflow-x:hidden}
+    .main{padding:40px 48px;max-width:860px;min-width:0;overflow-x:hidden;overflow-y:auto;height:calc(100vh - 56px);scrollbar-width:none}
+    .main::-webkit-scrollbar{display:none}
     .page-header{margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--border)}
     .page-title{font-size:26px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
     .page-desc{color:var(--text-muted);font-size:14px}
@@ -214,22 +215,60 @@ function setActive(id){
     }
   }
 }
+const mainEl=document.querySelector('.main');
+function getOffsetFromMain(el){
+  let top=0;
+  while(el&&el!==mainEl){top+=el.offsetTop;el=el.offsetParent;}
+  return top;
+}
+// クリックによるスクロール中はupdateActiveを止めるフラグ
+let scrollLockTimer=null;
+function lockScroll(){
+  if(scrollLockTimer)clearTimeout(scrollLockTimer);
+  scrollLockTimer=setTimeout(()=>{scrollLockTimer=null;},800);
+}
 function updateActive(){
+  if(scrollLockTimer)return; // クリック後のスクロール中は無視
   const cards=[...document.querySelectorAll('.term-card')];
   if(!cards.length)return;
+  const scrollTop=(mainEl?mainEl.scrollTop:window.scrollY);
+  const threshold=80;
   let best=cards[0].id;
   for(const c of cards){
-    if(c.getBoundingClientRect().top<120)best=c.id;
+    if(getOffsetFromMain(c)<=scrollTop+threshold)best=c.id;
+    else break;
   }
   setActive(best);
 }
+// サイドバーのリンククリック時: active を即セットしてスクロールロック
+document.addEventListener('click',function(e){
+  const item=e.target.closest('.sidebar-item');
+  if(!item)return;
+  e.preventDefault();
+  const id=item.dataset.id;
+  if(!id)return;
+  // 即座にアクティブを設定（scrollイベントに上書きさせない）
+  document.querySelectorAll('.sidebar-item').forEach(el=>el.classList.toggle('active',el.dataset.id===id));
+  lockScroll();
+  const target=document.getElementById(id);
+  if(target){
+    const top=getOffsetFromMain(target)-72;
+    if(mainEl){mainEl.scrollTo({top,behavior:'smooth'});}
+    else{window.scrollTo({top,behavior:'smooth'});}
+    history.pushState(null,'','#'+id);
+    document.querySelectorAll('.term-card').forEach(c=>c.classList.remove('highlighted'));
+    target.classList.add('highlighted');
+  }
+});
+if(mainEl){mainEl.addEventListener('scroll',updateActive,{passive:true});}
 window.addEventListener('scroll',updateActive,{passive:true});
 function observeCards(){setTimeout(updateActive,50);}
 observeCards();
-if(location.hash){const id=location.hash.slice(1);setTimeout(()=>{const el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('highlighted');const a=document.querySelector(`.sidebar-item[data-id="${id}"]`);if(a){document.querySelectorAll('.sidebar-item').forEach(x=>x.classList.remove('active'));a.classList.add('active');}}},300);}
+if(location.hash){const id=location.hash.slice(1);setTimeout(()=>{const el=document.getElementById(id);if(el){lockScroll();if(mainEl){mainEl.scrollTo({top:getOffsetFromMain(el)-72,behavior:'smooth'});}else{el.scrollIntoView({behavior:'smooth',block:'start'});}el.classList.add('highlighted');document.querySelectorAll('.sidebar-item').forEach(x=>x.classList.remove('active'));const a=document.querySelector(`.sidebar-item[data-id="${id}"]`);if(a)a.classList.add('active');}},300);}
 const btt=document.getElementById('backToTop');
+if(mainEl){mainEl.addEventListener('scroll',()=>btt.classList.toggle('visible',mainEl.scrollTop>400),{passive:true});}
 window.addEventListener('scroll',()=>btt.classList.toggle('visible',window.scrollY>400),{passive:true});
-btt.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+btt.addEventListener('click',e=>{e.preventDefault();if(mainEl){mainEl.scrollTo({top:0,behavior:'smooth'});}else{window.scrollTo({top:0,behavior:'smooth'});}});
 </script>
 </body>
 </html>
